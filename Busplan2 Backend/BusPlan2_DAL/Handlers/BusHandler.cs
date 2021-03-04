@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BusPlan2_Logic.Containers
+namespace BusPlan2_DAL.Handlers
 {
-    public class MaintenanceContainer
+    public class BusHandler
     {
         public void Create()
         {
@@ -12,6 +12,11 @@ namespace BusPlan2_Logic.Containers
         }
 
         public void Read()
+        {
+
+        }
+
+        public void Update()
         {
 
         }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BusPlan2_Logic.Enums;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,18 +7,13 @@ namespace BusPlan2_Logic.Models
 {
     public class Account
     {
-        public enum Teams
-        {
-
-        }
-
         private int AccountID;
         private int LoginCode;
         private string Password;
         private string Name;
-        private Teams Team;
+        private TeamsEnum Team;
 
-        public Account(int accountID, int loginCode, string password, string name, Teams team)
+        public Account(int accountID, int loginCode, string password, string name, TeamsEnum team)
         {
             AccountID = accountID;
             LoginCode = loginCode;

@@ -1,22 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using BusPlan2_Logic.Enums;
 
 namespace BusPlan2_Logic.Models
 {
     public class Cleaning
     {
-        public enum Statusses
-        {
-
-        }
-
         private int CleaningID;
         private int TimeCleaned;
         private int CleanedBy;
-        private Statusses Status;
+        private CleaningStatusEnum Status;
 
-        public Cleaning(int cleaningID, int timeCleaned, int cleanedBy, Statusses status)
+        public Cleaning(int cleaningID, int timeCleaned, int cleanedBy, CleaningStatusEnum status)
         {
             CleaningID = cleaningID;
             TimeCleaned = timeCleaned;
