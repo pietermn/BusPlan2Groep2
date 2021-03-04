@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\noahk\\Documents\\School\\Semester2 Proftaak\\Backend\\Busplan2 Backend\\Busplan2 Backend\\Busplan2 Backend.csproj",
+      "projectUniqueName": "C:\\Users\\noahk\\Documents\\School\\Semester2 Proftaak\\Busplan2 Backend\\Busplan2 Backend\\Busplan2 Backend.csproj",
       "projectName": "Busplan2 Backend",
-      "projectPath": "C:\\Users\\noahk\\Documents\\School\\Semester2 Proftaak\\Backend\\Busplan2 Backend\\Busplan2 Backend\\Busplan2 Backend.csproj",
+      "projectPath": "C:\\Users\\noahk\\Documents\\School\\Semester2 Proftaak\\Busplan2 Backend\\Busplan2 Backend\\Busplan2 Backend.csproj",
       "packagesPath": "C:\\Users\\noahk\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\noahk\\Documents\\School\\Semester2 Proftaak\\Backend\\Busplan2 Backend\\Busplan2 Backend\\obj\\",
+      "outputPath": "C:\\Users\\noahk\\Documents\\School\\Semester2 Proftaak\\Busplan2 Backend\\Busplan2 Backend\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
