@@ -1,11 +1,23 @@
-import './App.css';
+import React from "react";
+import AppWrapper from "./Layout/AppWrapper";
+import { Provider } from "react-redux";
+import Routes from "./routes";
+import { Switch } from "react-router-dom";
+import { ConnectedRouter } from "connected-react-router";
+import configureStore, { history } from "./redux/store";
 
-function App() {
+export const store = configureStore();
+
+export default function App() {
   return (
-    <div className="App">
-      <p>Busplan2</p>
-    </div>
+    <Provider store={store}>
+      <ConnectedRouter history={history}>
+        <AppWrapper>
+          <Switch>
+            <Routes />
+          </Switch>
+        </AppWrapper>
+      </ConnectedRouter>
+    </Provider>
   );
 }
-
-export default App;

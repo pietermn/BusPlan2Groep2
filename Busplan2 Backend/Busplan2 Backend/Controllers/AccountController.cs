@@ -1,8 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authentication;
 using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Http;
 using System.Threading.Tasks;
+using BusPlan2_Logic.Models;
+using Microsoft.VisualStudio.Services.DelegatedAuthorization;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Busplan2_Backend.Controllers
 {
@@ -10,10 +14,16 @@ namespace Busplan2_Backend.Controllers
     [Route("account")]
     public class AccountController : ControllerBase
     {
+        public class LoginModel
+        {
+            public int LoginCode { get; set; }
+            public string Password { get; set; }
+        }
+
         [Route("read"), HttpGet]
         public async Task<IActionResult> Read()
         {
-            return StatusCode(512); //Not implemented code
+            return StatusCode(203); //Not implemented code
         }
 
         [Route("create"), HttpPost]
@@ -35,9 +45,9 @@ namespace Busplan2_Backend.Controllers
         }
 
         [Route("login"), HttpPost]
-        public async Task<IActionResult> Login()
+        public async Task<IActionResult> Login([FromBody] LoginModel model)
         {
-            return StatusCode(512); //Not implemented code
+            return Ok("token"); //Not implemented code
         }
     }
 }

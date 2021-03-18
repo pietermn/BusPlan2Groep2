@@ -1,0 +1,120 @@
+@import "globalstyles";
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Thambi&display=swap');
+
+.special, .assortment, .questions {
+    position: relative;
+    display: flex;
+}
+
+.special {
+    height: 700px;
+    background-color: var(--specialColor);
+}
+
+.assortment {
+    height: 500px;
+    background-color: var(--firstColor);
+}
+
+.questions {
+    height: 500px;
+    background-color: var(--secondColor);
+}
+
+.downarrow-container {
+    width: 100%;
+    position: absolute;
+    bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#downarrow {
+    width: 40px;
+}
+
+.special .left-container, .special .right-container, .assortment .left-container, .assortment .right-container, .questions .left-container, .questions .right-container {
+    width: 50%;
+}
+
+/* Right special image styling */
+.special .right-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.special .right-container #peanutbutterdrawing {
+    height: 70%;
+}
+
+/* left special text styling */
+.special .left-container h1, .special .left-container p {
+    margin-left: 100px;
+    color: var(--firstColor);
+    font-family: 'Baloo Thambi';
+}
+
+.special .left-container h1 {
+    text-transform: uppercase;
+    max-width: 70%;
+    font-size: 72px;
+}
+
+.special .left-container p {
+    max-width: 30%;
+}
+
+/* Assortment text styling */
+.assortment .right-container {
+    padding-top: 75px;
+    padding-left: 10%;
+}
+
+.assortment .right-container h1, .assortment .right-container p {
+    font-family: 'Baloo Thambi';
+    max-width: 40%;
+}
+
+.assortment .right-container #description {
+    color: rgba(0, 0, 0, 0.75)
+}
+
+/* Assort image styling */
+
+.assortment .left-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.assortment .left-container img {
+    height: 70%;
+}
+
+/* Questions image styling */
+.questions .right-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.questions .right-container img {
+    height: 80%;
+    transform: rotate(5deg);
+}
+
+.questions .left-container {
+    padding-top: 75px;
+    padding-left: 350px;
+}
+
+.questions .left-container h1, .questions .left-container #description {
+    width: 50%;
+    font-family: 'Baloo Thambi';
+}
+
+.questions .left-container #description {
+    color:rgba(0, 0, 0, 0.75);
+}
