@@ -1,2 +1,2 @@
-docker run --rm -v $PWD/flyway:/flyway/sql flyway/flyway -url=jdbc:mysql://host.docker.internal:3306/busplanDB -user=user -password=root -locations=filesystem:/flyway/sql/migrations migrate
-docker run --rm -v $PWD/flyway:/flyway/sql flyway/flyway -url=jdbc:mysql://host.docker.internal:3306/busplanDB -user=user -password=root -locations=filesystem:/flyway/sql/testdata migrate
+docker run --rm -v $PWD/flyway:/flyway/sql flyway/flyway -url=jdbc:mysql://host.docker.internal:3307/busplanDB -user=user -password=root -locations=filesystem:/flyway/sql/migrations migrate
+docker run --rm -v $PWD/flyway:/flyway/sql flyway/flyway -url=jdbc:mysql://host.docker.internal:3307/busplanDB -user=user -password=root -locations=filesystem:/flyway/sql/testdata migrate
