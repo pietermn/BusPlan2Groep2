@@ -2,7 +2,7 @@ Om de database te starten met docker moet je de volgende stappen volgen.
 
 
 Windows:
-1. Start de docker conatiners door het start.bat bestand te runnen.
+1. Start de docker containers door het start.bat bestand te runnen.
 2. Wacht tot de containers volledig zijn opgestart. ( Dit kun je controleren door naar http://localhost:8080/ te gaan en in te loggen met Username: "user" en Password: "root")
 3. Vul de database door met je rechtermuisknop op insertdata.ps1 te klikken en dan op run with powershell te klikken.
 4. De database is nu klaar voor gebruik.
