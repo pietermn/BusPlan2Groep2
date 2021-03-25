@@ -38,3 +38,23 @@ C:\Users\noahk\Documents\School\Semester2 Proftaak\Busplan2 Backend\Busplan2 Bac
 C:\Users\noahk\Documents\School\Semester2 Proftaak\Busplan2 Backend\Busplan2 Backend\obj\Debug\netcoreapp3.1\Busplan2 Backend.dll
 C:\Users\noahk\Documents\School\Semester2 Proftaak\Busplan2 Backend\Busplan2 Backend\obj\Debug\netcoreapp3.1\Busplan2 Backend.pdb
 C:\Users\noahk\Documents\School\Semester2 Proftaak\Busplan2 Backend\Busplan2 Backend\obj\Debug\netcoreapp3.1\Busplan2 Backend.genruntimeconfig.cache
+C:\Users\gwigg\Source\Repos\pieter0k\BusPlan2Groep2\Busplan2 Backend\Busplan2 Backend\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\gwigg\Source\Repos\pieter0k\BusPlan2Groep2\Busplan2 Backend\Busplan2 Backend\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\gwigg\Source\Repos\pieter0k\BusPlan2Groep2\Busplan2 Backend\Busplan2 Backend\bin\Debug\netcoreapp3.1\Busplan2 Backend.exe
+C:\Users\gwigg\Source\Repos\pieter0k\BusPlan2Groep2\Busplan2 Backend\Busplan2 Backend\bin\Debug\netcoreapp3.1\Busplan2 Backend.deps.json
+C:\Users\gwigg\Source\Repos\pieter0k\BusPlan2Groep2\Busplan2 Backend\Busplan2 Backend\bin\Debug\netcoreapp3.1\Busplan2 Backend.runtimeconfig.json
+C:\Users\gwigg\Source\Repos\pieter0k\BusPlan2Groep2\Busplan2 Backend\Busplan2 Backend\bin\Debug\netcoreapp3.1\Busplan2 Backend.runtimeconfig.dev.json
+C:\Users\gwigg\Source\Repos\pieter0k\BusPlan2Groep2\Busplan2 Backend\Busplan2 Backend\bin\Debug\netcoreapp3.1\Busplan2 Backend.dll
+C:\Users\gwigg\Source\Repos\pieter0k\BusPlan2Groep2\Busplan2 Backend\Busplan2 Backend\bin\Debug\netcoreapp3.1\Busplan2 Backend.pdb
+C:\Users\gwigg\Source\Repos\pieter0k\BusPlan2Groep2\Busplan2 Backend\Busplan2 Backend\obj\Debug\netcoreapp3.1\Busplan2 Backend.csprojAssemblyReference.cache
+C:\Users\gwigg\Source\Repos\pieter0k\BusPlan2Groep2\Busplan2 Backend\Busplan2 Backend\obj\Debug\netcoreapp3.1\Busplan2 Backend.AssemblyInfoInputs.cache
+C:\Users\gwigg\Source\Repos\pieter0k\BusPlan2Groep2\Busplan2 Backend\Busplan2 Backend\obj\Debug\netcoreapp3.1\Busplan2 Backend.AssemblyInfo.cs
+C:\Users\gwigg\Source\Repos\pieter0k\BusPlan2Groep2\Busplan2 Backend\Busplan2 Backend\obj\Debug\netcoreapp3.1\Busplan2 Backend.csproj.CoreCompileInputs.cache
+C:\Users\gwigg\Source\Repos\pieter0k\BusPlan2Groep2\Busplan2 Backend\Busplan2 Backend\obj\Debug\netcoreapp3.1\Busplan2 Backend.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\gwigg\Source\Repos\pieter0k\BusPlan2Groep2\Busplan2 Backend\Busplan2 Backend\obj\Debug\netcoreapp3.1\staticwebassets\Busplan2 Backend.StaticWebAssets.Manifest.cache
+C:\Users\gwigg\Source\Repos\pieter0k\BusPlan2Groep2\Busplan2 Backend\Busplan2 Backend\obj\Debug\netcoreapp3.1\staticwebassets\Busplan2 Backend.StaticWebAssets.xml
+C:\Users\gwigg\Source\Repos\pieter0k\BusPlan2Groep2\Busplan2 Backend\Busplan2 Backend\obj\Debug\netcoreapp3.1\scopedcss\bundle\Busplan2 Backend.styles.css
+C:\Users\gwigg\Source\Repos\pieter0k\BusPlan2Groep2\Busplan2 Backend\Busplan2 Backend\obj\Debug\netcoreapp3.1\Busplan2 Backend.RazorTargetAssemblyInfo.cache
+C:\Users\gwigg\Source\Repos\pieter0k\BusPlan2Groep2\Busplan2 Backend\Busplan2 Backend\obj\Debug\netcoreapp3.1\Busplan2 Backend.dll
+C:\Users\gwigg\Source\Repos\pieter0k\BusPlan2Groep2\Busplan2 Backend\Busplan2 Backend\obj\Debug\netcoreapp3.1\Busplan2 Backend.pdb
+C:\Users\gwigg\Source\Repos\pieter0k\BusPlan2Groep2\Busplan2 Backend\Busplan2 Backend\obj\Debug\netcoreapp3.1\Busplan2 Backend.genruntimeconfig.cache
