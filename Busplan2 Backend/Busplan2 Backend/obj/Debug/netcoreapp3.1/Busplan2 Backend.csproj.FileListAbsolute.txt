@@ -97,3 +97,23 @@ C:/Users/noahk/Documents/School/Semester2 Proftaak/Busplan2 Backend/Busplan2 Bac
 /Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/obj/Debug/netcoreapp3.1/Busplan2 Backend.pdb
 /Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/obj/Debug/netcoreapp3.1/Busplan2 Backend.genruntimeconfig.cache
 >>>>>>> fe6e7b5d4135e603ace92c6a9975ac6988bd8ccc
+/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/bin/Debug/netcoreapp3.1/System.Net.Http.Formatting.dll
+/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.JsonWebTokens.dll
+/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Logging.dll
+/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Protocols.dll
+/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Tokens.dll
+/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/bin/Debug/netcoreapp3.1/Microsoft.TeamFoundation.Common.dll
+/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/bin/Debug/netcoreapp3.1/Microsoft.VisualStudio.Services.Common.dll
+/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/bin/Debug/netcoreapp3.1/Microsoft.VisualStudio.Services.WebApi.dll
+/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/bin/Debug/netcoreapp3.1/Newtonsoft.Json.dll
+/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/bin/Debug/netcoreapp3.1/Newtonsoft.Json.Bson.dll
+/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/bin/Debug/netcoreapp3.1/System.Data.SqlClient.dll
+/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/bin/Debug/netcoreapp3.1/System.IdentityModel.Tokens.Jwt.dll
+/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/bin/Debug/netcoreapp3.1/System.Xml.XPath.XmlDocument.dll
+/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/bin/Debug/netcoreapp3.1/runtimes/win-arm64/native/sni.dll
+/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/bin/Debug/netcoreapp3.1/runtimes/win-x64/native/sni.dll
+/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/bin/Debug/netcoreapp3.1/runtimes/win-x86/native/sni.dll
+/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/bin/Debug/netcoreapp3.1/runtimes/unix/lib/netstandard2.0/System.Data.SqlClient.dll
+/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/bin/Debug/netcoreapp3.1/runtimes/win/lib/netstandard2.0/System.Data.SqlClient.dll

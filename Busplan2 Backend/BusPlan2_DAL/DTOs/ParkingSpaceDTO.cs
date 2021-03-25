@@ -10,7 +10,7 @@ namespace BusPlan2_DAL.DTOs
         public int BusID { get; set; }
         public int Number { get; set; }
         public int Type { get; set; }
-        public int Occupied { get; set; }
+        public bool Occupied { get; set; }
 
 
         public ParkingSpaceDTO()
@@ -18,7 +18,7 @@ namespace BusPlan2_DAL.DTOs
 
         }
 
-        public ParkingSpaceDTO(int parkingSpaceID, int busID, int number, int type, int occupied)
+        public ParkingSpaceDTO(int parkingSpaceID, int busID, int number, int type, bool occupied)
         {
             ParkingSpaceID = parkingSpaceID;
             BusID = busID;

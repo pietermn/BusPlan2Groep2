@@ -116,7 +116,6 @@ namespace BusPlan2_DAL.Handlers
                     command.Parameters.AddWithValue("@batteryLevel", bus.BatteryLevel);
                     command.Parameters.AddWithValue("@status", bus.Status);
                     
-
                     connection.Open();
                     command.ExecuteNonQuery();
                     connection.Close();

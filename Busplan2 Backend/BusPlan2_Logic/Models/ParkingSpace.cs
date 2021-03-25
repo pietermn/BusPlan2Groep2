@@ -34,7 +34,7 @@ namespace BusPlan2_Logic.Models
 
         public bool Update(ParkingSpace parkingSpace)
         {
-            ParkingSpaceDTO parkingSpaceDTO = new ParkingSpaceDTO(parkingSpace.ParkingSpaceID, parkingSpace.BusID, parkingSpace.Number, parkingSpace.Type, parkingSpace.Occupied);
+            ParkingSpaceDTO parkingSpaceDTO = new ParkingSpaceDTO(parkingSpace.ParkingSpaceID, parkingSpace.BusID, parkingSpace.Number, (int)parkingSpace.Type, parkingSpace.Occupied);
             return handler.Update(parkingSpaceDTO);
         }
 

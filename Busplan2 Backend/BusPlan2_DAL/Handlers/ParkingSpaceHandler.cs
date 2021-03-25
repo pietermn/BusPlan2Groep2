@@ -28,12 +28,12 @@ namespace BusPlan2_DAL.Handlers
                 {
                     using var command = connection.CreateCommand();
 
-                    command.CommandText = "UPDATE ParkingSpace SET BusID = @BusID, Type = @Type, Occupied = @Occupied WHERE Number = @Number";
+                    command.CommandText = "UPDATE ParkingSpace SET BusID = @BusID, Type = @Type, Occupied = @Occupied, Number = @Number WHERE ParkingSpaceID = @ParkingSpaceID";
+                    command.Parameters.AddWithValue("@ParkingSpaceID", ParkingSpace.ParkingSpaceID);
                     command.Parameters.AddWithValue("@BusID", ParkingSpace.BusID);
                     command.Parameters.AddWithValue("@Type", ParkingSpace.Type);
                     command.Parameters.AddWithValue("@Occupied", ParkingSpace.Occupied);
                     command.Parameters.AddWithValue("@Number", ParkingSpace.Number);
-
 
                     connection.Open();
                     command.ExecuteNonQuery();
