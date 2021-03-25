@@ -2,27 +2,40 @@
 using System.Collections.Generic;
 using System.Text;
 using BusPlan2_Logic.Enums;
+using BusPlan2_DAL.DTOs;
+using BusPlan2_DAL.Handlers;
 
 namespace BusPlan2_Logic.Models
 {
     public class ParkingSpace
     {
-        private int ParkingSpaceID;
-        private int Number;
-        private ParkingTypeEnum Type;
-        private bool Occupied;
+        public int ParkingSpaceID { get; set; }
+        public int BusID { get; set; }
+        public int Number { get; set; }
+        public ParkingTypeEnum Type { get; set; }
+        public bool Occupied { get; set; }
 
-        public ParkingSpace(int parkingSpaceID, int number, ParkingTypeEnum type, bool occupied)
+        private readonly ParkingSpaceHandler handler = new ParkingSpaceHandler();
+
+
+        public ParkingSpace()
+        {
+
+        }
+
+        public ParkingSpace(int parkingSpaceID, int busID, int number, ParkingTypeEnum type, bool occupied)
         {
             ParkingSpaceID = parkingSpaceID;
+            BusID = busID;
             Number = number;
             Type = type;
             Occupied = occupied;
         }
 
-        public void Update()
+        public bool Update(ParkingSpace parkingSpace)
         {
-
+            ParkingSpaceDTO parkingSpaceDTO = new ParkingSpaceDTO(parkingSpace.ParkingSpaceID, parkingSpace.BusID, parkingSpace.Number, parkingSpace.Type, parkingSpace.Occupied);
+            return handler.Update(parkingSpaceDTO);
         }
 
     }

@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Http;
 using System.Threading.Tasks;
+using BusPlan2_Logic.Models;
+using BusPlan2_Logic.Containers;
 
 namespace Busplan2_Backend.Controllers
 {
@@ -10,28 +12,31 @@ namespace Busplan2_Backend.Controllers
     [Route("parkingplace")]
     public class ParkingPlaceController : ControllerBase
     {
+        private readonly ParkingSpace parkingspaceModel = new ParkingSpace();
+        private readonly ParkingSpaceContainer parkingspaceContainer = new ParkingSpaceContainer();
+
         [Route("read"), HttpGet]
-        public async Task<IActionResult> Read()
+        public IActionResult Read()
         {
             return StatusCode(512); //Not implemented code
         }
 
         [Route("create"), HttpPost]
-        public async Task<IActionResult> Create()
+        public IActionResult Create()
         {
             return StatusCode(512); //Not implemented code
         }
 
         [Route("delete"), HttpPost]
-        public async Task<IActionResult> Delete()
+        public IActionResult Delete()
         {
             return StatusCode(512); //Not implemented code
         }
 
         [Route("update"), HttpPost]
-        public async Task<IActionResult> Update()
+        public IActionResult Update(ParkingSpace parkingSpace)
         {
-            return StatusCode(512); //Not implemented code
+            return Ok(parkingspaceModel.Update(parkingSpace)); //Not implemented code
         }
     }
 }

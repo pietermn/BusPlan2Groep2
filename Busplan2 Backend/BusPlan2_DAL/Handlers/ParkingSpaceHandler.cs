@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Data;
+using MySql.Data;
+using BusPlan2_DAL.DTOs;
 using System.Collections.Generic;
-using System.Text;
+using MySql.Data.MySqlClient;
 
 namespace BusPlan2_DAL.Handlers
 {
@@ -16,10 +19,32 @@ namespace BusPlan2_DAL.Handlers
 
         }
 
-        public void Update()
-        {
 
+        public bool Update(ParkingSpaceDTO ParkingSpace)
+        {
+            using var connection = Connection.GetConnection();
+            {
+                try
+                {
+                    using var command = connection.CreateCommand();
+
+                    command.CommandText = "UPDATE ParkingSpace SET BusID = @BusID, Type = @Type, Occupied = @Occupied WHERE Number = @Number";
+                    command.Parameters.AddWithValue("@BusID", ParkingSpace.BusID);
+                    command.Parameters.AddWithValue("@Type", ParkingSpace.Type);
+                    command.Parameters.AddWithValue("@Occupied", ParkingSpace.Occupied);
+                    command.Parameters.AddWithValue("@Number", ParkingSpace.Number);
+
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                    connection.Close();
+
+                    return true;
+                }
+                catch { connection.Close(); return false; }
+            }
         }
+
 
         public void Delete()
         {
