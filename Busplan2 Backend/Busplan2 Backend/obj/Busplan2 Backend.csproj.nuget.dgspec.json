@@ -26,13 +26,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-<<<<<<< HEAD
-              "C:\\Users\\noahk\\Documents\\School\\Semester2 Proftaak\\Busplan2 Backend\\BusPlan2_Logic\\BusPlan2_Logic.csproj": {
-                "projectPath": "C:\\Users\\noahk\\Documents\\School\\Semester2 Proftaak\\Busplan2 Backend\\BusPlan2_Logic\\BusPlan2_Logic.csproj"
-=======
               "/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/BusPlan2_Logic/BusPlan2_Logic.csproj": {
                 "projectPath": "/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/BusPlan2_Logic/BusPlan2_Logic.csproj"
->>>>>>> fe6e7b5d4135e603ace92c6a9975ac6988bd8ccc
               }
             }
           }
@@ -185,68 +180,6 @@
             }
           },
           "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.201/RuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "C:\\Users\\noahk\\Documents\\School\\Semester2 Proftaak\\Busplan2 Backend\\BusPlan2_Logic\\BusPlan2_Logic.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\noahk\\Documents\\School\\Semester2 Proftaak\\Busplan2 Backend\\BusPlan2_Logic\\BusPlan2_Logic.csproj",
-        "projectName": "BusPlan2_Logic",
-        "projectPath": "C:\\Users\\noahk\\Documents\\School\\Semester2 Proftaak\\Busplan2 Backend\\BusPlan2_Logic\\BusPlan2_Logic.csproj",
-        "packagesPath": "C:\\Users\\noahk\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\noahk\\Documents\\School\\Semester2 Proftaak\\Busplan2 Backend\\BusPlan2_Logic\\obj\\",
-        "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
-        "configFilePaths": [
-          "C:\\Users\\noahk\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "netstandard2.0"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.emzi0767.com/api/v3/index.json": {},
-          "https://www.myget.org/F/discord-net/api/v3/index.json": {}
-        },
-        "frameworks": {
-          "netstandard2.0": {
-            "targetAlias": "netstandard2.0",
-            "projectReferences": {}
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "netstandard2.0": {
-          "targetAlias": "netstandard2.0",
-          "dependencies": {
-            "NETStandard.Library": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[2.0.3, )",
-              "autoReferenced": true
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

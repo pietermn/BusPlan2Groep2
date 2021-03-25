@@ -566,3 +566,14 @@ __pycache__/
 # tools/
 
 # End of https://www.toptal.com/developers/gitignore/api/aspnetcore
+Busplan2 Backend/Busplan2 Backend/obj/Busplan2 Backend.csproj.nuget.dgspec.json
+.DS_Store
+Busplan2 Backend/Busplan2 Backend/obj/Busplan2 Backend.csproj.nuget.dgspec.json
+Busplan2 Backend/Busplan2 Backend/obj/Debug/netcoreapp3.1/Busplan2 Backend.assets.cache
+Busplan2 Backend/Busplan2 Backend/obj/Debug/netcoreapp3.1/Busplan2 Backend.csprojAssemblyReference.cache
+database/.DS_Store
+database/.DS_Store
+Busplan2 Backend/Busplan2 Backend/obj/project.nuget.cache
+Busplan2 Backend/Busplan2 Backend/obj/project.assets.json
+Busplan2 Backend/Busplan2 Backend/obj/Debug/netcoreapp3.1/Busplan2 Backend.csprojAssemblyReference.cache
+Busplan2 Backend/Busplan2 Backend/obj/Debug/netcoreapp3.1/Busplan2 Backend.assets.cache
