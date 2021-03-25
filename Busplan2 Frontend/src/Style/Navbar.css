@@ -1,0 +1,52 @@
+@import "globalstyles";
+
+.full-navbar {
+    width: 100%;
+    height: 5%;
+}
+
+.navbar {
+    width: 100%;
+    height: 100%;
+    background-color: #242582;
+    display: flex;
+}
+
+.navbar ul {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+}
+
+.navbar li {
+    margin-left: 15px;
+    margin-right: 15px;
+    list-style-type: none;
+    font-size: 16px;
+    font-family: var(--fontstyle);
+    padding-bottom: 5px;
+    padding-top: 5px;
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.navbar #navbar-item {
+    color: white;
+}
+
+.navbar li:hover {
+    cursor: pointer;
+}
+
+.navbar #li_account {
+    margin-left: auto;
+}
+
+.navbar #li_logotext {
+    font-weight: var(--fontweight900);
+    font-size: 28px;
+    color: white;
+}

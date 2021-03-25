@@ -1,0 +1,126 @@
+.sidebar-container {
+    position: fixed;
+    width: 15%;
+    height: 100%;
+    background-color: rgba(184, 179, 182, 0.8);
+}
+
+.bus-container {
+    width: 100%;
+}
+
+.sidebar-container .bus-item {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid black;
+    align-items: center;
+    padding: 3% 0;
+}
+
+.bus-item p, .bus-item h1 {
+    font-family: var(--fontstyle);
+}
+
+.bus-item #statusIcon {
+    margin-left: auto;
+    margin-right: 20%;
+    font-size: 30px;
+}
+
+.bus-item h1 {
+    font-size: 24px;
+    margin: 0;
+    margin-left: 3%;
+}
+
+.bus-item #dotsIcon {
+    margin-right: 3%;
+    font-size: 20px;
+}
+
+.bus-item #dotsIcon:hover {
+    cursor: pointer;
+}
+
+.bus-item .greenBackground {
+    color: green;
+}
+
+.bus-item .yellowBackground {
+    color: yellow;
+}
+
+.bus-item .redBackground {
+    color: red;
+}
+
+.bus-item .blackBackground {
+    color: black;
+}
+
+.bus-container .bus-extended {
+    height: 20%;
+    background-color: rgba(212, 211, 212, 0.8);
+}
+
+.bus-extended #text-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 5%;
+}
+
+/* Pop up*/
+.popup-container {
+    border-radius: 15px;
+    background-color: #C4C4C4;
+    height: 40%;
+    width: 25%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.popup-container span {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 4%;
+}
+
+.popup-container span p {
+    margin: 0;
+}
+
+.popup-container #title-text {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.popup-container #delete-icon {
+    margin-left: auto;
+    margin-right: 2%;
+    margin-top: 2%;
+    color: red;
+}
+
+.popup-container span input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid black;
+    text-align: center;
+}
+
+.popup-container span input:focus {
+    outline: none
+}
+
+.popup-container select {
+    background: transparent;
+    border: none;
+    font-size: 16px;
+    margin-top: 1%;
+    text-align: center;
+}
+

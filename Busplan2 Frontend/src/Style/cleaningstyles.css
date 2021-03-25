@@ -1,0 +1,5 @@
+.cleaning_full_page {
+    height: 90vh;
+    position: relative;
+    display: flex;
+}

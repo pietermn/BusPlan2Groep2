@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\noahk\Documents\School\Semester2 Proftaak\Backend\Busplan2 Backend\Busplan2 Backend\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\noahk\Documents\School\Semester2 Proftaak\Backend\Busplan2 Backend\Busplan2 Backend\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\noahk\Documents\School\Semester2 Proftaak\Backend\Busplan2 Backend\Busplan2 Backend\bin\Debug\netcoreapp3.1\Busplan2 Backend.exe
@@ -38,3 +39,101 @@ C:\Users\noahk\Documents\School\Semester2 Proftaak\Busplan2 Backend\Busplan2 Bac
 C:\Users\noahk\Documents\School\Semester2 Proftaak\Busplan2 Backend\Busplan2 Backend\obj\Debug\netcoreapp3.1\Busplan2 Backend.dll
 C:\Users\noahk\Documents\School\Semester2 Proftaak\Busplan2 Backend\Busplan2 Backend\obj\Debug\netcoreapp3.1\Busplan2 Backend.pdb
 C:\Users\noahk\Documents\School\Semester2 Proftaak\Busplan2 Backend\Busplan2 Backend\obj\Debug\netcoreapp3.1\Busplan2 Backend.genruntimeconfig.cache
+C:\Users\noahk\Documents\School\Semester2 Proftaak\Busplan2 Backend\Busplan2 Backend\bin\Debug\netcoreapp3.1\BusPlan2_Logic.dll
+C:\Users\noahk\Documents\School\Semester2 Proftaak\Busplan2 Backend\Busplan2 Backend\bin\Debug\netcoreapp3.1\BusPlan2_Logic.pdb
+C:\Users\noahk\Documents\School\Semester2 Proftaak\Busplan2 Backend\Busplan2 Backend\obj\Debug\netcoreapp3.1\Busplan2 Backend.csproj.CopyComplete
+C:\Users\noahk\Documents\School\Semester2 Proftaak\Busplan2 Backend\Busplan2 Backend\bin\Debug\netcoreapp3.1\System.Net.Http.Formatting.dll
+C:\Users\noahk\Documents\School\Semester2 Proftaak\Busplan2 Backend\Busplan2 Backend\bin\Debug\netcoreapp3.1\Microsoft.TeamFoundation.Common.dll
+C:\Users\noahk\Documents\School\Semester2 Proftaak\Busplan2 Backend\Busplan2 Backend\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Services.Common.dll
+C:\Users\noahk\Documents\School\Semester2 Proftaak\Busplan2 Backend\Busplan2 Backend\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Services.WebApi.dll
+C:\Users\noahk\Documents\School\Semester2 Proftaak\Busplan2 Backend\Busplan2 Backend\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\noahk\Documents\School\Semester2 Proftaak\Busplan2 Backend\Busplan2 Backend\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+C:\Users\noahk\Documents\School\Semester2 Proftaak\Busplan2 Backend\Busplan2 Backend\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+C:\Users\noahk\Documents\School\Semester2 Proftaak\Busplan2 Backend\Busplan2 Backend\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+C:\Users\noahk\Documents\School\Semester2 Proftaak\Busplan2 Backend\Busplan2 Backend\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+C:\Users\noahk\Documents\School\Semester2 Proftaak\Busplan2 Backend\Busplan2 Backend\bin\Debug\netcoreapp3.1\System.Xml.XPath.XmlDocument.dll
+C:\Users\noahk\Documents\School\Semester2 Proftaak\Busplan2 Backend\Busplan2 Backend\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\Users\noahk\Documents\School\Semester2 Proftaak\Busplan2 Backend\Busplan2 Backend\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\Users\noahk\Documents\School\Semester2 Proftaak\Busplan2 Backend\Busplan2 Backend\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\Users\noahk\Documents\School\Semester2 Proftaak\Busplan2 Backend\Busplan2 Backend\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netstandard2.0\System.Data.SqlClient.dll
+C:\Users\noahk\Documents\School\Semester2 Proftaak\Busplan2 Backend\Busplan2 Backend\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Data.SqlClient.dll
+C:\Users\noahk\Documents\School\Semester2 Proftaak\Busplan2 Backend\Busplan2 Backend\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+=======
+C:/Users/noahk/Documents/School/Semester2 Proftaak/Backend/Busplan2 Backend/Busplan2 Backend/bin/Debug/netcoreapp3.1/appsettings.Development.json
+C:/Users/noahk/Documents/School/Semester2 Proftaak/Backend/Busplan2 Backend/Busplan2 Backend/bin/Debug/netcoreapp3.1/appsettings.json
+C:/Users/noahk/Documents/School/Semester2 Proftaak/Backend/Busplan2 Backend/Busplan2 Backend/bin/Debug/netcoreapp3.1/Busplan2 Backend.exe
+C:/Users/noahk/Documents/School/Semester2 Proftaak/Backend/Busplan2 Backend/Busplan2 Backend/bin/Debug/netcoreapp3.1/Busplan2 Backend.deps.json
+C:/Users/noahk/Documents/School/Semester2 Proftaak/Backend/Busplan2 Backend/Busplan2 Backend/bin/Debug/netcoreapp3.1/Busplan2 Backend.runtimeconfig.json
+C:/Users/noahk/Documents/School/Semester2 Proftaak/Backend/Busplan2 Backend/Busplan2 Backend/bin/Debug/netcoreapp3.1/Busplan2 Backend.runtimeconfig.dev.json
+C:/Users/noahk/Documents/School/Semester2 Proftaak/Backend/Busplan2 Backend/Busplan2 Backend/bin/Debug/netcoreapp3.1/Busplan2 Backend.dll
+C:/Users/noahk/Documents/School/Semester2 Proftaak/Backend/Busplan2 Backend/Busplan2 Backend/bin/Debug/netcoreapp3.1/Busplan2 Backend.pdb
+C:/Users/noahk/Documents/School/Semester2 Proftaak/Backend/Busplan2 Backend/Busplan2 Backend/obj/Debug/netcoreapp3.1/Busplan2 Backend.csprojAssemblyReference.cache
+C:/Users/noahk/Documents/School/Semester2 Proftaak/Backend/Busplan2 Backend/Busplan2 Backend/obj/Debug/netcoreapp3.1/Busplan2 Backend.AssemblyInfoInputs.cache
+C:/Users/noahk/Documents/School/Semester2 Proftaak/Backend/Busplan2 Backend/Busplan2 Backend/obj/Debug/netcoreapp3.1/Busplan2 Backend.AssemblyInfo.cs
+C:/Users/noahk/Documents/School/Semester2 Proftaak/Backend/Busplan2 Backend/Busplan2 Backend/obj/Debug/netcoreapp3.1/Busplan2 Backend.csproj.CoreCompileInputs.cache
+C:/Users/noahk/Documents/School/Semester2 Proftaak/Backend/Busplan2 Backend/Busplan2 Backend/obj/Debug/netcoreapp3.1/Busplan2 Backend.MvcApplicationPartsAssemblyInfo.cache
+C:/Users/noahk/Documents/School/Semester2 Proftaak/Backend/Busplan2 Backend/Busplan2 Backend/obj/Debug/netcoreapp3.1/staticwebassets/Busplan2 Backend.StaticWebAssets.Manifest.cache
+C:/Users/noahk/Documents/School/Semester2 Proftaak/Backend/Busplan2 Backend/Busplan2 Backend/obj/Debug/netcoreapp3.1/staticwebassets/Busplan2 Backend.StaticWebAssets.xml
+C:/Users/noahk/Documents/School/Semester2 Proftaak/Backend/Busplan2 Backend/Busplan2 Backend/obj/Debug/netcoreapp3.1/scopedcss/bundle/Busplan2 Backend.styles.css
+C:/Users/noahk/Documents/School/Semester2 Proftaak/Backend/Busplan2 Backend/Busplan2 Backend/obj/Debug/netcoreapp3.1/Busplan2 Backend.RazorTargetAssemblyInfo.cache
+C:/Users/noahk/Documents/School/Semester2 Proftaak/Backend/Busplan2 Backend/Busplan2 Backend/obj/Debug/netcoreapp3.1/Busplan2 Backend.dll
+C:/Users/noahk/Documents/School/Semester2 Proftaak/Backend/Busplan2 Backend/Busplan2 Backend/obj/Debug/netcoreapp3.1/Busplan2 Backend.pdb
+C:/Users/noahk/Documents/School/Semester2 Proftaak/Backend/Busplan2 Backend/Busplan2 Backend/obj/Debug/netcoreapp3.1/Busplan2 Backend.genruntimeconfig.cache
+C:/Users/noahk/Documents/School/Semester2 Proftaak/Busplan2 Backend/Busplan2 Backend/bin/Debug/netcoreapp3.1/appsettings.Development.json
+C:/Users/noahk/Documents/School/Semester2 Proftaak/Busplan2 Backend/Busplan2 Backend/bin/Debug/netcoreapp3.1/appsettings.json
+C:/Users/noahk/Documents/School/Semester2 Proftaak/Busplan2 Backend/Busplan2 Backend/bin/Debug/netcoreapp3.1/Busplan2 Backend.exe
+C:/Users/noahk/Documents/School/Semester2 Proftaak/Busplan2 Backend/Busplan2 Backend/bin/Debug/netcoreapp3.1/Busplan2 Backend.deps.json
+C:/Users/noahk/Documents/School/Semester2 Proftaak/Busplan2 Backend/Busplan2 Backend/bin/Debug/netcoreapp3.1/Busplan2 Backend.runtimeconfig.json
+C:/Users/noahk/Documents/School/Semester2 Proftaak/Busplan2 Backend/Busplan2 Backend/bin/Debug/netcoreapp3.1/Busplan2 Backend.runtimeconfig.dev.json
+C:/Users/noahk/Documents/School/Semester2 Proftaak/Busplan2 Backend/Busplan2 Backend/bin/Debug/netcoreapp3.1/Busplan2 Backend.dll
+C:/Users/noahk/Documents/School/Semester2 Proftaak/Busplan2 Backend/Busplan2 Backend/bin/Debug/netcoreapp3.1/Busplan2 Backend.pdb
+C:/Users/noahk/Documents/School/Semester2 Proftaak/Busplan2 Backend/Busplan2 Backend/obj/Debug/netcoreapp3.1/Busplan2 Backend.csprojAssemblyReference.cache
+C:/Users/noahk/Documents/School/Semester2 Proftaak/Busplan2 Backend/Busplan2 Backend/obj/Debug/netcoreapp3.1/Busplan2 Backend.AssemblyInfoInputs.cache
+C:/Users/noahk/Documents/School/Semester2 Proftaak/Busplan2 Backend/Busplan2 Backend/obj/Debug/netcoreapp3.1/Busplan2 Backend.AssemblyInfo.cs
+C:/Users/noahk/Documents/School/Semester2 Proftaak/Busplan2 Backend/Busplan2 Backend/obj/Debug/netcoreapp3.1/Busplan2 Backend.csproj.CoreCompileInputs.cache
+C:/Users/noahk/Documents/School/Semester2 Proftaak/Busplan2 Backend/Busplan2 Backend/obj/Debug/netcoreapp3.1/Busplan2 Backend.MvcApplicationPartsAssemblyInfo.cache
+C:/Users/noahk/Documents/School/Semester2 Proftaak/Busplan2 Backend/Busplan2 Backend/obj/Debug/netcoreapp3.1/staticwebassets/Busplan2 Backend.StaticWebAssets.Manifest.cache
+C:/Users/noahk/Documents/School/Semester2 Proftaak/Busplan2 Backend/Busplan2 Backend/obj/Debug/netcoreapp3.1/staticwebassets/Busplan2 Backend.StaticWebAssets.xml
+C:/Users/noahk/Documents/School/Semester2 Proftaak/Busplan2 Backend/Busplan2 Backend/obj/Debug/netcoreapp3.1/scopedcss/bundle/Busplan2 Backend.styles.css
+C:/Users/noahk/Documents/School/Semester2 Proftaak/Busplan2 Backend/Busplan2 Backend/obj/Debug/netcoreapp3.1/Busplan2 Backend.RazorTargetAssemblyInfo.cache
+C:/Users/noahk/Documents/School/Semester2 Proftaak/Busplan2 Backend/Busplan2 Backend/obj/Debug/netcoreapp3.1/Busplan2 Backend.dll
+C:/Users/noahk/Documents/School/Semester2 Proftaak/Busplan2 Backend/Busplan2 Backend/obj/Debug/netcoreapp3.1/Busplan2 Backend.pdb
+C:/Users/noahk/Documents/School/Semester2 Proftaak/Busplan2 Backend/Busplan2 Backend/obj/Debug/netcoreapp3.1/Busplan2 Backend.genruntimeconfig.cache
+/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/bin/Debug/netcoreapp3.1/appsettings.Development.json
+/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/bin/Debug/netcoreapp3.1/appsettings.json
+/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/bin/Debug/netcoreapp3.1/Busplan2 Backend.deps.json
+/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/bin/Debug/netcoreapp3.1/Busplan2 Backend.runtimeconfig.json
+/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/bin/Debug/netcoreapp3.1/Busplan2 Backend.runtimeconfig.dev.json
+/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/bin/Debug/netcoreapp3.1/Busplan2 Backend.dll
+/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/bin/Debug/netcoreapp3.1/Busplan2 Backend.pdb
+/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/bin/Debug/netcoreapp3.1/BouncyCastle.Crypto.dll
+/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/bin/Debug/netcoreapp3.1/Google.Protobuf.dll
+/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/bin/Debug/netcoreapp3.1/K4os.Compression.LZ4.dll
+/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/bin/Debug/netcoreapp3.1/K4os.Compression.LZ4.Streams.dll
+/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/bin/Debug/netcoreapp3.1/K4os.Hash.xxHash.dll
+/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/bin/Debug/netcoreapp3.1/MySql.Data.dll
+/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/bin/Debug/netcoreapp3.1/Ubiety.Dns.Core.dll
+/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/bin/Debug/netcoreapp3.1/Zstandard.Net.dll
+/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/bin/Debug/netcoreapp3.1/Renci.SshNet.dll
+/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/bin/Debug/netcoreapp3.1/SshNet.Security.Cryptography.dll
+/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/bin/Debug/netcoreapp3.1/System.Configuration.ConfigurationManager.dll
+/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/bin/Debug/netcoreapp3.1/System.Security.Cryptography.ProtectedData.dll
+/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/bin/Debug/netcoreapp3.1/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
+/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/bin/Debug/netcoreapp3.1/BusPlan2_DAL.dll
+/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/bin/Debug/netcoreapp3.1/BusPlan2_Logic.dll
+/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/bin/Debug/netcoreapp3.1/BusPlan2_Logic.pdb
+/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/bin/Debug/netcoreapp3.1/BusPlan2_DAL.pdb
+/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/obj/Debug/netcoreapp3.1/Busplan2 Backend.csprojAssemblyReference.cache
+/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/obj/Debug/netcoreapp3.1/Busplan2 Backend.AssemblyInfoInputs.cache
+/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/obj/Debug/netcoreapp3.1/Busplan2 Backend.AssemblyInfo.cs
+/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/obj/Debug/netcoreapp3.1/Busplan2 Backend.csproj.CoreCompileInputs.cache
+/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/obj/Debug/netcoreapp3.1/Busplan2 Backend.MvcApplicationPartsAssemblyInfo.cache
+/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/obj/Debug/netcoreapp3.1/staticwebassets/Busplan2 Backend.StaticWebAssets.Manifest.cache
+/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/obj/Debug/netcoreapp3.1/staticwebassets/Busplan2 Backend.StaticWebAssets.xml
+/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/obj/Debug/netcoreapp3.1/scopedcss/bundle/Busplan2 Backend.styles.css
+/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/obj/Debug/netcoreapp3.1/Busplan2 Backend.RazorTargetAssemblyInfo.cache
+/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/obj/Debug/netcoreapp3.1/Busplan2 Backend.csproj.CopyComplete
+/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/obj/Debug/netcoreapp3.1/Busplan2 Backend.dll
+/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/obj/Debug/netcoreapp3.1/Busplan2 Backend.pdb
+/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/obj/Debug/netcoreapp3.1/Busplan2 Backend.genruntimeconfig.cache
+>>>>>>> fe6e7b5d4135e603ace92c6a9975ac6988bd8ccc

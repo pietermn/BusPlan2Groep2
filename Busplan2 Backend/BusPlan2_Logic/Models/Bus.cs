@@ -2,31 +2,41 @@
 using System.Collections.Generic;
 using System.Text;
 using BusPlan2_Logic.Enums;
+using BusPlan2_DAL.DTOs;
+using BusPlan2_DAL.Handlers;
 
 namespace BusPlan2_Logic.Models
 {
     public class Bus
     {
-        private int BusID;
-        private DateTime PeriodicCleaing;
-        private DateTime PeriodicMaintenance;
-        private int BusNumber;
-        private int BatteryLevel;
-        private CleaningStatusEnum Status;
+        public int BusID { get; set; }
+        public DateTime PeriodicCleaning { get; set; }
+        public DateTime PeriodicMaintenance { get; set; }
+        public int BusNumber { get; set; }
+        public int BatteryLevel { get; set; }
+        public CleaningStatusEnum Status { get; set; }
+
+        private readonly BusHandler busHandler = new BusHandler();
+
+        public Bus()
+        {
+
+        }
 
         public Bus(int busID, DateTime periodicCleaning, DateTime periodicMaintenance, int busNumber, int batteryLevel, CleaningStatusEnum status)
         {
             BusID = busID;
-            PeriodicCleaing = periodicCleaning;
+            PeriodicCleaning = periodicCleaning;
             PeriodicMaintenance = periodicMaintenance;
             BusNumber = busNumber;
             BatteryLevel = batteryLevel;
             Status = status;
         }
 
-        public void Update()
+        public bool Update(Bus bus)
         {
-
+            BusDTO busDTO = new BusDTO(bus.BusID, bus.PeriodicCleaning, bus.PeriodicMaintenance, bus.BusNumber, bus.BatteryLevel, (int) bus.Status);
+            return busHandler.Update(busDTO);
         }
     }
 }
