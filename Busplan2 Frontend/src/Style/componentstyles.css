@@ -105,3 +105,22 @@
     color: red;
 }
 
+.popup-container span input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid black;
+    text-align: center;
+}
+
+.popup-container span input:focus {
+    outline: none
+}
+
+.popup-container select {
+    background: transparent;
+    border: none;
+    font-size: 16px;
+    margin-top: 1%;
+    text-align: center;
+}
+

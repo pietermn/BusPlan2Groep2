@@ -7,8 +7,6 @@ import '../../Style/cleaningstyles.css'
 const Cleaning = () => {
     const {state} = useContext(BusContext);
 
-    console.log(state);
-
     return (
         <div className="cleaning_full_page">
             <BusSideBar />

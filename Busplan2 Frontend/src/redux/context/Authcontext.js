@@ -14,10 +14,6 @@ const authReducer = (state, action) => {
         name: action.payload.name,
         accountID: action.payload.accountID,
       };
-    case "add_error":
-      return { ...state, errorMessage: action.payload };
-    case "clear_error":
-      return { ...state, errorMessage: "" };
     default:
       return state;
   }
