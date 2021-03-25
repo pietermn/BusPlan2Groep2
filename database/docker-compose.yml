@@ -1,9 +1,18 @@
-version: '3.3'
+version: '3.4'
  
 services:
+  flyway:
+      image: flyway/flyway
+      container_name: busFlyway
+      command: -url=jdbc:mysql://host.docker.internal:3307/busplanDB -user=user -password=root -connectRetries=60 migrate
+      volumes:
+        - .:/flyway/sql/migrations
+      depends_on:
+        - db
+
   db:
     image: mysql:latest
-    container_name: db
+    container_name: busDB
     command: --default-authentication-plugin=mysql_native_password
     environment:
       MYSQL_USER: 'user'
@@ -15,7 +24,7 @@ services:
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
-    container_name: phpmyadmindb
+    container_name: busPhpmyadmindb
     links:
       - db
     environment:
