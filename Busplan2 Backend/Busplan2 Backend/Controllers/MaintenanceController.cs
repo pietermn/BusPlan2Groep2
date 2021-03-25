@@ -11,25 +11,25 @@ namespace Busplan2_Backend.Controllers
     public class MaintenanceController : ControllerBase
     {
         [Route("read"), HttpGet]
-        public async Task<IActionResult> Read()
+        public IActionResult Read()
         {
             return StatusCode(512); //Not implemented code
         }
 
         [Route("create"), HttpPost]
-        public async Task<IActionResult> Create()
+        public IActionResult Create()
         {
             return StatusCode(512); //Not implemented code
         }
 
         [Route("delete"), HttpPost]
-        public async Task<IActionResult> Delete()
+        public IActionResult Delete()
         {
             return StatusCode(512); //Not implemented code
         }
 
         [Route("update"), HttpPost]
-        public async Task<IActionResult> Update()
+        public IActionResult Update()
         {
             return StatusCode(512); //Not implemented code
         }

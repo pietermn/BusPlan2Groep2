@@ -8,8 +8,8 @@ namespace BusPlan2_DAL.DTOs
     {
         public int AccountID { get; set; }
         public int LoginCode { get; set; }
-        public string Password { get; set; }
         public string Name { get; set; }
+        public string Password { get; set; }
         public int Team { get; set; }
 
 
@@ -18,9 +18,21 @@ namespace BusPlan2_DAL.DTOs
 
         }
 
-        public AccountDTO(int AccountID, int LoginnCode, string Password, string Name, int Team)
+        public AccountDTO(int accountID, int loginCode, string name, int team)
         {
+            AccountID = accountID;
+            LoginCode = loginCode;
+            Name = name;
+            Team = team;
+        }
 
+        public AccountDTO(int accountID, int loginCode, string name, string password, int team)
+        {
+            AccountID = accountID;
+            LoginCode = loginCode;
+            Name = name;
+            Password = password;
+            Team = team;
         }
     }
 }

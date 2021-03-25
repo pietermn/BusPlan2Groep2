@@ -13,25 +13,142 @@ namespace BusPlan2_DAL.Handlers
 {
     public class AccountHandler
     {
-        public void Create()
-        {
 
+
+        public bool Create(AccountDTO accountDTO)
+        {
+            using var connection = Connection.GetConnection();
+            {
+                if (!IsLoginCodeunique(accountDTO.LoginCode)) { return false; }
+                try
+                {
+                    using var command = connection.CreateCommand();
+
+                    command.CommandText = "INSERT INTO Account(LoginCode, Password, Name, Team) VALUES(@loginCode, @password, @name, @team);";
+                    command.Parameters.AddWithValue("@loginCode", accountDTO.LoginCode);
+                    command.Parameters.AddWithValue("@password", accountDTO.Password);
+                    command.Parameters.AddWithValue("@name", accountDTO.Name);
+                    command.Parameters.AddWithValue("@team", accountDTO.Team);
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                    return true;
+                }
+                catch { connection.Close(); return false; }
+            }
         }
 
-        public void Read()
-        {
 
+        public AccountDTO Read(int accountID)
+        {
+            AccountDTO Account = new AccountDTO();
+            using var connection = Connection.GetConnection();
+            {
+                using var command = connection.CreateCommand();
+
+                command.CommandText = "SELECT AccountID, LoginCode, Name, Team FROM Account WHERE  AccountID = @accountID";
+                command.Parameters.AddWithValue("@accountID", accountID);
+
+                connection.Open();
+
+                using (MySqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Account = new AccountDTO(
+                            reader.GetInt32("AccountID"),
+                            reader.GetInt32("LoginCode"),
+                            reader.GetString("Name"),
+                            reader.GetInt32("Team")
+                            );
+                    }
+                }
+
+                connection.Close();
+                return Account;
+            }
         }
 
-        public void Update()
-        {
 
+        public List<AccountDTO> ReadAll()
+        {
+            List<AccountDTO> AccountList = new List<AccountDTO>();
+
+            using var connection = Connection.GetConnection();
+            {
+                using var command = connection.CreateCommand();
+
+                command.CommandText = "SELECT AccountID, LoginCode, Name, Team FROM Account";
+
+                connection.Open();
+
+                using (MySqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        AccountList.Add(new AccountDTO(
+                            reader.GetInt32("AccountID"),
+                            reader.GetInt32("LoginCode"),
+                            reader.GetString("Name"),
+                            reader.GetInt32("Team")
+                            ));
+                    }
+                }
+
+                connection.Close();
+                return AccountList;
+            }
         }
 
-        public void Delete()
-        {
 
+        public bool Update(AccountDTO accountDTO)
+        {
+            using var connection = Connection.GetConnection();
+            {
+                try
+                {
+                    using var command = connection.CreateCommand();
+
+                    command.CommandText = "UPDATE Account Set LoginCode = @loginCode, Password = @password, Name = @name, Team = @team WHERE AccountID = @accountID;";
+                    command.Parameters.AddWithValue("@accountID", accountDTO.AccountID);
+                    command.Parameters.AddWithValue("@loginCode", accountDTO.LoginCode);
+                    command.Parameters.AddWithValue("@name", accountDTO.Name);
+                    command.Parameters.AddWithValue("@password", accountDTO.Password);
+                    command.Parameters.AddWithValue("@team", accountDTO.Team);
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                    connection.Close();
+
+                    return true;
+                }
+                catch { connection.Close(); return false; }
+            }
         }
+
+
+        public bool Delete(int accountID)
+        {
+            using var connection = Connection.GetConnection();
+            {
+                try
+                {
+                    using var command = connection.CreateCommand();
+
+                    command.CommandText = "DELETE FROM Account WHERE AccountID = @accountID;";
+                    command.Parameters.AddWithValue("@accountID", accountID);
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                    connection.Close();
+
+                    return true;
+                }
+                catch { connection.Close(); return false; }
+            }
+        }
+
 
         public string Login(int loginCode, string password)
         {
@@ -84,5 +201,25 @@ namespace BusPlan2_DAL.Handlers
             // Return the found account in the form of a jwt token
             return token;
         }
+
+
+        private bool IsLoginCodeunique(int loginCode)
+        {
+            using var connection = Connection.GetConnection();
+            {
+                using var command = connection.CreateCommand();
+
+                command.CommandText = "SELECT LoginCode FROM Account WHERE LoginCode=@loginCode";
+                command.Parameters.AddWithValue("@loginCode", loginCode);
+
+                connection.Open();
+
+                var reader = command.ExecuteReader();
+                if (reader.HasRows) { return false; }
+                return true;
+            }
+        }
+
+
     }
 }

@@ -17,20 +17,20 @@ namespace Busplan2_Backend.Controllers
         private readonly BusContainer busContainer = new BusContainer();
 
         [Route("read"), HttpGet]
-        public async Task<IActionResult> Read(int busID)
+        public IActionResult Read(int busID)
         {
 
             return Ok(busContainer.Read(busID)); //Not implemented code
         }
 
         [Route("readall"), HttpGet]
-        public async Task<IActionResult> ReadAll()
+        public IActionResult ReadAll()
         {
             return Ok(busContainer.ReadAll()); //Not implemented code
         }
 
         [Route("create"), HttpPost]
-        public async Task<IActionResult> Create(Bus bus)
+        public IActionResult Create(Bus bus)
         {
             if (busContainer.Create(bus))
             {
@@ -44,7 +44,7 @@ namespace Busplan2_Backend.Controllers
         }
 
         [Route("delete"), HttpPost]
-        public async Task<IActionResult> Delete(int busID)
+        public IActionResult Delete(int busID)
         {
             if (busContainer.Delete(busID))
             {
@@ -58,7 +58,7 @@ namespace Busplan2_Backend.Controllers
         }
 
         [Route("update"), HttpPost]
-        public async Task<IActionResult> Update(Bus bus)
+        public IActionResult Update(Bus bus)
         {
             if (busModel.Update(bus))
             {

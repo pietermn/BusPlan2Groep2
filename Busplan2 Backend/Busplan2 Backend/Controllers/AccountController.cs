@@ -12,40 +12,93 @@ namespace Busplan2_Backend.Controllers
     [Route("account")]
     public class AccountController : ControllerBase
     {
-        private readonly Account account = new Account();
+        private readonly Account Account = new Account();
         private readonly AccountContainer accountContainer = new AccountContainer();
 
         [Route("read"), HttpGet]
-        public async Task<IActionResult> Read()
+        public IActionResult Read(Account account)
         {
-            return StatusCode(512); //Not implemented code
+            Account newAccount = accountContainer.Read(account.AccountID);
+            if (account != null)
+            {
+                return Ok(newAccount);
+            }
+            else
+            {
+                //Error in code
+                return StatusCode(501);
+            }
+        }
+
+        [Route("readall"), HttpGet]
+        public IActionResult ReadAll()
+        {
+            List<Account> accountList = accountContainer.ReadAll();
+            if (accountList != null)
+            {
+                return Ok(accountList);
+            }
+            else
+            {
+                //Error in code
+                return StatusCode(501);
+            }
         }
 
         [Route("create"), HttpPost]
-        public async Task<IActionResult> Create()
+        public IActionResult Create(Account account)
         {
-            return StatusCode(512); //Not implemented code
+            if (accountContainer.Create(account))
+            {
+                return Ok();
+            }
+            else
+            {
+                //Error in code
+                return StatusCode(501);
+            }
         }
 
         [Route("delete"), HttpPost]
-        public async Task<IActionResult> Delete()
+        public IActionResult Delete(Account account)
         {
-            return StatusCode(512); //Not implemented code
+            if (accountContainer.Delete(account.AccountID))
+            {
+                return Ok();
+            }
+            else
+            {
+                //Error in code
+                return StatusCode(501);
+            }
         }
 
         [Route("update"), HttpPost]
-        public async Task<IActionResult> Update()
+        public IActionResult Update(Account account)
         {
-            return StatusCode(512); //Not implemented code
+            if (Account.Update(account))
+            {
+                return Ok();
+            }
+            else
+            {
+                //Error in code
+                return StatusCode(501);
+            }
         }
 
         [Route("login"), HttpPost]
-        public async Task<IActionResult> Login(Account account)
+        public IActionResult Login(Account account)
         {
-            int loginCode = account.LoginCode;
-            string password = account.Password;
-
-            return Ok(accountContainer.Login(loginCode, password)); //Not implemented code
+            string token = accountContainer.Login(account.LoginCode, account.Password);
+            if (token != null)
+            {
+                return Ok(token);
+            }
+            else
+            {
+                return StatusCode(501);
+            }
         }
     }
 }
