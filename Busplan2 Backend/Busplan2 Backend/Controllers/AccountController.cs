@@ -39,13 +39,13 @@ namespace Busplan2_Backend.Controllers
             return StatusCode(512); //Not implemented code
         }
 
-        [Route("login"), HttpPost]
-        public async Task<IActionResult> Login(Account account)
-        {
-            int loginCode = account.LoginCode;
-            string password = account.Password;
+        //[Route("login"), HttpPost]
+        //public async Task<IActionResult> Login(Account account)
+        //{
+        //    int loginCode = account.LoginCode;
+        //    string password = account.Password;
 
-            return Ok(accountContainer.Login(loginCode, password)); //Not implemented code
-        }
+        //    return Ok(accountContainer.Login(loginCode, password)); //Not implemented code
+        //}
     }
 }
