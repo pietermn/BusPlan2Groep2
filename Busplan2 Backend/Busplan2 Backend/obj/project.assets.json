@@ -6359,40 +6359,32 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\noahk\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "/Users/pieter/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\noahk\\Documents\\School\\Semester2 Proftaak\\Busplan2 Backend\\Busplan2 Backend\\Busplan2 Backend.csproj",
+      "projectUniqueName": "/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/Busplan2 Backend.csproj",
       "projectName": "Busplan2 Backend",
-      "projectPath": "C:\\Users\\noahk\\Documents\\School\\Semester2 Proftaak\\Busplan2 Backend\\Busplan2 Backend\\Busplan2 Backend.csproj",
-      "packagesPath": "C:\\Users\\noahk\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\noahk\\Documents\\School\\Semester2 Proftaak\\Busplan2 Backend\\Busplan2 Backend\\obj\\",
+      "projectPath": "/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/Busplan2 Backend.csproj",
+      "packagesPath": "/Users/pieter/.nuget/packages/",
+      "outputPath": "/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/obj/",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\noahk\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/pieter/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {},
-        "https://nuget.emzi0767.com/api/v3/index.json": {},
-        "https://www.myget.org/F/discord-net/api/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\noahk\\Documents\\School\\Semester2 Proftaak\\Busplan2 Backend\\BusPlan2_Logic\\BusPlan2_Logic.csproj": {
-              "projectPath": "C:\\Users\\noahk\\Documents\\School\\Semester2 Proftaak\\Busplan2 Backend\\BusPlan2_Logic\\BusPlan2_Logic.csproj"
+            "/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/BusPlan2_Logic/BusPlan2_Logic.csproj": {
+              "projectPath": "/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/BusPlan2_Logic/BusPlan2_Logic.csproj"
             }
           }
         }
@@ -6434,7 +6426,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.201/RuntimeIdentifierGraph.json"
       }
     }
   }
