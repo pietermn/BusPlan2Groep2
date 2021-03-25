@@ -25,7 +25,11 @@
         "frameworks": {
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
-            "projectReferences": {}
+            "projectReferences": {
+              "/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/BusPlan2_Logic/BusPlan2_Logic.csproj": {
+                "projectPath": "/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/BusPlan2_Logic/BusPlan2_Logic.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -51,6 +55,120 @@
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
             },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.201/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/BusPlan2_DAL/BusPlan2_DAL.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/BusPlan2_DAL/BusPlan2_DAL.csproj",
+        "projectName": "BusPlan2_DAL",
+        "projectPath": "/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/BusPlan2_DAL/BusPlan2_DAL.csproj",
+        "packagesPath": "/Users/pieter/.nuget/packages/",
+        "outputPath": "/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/BusPlan2_DAL/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/pieter/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[8.0.23, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.201/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/BusPlan2_Logic/BusPlan2_Logic.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/BusPlan2_Logic/BusPlan2_Logic.csproj",
+        "projectName": "BusPlan2_Logic",
+        "projectPath": "/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/BusPlan2_Logic/BusPlan2_Logic.csproj",
+        "packagesPath": "/Users/pieter/.nuget/packages/",
+        "outputPath": "/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/BusPlan2_Logic/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/pieter/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/BusPlan2_DAL/BusPlan2_DAL.csproj": {
+                "projectPath": "/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/BusPlan2_DAL/BusPlan2_DAL.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

@@ -1,8 +1,29 @@
 {
   "version": 2,
-  "dgSpecHash": "2cf1QFidA2dUlogog+LiAaJ+YUQptE/89r2ws2Dp7TvPJ7+slJ0xvxJPSwE+e8pe3bW72ncL23QYXQicvSHm5w==",
+  "dgSpecHash": "bm/WM0+A33l/+l3Lbwmd+PFhIq5HHJmMgR77qmAwpXpzvxuWL2FHC5a6o1t3+Llhak+O0i2gEfJWZlQ5qT5EqQ==",
   "success": true,
   "projectFilePath": "/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/Busplan2 Backend.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/pieter/.nuget/packages/bouncycastle.netcore/1.8.5/bouncycastle.netcore.1.8.5.nupkg.sha512",
+    "/Users/pieter/.nuget/packages/google.protobuf/3.11.4/google.protobuf.3.11.4.nupkg.sha512",
+    "/Users/pieter/.nuget/packages/k4os.compression.lz4/1.1.11/k4os.compression.lz4.1.1.11.nupkg.sha512",
+    "/Users/pieter/.nuget/packages/k4os.compression.lz4.streams/1.1.11/k4os.compression.lz4.streams.1.1.11.nupkg.sha512",
+    "/Users/pieter/.nuget/packages/k4os.hash.xxhash/1.0.6/k4os.hash.xxhash.1.0.6.nupkg.sha512",
+    "/Users/pieter/.nuget/packages/microsoft.netcore.platforms/3.1.0/microsoft.netcore.platforms.3.1.0.nupkg.sha512",
+    "/Users/pieter/.nuget/packages/microsoft.win32.systemevents/4.7.0/microsoft.win32.systemevents.4.7.0.nupkg.sha512",
+    "/Users/pieter/.nuget/packages/mysql.data/8.0.23/mysql.data.8.0.23.nupkg.sha512",
+    "/Users/pieter/.nuget/packages/ssh.net/2020.0.0-beta1/ssh.net.2020.0.0-beta1.nupkg.sha512",
+    "/Users/pieter/.nuget/packages/sshnet.security.cryptography/1.3.0/sshnet.security.cryptography.1.3.0.nupkg.sha512",
+    "/Users/pieter/.nuget/packages/system.buffers/4.5.1/system.buffers.4.5.1.nupkg.sha512",
+    "/Users/pieter/.nuget/packages/system.configuration.configurationmanager/4.4.1/system.configuration.configurationmanager.4.4.1.nupkg.sha512",
+    "/Users/pieter/.nuget/packages/system.drawing.common/4.7.0/system.drawing.common.4.7.0.nupkg.sha512",
+    "/Users/pieter/.nuget/packages/system.memory/4.5.3/system.memory.4.5.3.nupkg.sha512",
+    "/Users/pieter/.nuget/packages/system.security.accesscontrol/4.7.0/system.security.accesscontrol.4.7.0.nupkg.sha512",
+    "/Users/pieter/.nuget/packages/system.security.cryptography.protecteddata/4.4.0/system.security.cryptography.protecteddata.4.4.0.nupkg.sha512",
+    "/Users/pieter/.nuget/packages/system.security.permissions/4.7.0/system.security.permissions.4.7.0.nupkg.sha512",
+    "/Users/pieter/.nuget/packages/system.security.principal.windows/4.7.0/system.security.principal.windows.4.7.0.nupkg.sha512",
+    "/Users/pieter/.nuget/packages/system.text.encoding.codepages/4.4.0/system.text.encoding.codepages.4.4.0.nupkg.sha512",
+    "/Users/pieter/.nuget/packages/system.windows.extensions/4.7.0/system.windows.extensions.4.7.0.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -6,4 +6,9 @@
   </PropertyGroup>
 
 
+  <ItemGroup>
+    <ProjectReference Include="..\BusPlan2_Logic\BusPlan2_Logic.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
+  </ItemGroup>
 </Project>
