@@ -5899,32 +5899,40 @@
     ]
   },
   "packageFolders": {
-    "/Users/pieter/.nuget/packages/": {}
+    "C:\\Users\\noahk\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/Busplan2 Backend.csproj",
+      "projectUniqueName": "C:\\Users\\noahk\\Documents\\School\\Semester2 Proftaak\\Busplan2 Backend\\Busplan2 Backend\\Busplan2 Backend.csproj",
       "projectName": "Busplan2 Backend",
-      "projectPath": "/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/Busplan2 Backend.csproj",
-      "packagesPath": "/Users/pieter/.nuget/packages/",
-      "outputPath": "/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/obj/",
+      "projectPath": "C:\\Users\\noahk\\Documents\\School\\Semester2 Proftaak\\Busplan2 Backend\\Busplan2 Backend\\Busplan2 Backend.csproj",
+      "packagesPath": "C:\\Users\\noahk\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\noahk\\Documents\\School\\Semester2 Proftaak\\Busplan2 Backend\\Busplan2 Backend\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "/Users/pieter/.config/NuGet/NuGet.Config"
+        "C:\\Users\\noahk\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
       ],
       "sources": {
-        "https://api.nuget.org/v3/index.json": {}
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {},
+        "https://nuget.emzi0767.com/api/v3/index.json": {},
+        "https://www.myget.org/F/discord-net/api/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/BusPlan2_Logic/BusPlan2_Logic.csproj": {
-              "projectPath": "/Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/BusPlan2_Logic/BusPlan2_Logic.csproj"
+            "C:\\Users\\noahk\\Documents\\School\\Semester2 Proftaak\\Busplan2 Backend\\BusPlan2_Logic\\BusPlan2_Logic.csproj": {
+              "projectPath": "C:\\Users\\noahk\\Documents\\School\\Semester2 Proftaak\\Busplan2 Backend\\BusPlan2_Logic\\BusPlan2_Logic.csproj"
             }
           }
         }
@@ -5962,16 +5970,8 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.201/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file /Users/pieter/Documents/Proftaak/Semester 2.9/Busplan2 Backend/Busplan2 Backend/obj/project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }
