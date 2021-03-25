@@ -1,0 +1,66 @@
+.sidebar-container {
+    width: 15%;
+    height: 100%;
+    background-color: rgba(184, 179, 182, 0.8);
+}
+
+.bus-container {
+    width: 100%;
+}
+
+.sidebar-container .bus-item {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid black;
+    align-items: center;
+    padding: 3% 0;
+}
+
+.bus-item p, .bus-item h1 {
+    font-family: var(--fontstyle);
+}
+
+.bus-item #statusIcon {
+    margin-left: auto;
+    margin-right: 20%;
+    font-size: 30px;
+}
+
+.bus-item h1 {
+    font-size: 24px;
+    margin: 0;
+    margin-left: 3%;
+}
+
+.bus-item #dotsIcon {
+    margin-right: 3%;
+    font-size: 20px;
+}
+
+.bus-item .greenBackground {
+    color: green;
+}
+
+.bus-item .yellowBackground {
+    color: yellow;
+}
+
+.bus-item .redBackground {
+    color: red;
+}
+
+.bus-item .blackBackground {
+    color: black;
+}
+
+.bus-container .bus-extended {
+    height: 20%;
+    background-color: rgba(212, 211, 212, 0.8);
+}
+
+.bus-extended #text-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 5%;
+}
