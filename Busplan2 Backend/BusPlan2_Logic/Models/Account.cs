@@ -7,13 +7,12 @@ namespace BusPlan2_Logic.Models
 {
     public class Account
     {
-        public int AccountID { get; private set; }
-        public int LoginCode { get; private set; }
-        public string Password { get; private set; }
-        public string Name { get; private set; }
-        public TeamsEnum Team { get; private set; }
+        public int AccountID { get; set; }
+        public int LoginCode { get; set; }
+        public string Password { get; set; }
+        public string Name { get; set; }
+        public TeamsEnum Team { get; set; }
 
-        public Account() { }
 
         public Account(int accountID, int loginCode, string password, string name, TeamsEnum team)
         {
@@ -22,6 +21,19 @@ namespace BusPlan2_Logic.Models
             Password = password;
             Name = name;
             Team = team;
+        }
+
+        public Account(int accountID, int loginCode, string name, TeamsEnum team)
+        {
+            AccountID = accountID;
+            LoginCode = loginCode;
+            Name = name;
+            Team = team;
+        }
+
+        public Account()
+        {
+
         }
 
         public void Update()
