@@ -1,4 +1,5 @@
 .sidebar-container {
+    position: fixed;
     width: 15%;
     height: 100%;
     background-color: rgba(184, 179, 182, 0.8);
@@ -37,6 +38,10 @@
     font-size: 20px;
 }
 
+.bus-item #dotsIcon:hover {
+    cursor: pointer;
+}
+
 .bus-item .greenBackground {
     color: green;
 }
@@ -64,3 +69,39 @@
     justify-content: space-between;
     margin: 0 5%;
 }
+
+/* Pop up*/
+.popup-container {
+    border-radius: 15px;
+    background-color: #C4C4C4;
+    height: 40%;
+    width: 25%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.popup-container span {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 4%;
+}
+
+.popup-container span p {
+    margin: 0;
+}
+
+.popup-container #title-text {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.popup-container #delete-icon {
+    margin-left: auto;
+    margin-right: 2%;
+    margin-top: 2%;
+    color: red;
+}
+

@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { GoPrimitiveDot } from "react-icons/go";
+import {Context as BusContext} from '../redux/context/BusContext';
 import "../Style/componentstyles.css";
 
 const BusSideBar = ({ Bus }) => {
@@ -8,6 +9,7 @@ const BusSideBar = ({ Bus }) => {
     {
       number: 14,
       status: 1,
+      date: '3-25-2021',
       extendedInfo: {
         cleanedby: "Noah",
         parkingplace: 12,
@@ -17,6 +19,7 @@ const BusSideBar = ({ Bus }) => {
     {
       number: 11,
       status: 3,
+      date: '3-25-2021',
       extendedInfo: {
         cleanedby: "Noah",
         parkingplace: 15,
@@ -26,6 +29,7 @@ const BusSideBar = ({ Bus }) => {
     {
       number: 19,
       status: 2,
+      date: '3-25-2021',
       extendedInfo: {
         cleanedby: "Noah",
         parkingplace: 15,
@@ -33,6 +37,8 @@ const BusSideBar = ({ Bus }) => {
       },
     },
   ];
+
+  const {GetPopup} = useContext(BusContext);
 
   const BusItem = ({ bus }) => {
     const [openExtended, setOpenExtended] = useState(false);
@@ -45,38 +51,41 @@ const BusSideBar = ({ Bus }) => {
       else return "blackBackground";
     };
 
+    const BusExtendedItem = () => {
+      return (
+        <div className="bus-extended">
+          <span id="text-container">
+            <p>Schoongemaakt</p>
+            <p>{bus.extendedInfo.cleanedby}</p>
+          </span>
+          <span id="text-container">
+            <p>Parkeerplaats</p>
+            <p>{bus.extendedInfo.parkingplace}</p>
+          </span>
+          <span id="text-container">
+            <p>Type schoonmaak</p>
+            <p>{bus.extendedInfo.kindOfCleaning}</p>
+          </span>
+        </div>
+      );
+    };
+
     return (
       <div className="bus-container">
-        <div className="bus-item" onClick={() => setOpenExtended(!openExtended)}>
+        <div
+          className="bus-item"
+          onClick={() => setOpenExtended(!openExtended)}
+        >
           <h1>Bus {bus.number}</h1>
           <GoPrimitiveDot
             id="statusIcon"
             className={colorFunction(bus.status)}
           />
-          <BsThreeDotsVertical id="dotsIcon" />
+          <BsThreeDotsVertical id="dotsIcon" onClick={() => GetPopup(bus)}/>
         </div>
-        {openExtended && (
-          <div className="bus-extended">
-            <span id="text-container">
-                <p>Schoongemaakt</p>
-                <p>{bus.extendedInfo.cleanedby}</p>
-            </span>
-            <span id="text-container">
-                <p>Parkeerplaats</p>
-                <p>{bus.extendedInfo.parkingplace}</p>
-            </span>
-            <span id="text-container">
-                <p>Type schoonmaak</p>
-                <p>{bus.extendedInfo.kindOfCleaning}</p>
-            </span>
-          </div>
-        )}
+        {openExtended && <BusExtendedItem />}
       </div>
     );
-  };
-
-  const BusExtendedItem = () => {
-    return <div className="BusExtendedItem"></div>;
   };
 
   return (
