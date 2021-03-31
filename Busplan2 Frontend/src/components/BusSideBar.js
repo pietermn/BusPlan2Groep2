@@ -4,17 +4,7 @@ import { GoPrimitiveDot } from "react-icons/go";
 import {Context as BusContext} from '../redux/context/BusContext';
 import "../Style/componentstyles.css";
 
-const BusSideBar = ({ Bus }) => {
-  const Busses = [
-    {
-      busID: 1,
-      busNumber: 14,
-      busStatus: 1,
-      periodicCleaning: '3-25-2021',
-      batteryLevel: 85,
-    }
-  ];
-
+const BusSideBar = ({ Busses }) => {
   const {GetPopup} = useContext(BusContext);
 
   const BusItem = ({ bus }) => {
@@ -67,7 +57,7 @@ const BusSideBar = ({ Bus }) => {
 
   return (
     <div className="sidebar-container">
-      {Busses.map((value, index) => {
+      {Busses && Busses.map((value, index) => {
         return <BusItem bus={value} key={index} />;
       })}
     </div>
