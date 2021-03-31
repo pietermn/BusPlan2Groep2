@@ -75,7 +75,7 @@ namespace BusPlan2_DAL.Handlers
             {
                 using var command = connection.CreateCommand();
 
-                command.CommandText = "SELECT Bus.BusID, Bus.PeriodicCleaning, Bus.PeriodicMaintenance, Bus.BusNumber, Bus.BatteryLevel, Bus.Status, ParkingSpace.Number FROM Bus INNER JOIN ParkingSpace ON Bus.BusNumber = ParkingSpace.BusID;";
+                command.CommandText = "SELECT Bus.BusID, Bus.PeriodicCleaning, Bus.PeriodicMaintenance, Bus.BusNumber, Bus.BatteryLevel, Bus.Status, ParkingSpace.Number FROM Bus INNER JOIN ParkingSpace ON Bus.BusID = ParkingSpace.BusID;";
 
                 connection.Open();
 
