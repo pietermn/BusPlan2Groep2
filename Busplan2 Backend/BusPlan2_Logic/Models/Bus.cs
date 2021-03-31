@@ -14,7 +14,7 @@ namespace BusPlan2_Logic.Models
         public DateTime PeriodicMaintenance { get; set; }
         public int BusNumber { get; set; }
         public int BatteryLevel { get; set; }
-        public CleaningStatusEnum Status { get; set; }
+        public BusStatusEnum Status { get; set; }
         public int ParkingSpace { get; set; }
 
         private readonly BusHandler busHandler = new BusHandler();
@@ -24,7 +24,7 @@ namespace BusPlan2_Logic.Models
 
         }
 
-        public Bus(int busID, DateTime periodicCleaning, DateTime periodicMaintenance, int busNumber, int batteryLevel, CleaningStatusEnum status)
+        public Bus(int busID, DateTime periodicCleaning, DateTime periodicMaintenance, int busNumber, int batteryLevel, BusStatusEnum status)
         {
             BusID = busID;
             PeriodicCleaning = periodicCleaning;
@@ -34,7 +34,7 @@ namespace BusPlan2_Logic.Models
             Status = status;
         }
 
-        public Bus(int busID, DateTime periodicCleaning, DateTime periodicMaintenance, int busNumber, int batteryLevel, CleaningStatusEnum status, int parkingSpace)
+        public Bus(int busID, DateTime periodicCleaning, DateTime periodicMaintenance, int busNumber, int batteryLevel, BusStatusEnum status, int parkingSpace)
         {
             BusID = busID;
             PeriodicCleaning = periodicCleaning;
