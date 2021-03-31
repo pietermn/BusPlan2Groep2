@@ -10,6 +10,7 @@ namespace BusPlan2_DAL.DTOs
         public int BusNumber { get; set; }
         public int BatteryLevel { get; set; }
         public int Status { get; set; }
+        public int ParkingSpace { get; set; }
 
 
         public BusDTO()
@@ -25,6 +26,17 @@ namespace BusPlan2_DAL.DTOs
             BusNumber = busNumber;
             BatteryLevel = batteryLevel;
             Status = status;
+        }
+
+        public BusDTO(int busID, DateTime periodicCleaning, DateTime periodicMaintenance, int busNumber, int batteryLevel, int status, int parkingSpace)
+        {
+            BusID = busID;
+            PeriodicCleaning = periodicCleaning;
+            PeriodicMaintenance = periodicMaintenance;
+            BusNumber = busNumber;
+            BatteryLevel = batteryLevel;
+            Status = status;
+            ParkingSpace = parkingSpace;
         }
     }
 }

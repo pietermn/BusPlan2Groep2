@@ -32,7 +32,7 @@ namespace BusPlan2_Logic.Containers
             List<Bus> buses = new List<Bus>();
             foreach (BusDTO busDTO in busesDTO)
             {
-                buses.Add(new Bus(busDTO.BusID, busDTO.PeriodicCleaning, busDTO.PeriodicMaintenance, busDTO.BusNumber, busDTO.BatteryLevel, (CleaningStatusEnum)busDTO.Status));
+                buses.Add(new Bus(busDTO.BusID, busDTO.PeriodicCleaning, busDTO.PeriodicMaintenance, busDTO.BusNumber, busDTO.BatteryLevel, (CleaningStatusEnum)busDTO.Status, busDTO.ParkingSpace));
             }
             return buses;
         }

@@ -15,6 +15,7 @@ namespace BusPlan2_Logic.Models
         public int BusNumber { get; set; }
         public int BatteryLevel { get; set; }
         public CleaningStatusEnum Status { get; set; }
+        public int ParkingSpace { get; set; }
 
         private readonly BusHandler busHandler = new BusHandler();
 
@@ -31,6 +32,17 @@ namespace BusPlan2_Logic.Models
             BusNumber = busNumber;
             BatteryLevel = batteryLevel;
             Status = status;
+        }
+
+        public Bus(int busID, DateTime periodicCleaning, DateTime periodicMaintenance, int busNumber, int batteryLevel, CleaningStatusEnum status, int parkingSpace)
+        {
+            BusID = busID;
+            PeriodicCleaning = periodicCleaning;
+            PeriodicMaintenance = periodicMaintenance;
+            BusNumber = busNumber;
+            BatteryLevel = batteryLevel;
+            Status = status;
+            ParkingSpace = parkingSpace;
         }
 
         public bool Update(Bus bus)
