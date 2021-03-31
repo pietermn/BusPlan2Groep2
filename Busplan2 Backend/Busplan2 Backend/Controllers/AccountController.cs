@@ -100,5 +100,6 @@ namespace Busplan2_Backend.Controllers
                 return StatusCode(501);
             }
         }
+
     }
 }

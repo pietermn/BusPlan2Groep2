@@ -66,7 +66,7 @@ namespace BusPlan2_DAL.Handlers
             }
         }
 
-        public bool UpdateCleaning(int busID, int type,string description, DateTime timeDone, int team)
+        public bool UpdateAdHoc(int busID, int type,string description, DateTime timeDone, int team)
         {
             using var connection = Connection.GetConnection();
             {
@@ -87,7 +87,7 @@ namespace BusPlan2_DAL.Handlers
             }
         }
 
-        public bool DeleteCleaning(int adhocID)
+        public bool DeleteAdHoc(int adhocID)
         {
             using var connection = Connection.GetConnection();
             {
