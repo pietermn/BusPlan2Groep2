@@ -12,8 +12,8 @@ const Popup = ({ bus }) => {
       <ImCross id="delete-icon" onClick={() => DeletePopup()} />
       <h1>Bus {bus.number}</h1>
       <span id="doneby">
-        <p id="title-text">Schoongemaakt door</p>
-        <p id="info-text">{bus.extendedInfo.cleanedby}</p>
+        <p id="title-text">Batterij niveau</p>
+        <p id="info-text">{bus.batteryLevel}</p>
       </span>
       <span id="status">
         <p id="title-text">Status:</p>
@@ -25,7 +25,7 @@ const Popup = ({ bus }) => {
       </span>
       <span id="date">
         <p id="title-text">Schoongemaakt op:</p>
-        <p id="info-text">{bus.date}</p>
+        <p id="info-text">{bus.periodicCleaning}</p>
       </span>
     </div>
   );
