@@ -157,22 +157,20 @@ namespace BusPlan2_DAL.Handlers
             using var connection = Connection.GetConnection();
             try
             {
-                using (connection)
-                {
-                    connection.Open();
-                    MySqlCommand command = new MySqlCommand("SELECT AccountID, LoginCode FROM Account WHERE LoginCode = @LoginCode AND Password = @Password", connection);
-                    command.Parameters.AddWithValue("@LoginCode", loginCode);
-                    command.Parameters.AddWithValue("@Password", password);
-                    DataSet ds = new DataSet();
-                    MySqlDataAdapter da = new MySqlDataAdapter(command);
-                    da.Fill(ds);
-                    connection.Close();
+                using var command = connection.CreateCommand();
+                command.CommandText = "SELECT AccountID, LoginCode FROM Account WHERE LoginCode = @LoginCode AND Password = @Password;";
+                command.Parameters.AddWithValue("@LoginCode", loginCode);
+                command.Parameters.AddWithValue("@Password", password);
+                connection.Open();
+                DataSet ds = new DataSet();
+                MySqlDataAdapter da = new MySqlDataAdapter(command);
+                da.Fill(ds);
+                connection.Close();
 
-                    if (ds.Tables[0].Rows.Count < 1) return null;
-                    DataRow row = ds.Tables[0].Rows[0];
-                    AccountID = Convert.ToString(row["AccountID"]);
-                    LoginCode = Convert.ToInt32(row["LoginCode"]);
-                }
+                if (ds.Tables[0].Rows.Count < 1) return null;
+                DataRow row = ds.Tables[0].Rows[0];
+                AccountID = Convert.ToString(row["AccountID"]);
+                LoginCode = Convert.ToInt32(row["LoginCode"]);
             }
             catch (MySqlException)
             {
