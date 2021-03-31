@@ -7,10 +7,15 @@ namespace BusPlan2_Logic.Models
 {
     public class Cleaning
     {
-        private int CleaningID;
-        private int TimeCleaned;
-        private int CleanedBy;
-        private CleaningStatusEnum Status;
+        public int CleaningID { get; set; }
+        public int TimeCleaned { get; set; }
+        public int CleanedBy { get; set; }
+        public CleaningStatusEnum Status { get; set; }
+
+        public Cleaning()
+        {
+
+        }
 
         public Cleaning(int cleaningID, int timeCleaned, int cleanedBy, CleaningStatusEnum status)
         {

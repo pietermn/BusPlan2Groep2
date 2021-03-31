@@ -75,7 +75,7 @@ namespace BusPlan2_DAL.Handlers
             {
                 using var command = connection.CreateCommand();
 
-                command.CommandText = "SELECT * FROM Bus";
+                command.CommandText = "SELECT Bus.BusID, Bus.PeriodicCleaning, Bus.PeriodicMaintenance, Bus.BusNumber, Bus.BatteryLevel, Bus.Status, ParkingSpace.Number FROM Bus INNER JOIN ParkingSpace ON Bus.BusID = ParkingSpace.BusID;";
 
                 connection.Open();
 
@@ -89,7 +89,8 @@ namespace BusPlan2_DAL.Handlers
                             reader.GetDateTime("PeriodicMaintenance"),
                             reader.GetInt32("BusNumber"),
                             reader.GetInt32("BatteryLevel"),
-                            reader.GetInt32("Status")
+                            reader.GetInt32("Status"),
+                            reader.GetInt32("Number")
                             ));
                     }
                 }
@@ -116,7 +117,6 @@ namespace BusPlan2_DAL.Handlers
                     command.Parameters.AddWithValue("@batteryLevel", bus.BatteryLevel);
                     command.Parameters.AddWithValue("@status", bus.Status);
                     
-
                     connection.Open();
                     command.ExecuteNonQuery();
                     connection.Close();

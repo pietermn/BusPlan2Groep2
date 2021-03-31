@@ -10,5 +10,10 @@
 
   <ItemGroup>
     <PackageReference Include="MySql.Data" Version="8.0.23" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.9.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="mono_crash.11a6748113.1.json" />
+    <None Remove="mono_crash.11a6748113.0.json" />
   </ItemGroup>
 </Project>

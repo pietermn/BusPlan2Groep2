@@ -1,11 +1,17 @@
-import React from "react";
-import "../Style/Navbar.css";
+import React, {useContext, useEffect} from "react";
+import { Context as AuthContext } from '../redux/context/Authcontext';
 import { useLocation, useHistory } from "react-router-dom";
+import "../Style/Navbar.css";
 
 const NavigationBar = () => {
-  var display_name = "Noah Koole"; // Hard coded as backend is not done yet
+
+  const {localSignin, state, signout} = useContext(AuthContext);
   //const location = useLocation();
   const history = useHistory();
+
+  useEffect(() => {
+    localSignin();
+  }, []);
 
   // Gets li text and redirects to this url
   function handleRedirect(e) {
@@ -14,7 +20,8 @@ const NavigationBar = () => {
       const param = e.target.innerText.toLowerCase();
       history.push(`/${param}`);
     } else {
-      history.push(`/${e}`);
+      const param = e.toLowerCase();
+      history.push(`/${param}`);
     }
   }
 
@@ -25,6 +32,10 @@ const NavigationBar = () => {
         <ul>
           <li id="li_logotext">Hermes</li>
           <li onClick={handleRedirect}>Home</li>
+          <li onClick={() => handleRedirect("account")}>Login</li>
+          <li onClick={handleRedirect}>Cleaning</li>
+          {state.logincode && <li>{state.logincode}</li>}
+          {state.logincode && <li onClick={() => signout()}>Signout</li>}
         </ul>
       </div>
     </div>
