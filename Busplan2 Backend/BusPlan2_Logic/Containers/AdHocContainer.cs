@@ -23,13 +23,13 @@ namespace BusPlan2_Logic.Containers
 
         public bool UpdateAdHoc(int busID, int type, string description, DateTime timeDone, int team)
         {
-            if(adhocHandler.UpdateCleaning(busID, type, description, timeDone, team)) return true;
+            if(adhocHandler.UpdateAdHoc(busID, type, description, timeDone, team)) return true;
             return false;
         }
 
         public bool DeleteAdHoc(int adHocID)
         {
-            if (adhocHandler.DeleteCleaning(adHocID)) return true;
+            if (adhocHandler.DeleteAdHoc(adHocID)) return true;
             return false;
         }
 
