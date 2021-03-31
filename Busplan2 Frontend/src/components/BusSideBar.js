@@ -12,9 +12,9 @@ const BusSideBar = ({ Busses }) => {
 
     // Converts number to color
     const colorFunction = (status) => {
-      if (status === 1) return "redBackground";
-      else if (status === 2) return "yellowBackground";
-      else if (status === 3) return "greenBackground";
+      if (status === 0) return "redBackground";
+      else if (status === 1) return "yellowBackground";
+      else if (status === 2) return "greenBackground";
       else return "blackBackground";
     };
 
@@ -46,7 +46,7 @@ const BusSideBar = ({ Busses }) => {
           <h1>Bus {bus.busNumber}</h1>
           <GoPrimitiveDot
             id="statusIcon"
-            className={colorFunction(bus.busStatus)}
+            className={colorFunction(bus.status)}
           />
           <BsThreeDotsVertical id="dotsIcon" onClick={() => GetPopup(bus)}/>
         </div>
