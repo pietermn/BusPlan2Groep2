@@ -5,7 +5,22 @@ import { ImCross } from "react-icons/im";
 const Popup = ({ bus }) => {
   const { DeletePopup } = useContext(BusContext);
 
-  const options = ["schoonmaak nodig", "wordt schoongemaakt", "schoongemaakt"];
+  const options = [
+    {
+      name: "schoonmaak nodig",
+      number: 0,
+    },
+    {
+      name: "wordt schoongemaakt",
+      number: 1,
+    },
+    {
+      name: "schoongemaakt",
+      number: 2,
+    },
+  ];
+
+  const busNew = bus;
 
   return (
     <div className="popup-container">
@@ -19,7 +34,11 @@ const Popup = ({ bus }) => {
         <p id="title-text">Status:</p>
         <select>
           {options.map((value, index) => {
-            return <option value={value}>{value}</option>;
+            return (
+              <option key={index} value={value.number}>
+                {value.name}
+              </option>
+            );
           })}
         </select>
       </span>
