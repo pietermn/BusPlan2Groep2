@@ -9,28 +9,27 @@ namespace BusPlan2_Logic.Containers
 {
     public class AdHocContainer
     {
-        private AdHocHandler adhocHandler = new AdHocHandler();
-        public List<AdHoc> GetAllAdHoc()
+        private readonly AdHocHandler adhocHandler = new();
+
+        public bool Create(AdHoc adHoc)
         {
-            List<AdHoc> returnList = GetAdHocListFromAdHocDTO(adhocHandler.GetAllAdHoc());
-            return returnList;
+            AdHocDTO adHocDTO = new(adHoc.AdHocID, adHoc.BusID, adHoc.Type, adHoc.Team, adHoc.Description, adHoc.TimeDone);
+            return adhocHandler.Create(adHocDTO);
         }
 
-        public AdHoc GetAdHoc(int id)
+        public AdHoc Read(int id)
         {
-            return  GetAdHocFromAdHocDTO(adhocHandler.GetAdHoc(id));
+            return GetAdHocFromAdHocDTO(adhocHandler.Read(id));
         }
 
-        public bool UpdateAdHoc(int busID, int type, string description, DateTime timeDone, int team)
+        public List<AdHoc> ReadAll()
         {
-            if(adhocHandler.UpdateAdHoc(busID, type, description, timeDone, team)) return true;
-            return false;
+            return GetAdHocListFromAdHocDTO(adhocHandler.ReadAll());
         }
 
-        public bool DeleteAdHoc(int adHocID)
+        public bool Delete(int adHocID)
         {
-            if (adhocHandler.DeleteAdHoc(adHocID)) return true;
-            return false;
+            return adhocHandler.Delete(adHocID);
         }
 
         private List<AdHoc> GetAdHocListFromAdHocDTO(List<AdHocDTO> dtos)

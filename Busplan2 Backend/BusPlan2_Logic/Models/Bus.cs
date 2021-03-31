@@ -19,10 +19,7 @@ namespace BusPlan2_Logic.Models
 
         private readonly BusHandler busHandler = new BusHandler();
 
-        public Bus()
-        {
-
-        }
+        public Bus() { }
 
         public Bus(int busID, DateTime periodicCleaning, DateTime periodicMaintenance, int busNumber, int batteryLevel, BusStatusEnum status)
         {
@@ -47,7 +44,7 @@ namespace BusPlan2_Logic.Models
 
         public bool Update(Bus bus)
         {
-            BusDTO busDTO = new BusDTO(bus.BusID, bus.PeriodicCleaning, bus.PeriodicMaintenance, bus.BusNumber, bus.BatteryLevel, (int) bus.Status);
+            BusDTO busDTO = new(bus.BusID, bus.PeriodicCleaning, bus.PeriodicMaintenance, bus.BusNumber, bus.BatteryLevel, (int) bus.Status);
             return busHandler.Update(busDTO);
         }
     }
