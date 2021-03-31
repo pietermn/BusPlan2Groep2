@@ -27,7 +27,7 @@ const BusSideBar = ({ Busses }) => {
           </span>
           <span id="text-container">
             <p>Parkeerplaats</p>
-            <p>14 (test data)</p>
+            <p>{bus.parkingSpace}</p>
           </span>
           <span id="text-container">
             <p>Type schoonmaak</p>
