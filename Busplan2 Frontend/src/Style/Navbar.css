@@ -50,3 +50,9 @@
     font-size: 28px;
     color: white;
 }
+
+.navbar ul span {
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+}
