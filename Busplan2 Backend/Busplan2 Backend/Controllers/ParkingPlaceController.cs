@@ -12,31 +12,79 @@ namespace Busplan2_Backend.Controllers
     [Route("parkingplace")]
     public class ParkingPlaceController : ControllerBase
     {
-        private readonly ParkingSpace parkingspaceModel = new ParkingSpace();
+        private readonly ParkingSpace parkingspace = new ParkingSpace();
         private readonly ParkingSpaceContainer parkingspaceContainer = new ParkingSpaceContainer();
 
         [Route("read"), HttpGet]
-        public IActionResult Read()
+        public IActionResult Read(ParkingSpace pspace)
         {
-            return StatusCode(512); //Not implemented code
+            ParkingSpace newPspace = parkingspaceContainer.Read(pspace.ParkingSpaceID);
+            if (newPspace != null)
+            {
+                return Ok(newPspace);
+            }
+            else
+            {
+                //Error in code
+                return StatusCode(501);
+            }
+        }
+
+        [Route("readall"), HttpGet]
+        public IActionResult ReadAll()
+        {
+            List<ParkingSpace> newPspace = parkingspaceContainer.ReadAll();
+            if (newPspace != null)
+            {
+                return Ok(newPspace);
+            }
+            else
+            {
+                //Error in code
+                return StatusCode(501);
+            }
         }
 
         [Route("create"), HttpPost]
-        public IActionResult Create()
+        public IActionResult Create(ParkingSpace pspace)
         {
-            return StatusCode(512); //Not implemented code
+            if (parkingspaceContainer.Create(pspace))
+            {
+                return Ok();
+            }
+            else
+            {
+                //Error in code
+                return StatusCode(501);
+            }
         }
 
         [Route("delete"), HttpPost]
-        public IActionResult Delete()
+        public IActionResult Delete(int parkingspaceID)
         {
-            return StatusCode(512); //Not implemented code
+            if (parkingspaceContainer.Delete(parkingspaceID))
+            {
+                return Ok();
+            }
+            else
+            {
+                //Error in code
+                return StatusCode(501);
+            }
         }
 
         [Route("update"), HttpPost]
-        public IActionResult Update(ParkingSpace parkingSpace)
+        public IActionResult Update(ParkingSpace pspace)
         {
-            return Ok(parkingspaceModel.Update(parkingSpace)); //Not implemented code
+            if (parkingspace.Update(pspace))
+            {
+                return Ok();
+            }
+            else
+            {
+                //Error in code
+                return StatusCode(501);
+            }
         }
     }
 }

@@ -1,22 +1,103 @@
-﻿using System;
-using System.Data;
-using MySql.Data;
+﻿using Backend_DAL;
 using BusPlan2_DAL.DTOs;
-using System.Collections.Generic;
+using Microsoft.IdentityModel.Tokens;
 using MySql.Data.MySqlClient;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
 
 namespace BusPlan2_DAL.Handlers
 {
     public class ParkingSpaceHandler
     {
-        public void Create()
-        {
 
+        public bool Create(ParkingSpaceDTO pspaceDTO)
+        {
+            using var connection = Connection.GetConnection();
+            {
+                try
+                {
+                    using var command = connection.CreateCommand();
+
+                    command.CommandText = "INSERT INTO ParkingSpace(BusID, Number, Type, Occupied) VALUES(@busID, @number, @type, @occupied);";
+                    command.Parameters.AddWithValue("@busID", pspaceDTO.BusID);
+                    command.Parameters.AddWithValue("@number", pspaceDTO.Number);
+                    command.Parameters.AddWithValue("@type", pspaceDTO.Type);
+                    command.Parameters.AddWithValue("@occupied", pspaceDTO.Occupied);
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                    return true;
+                }
+                catch { connection.Close(); return false; }
+            }
         }
 
-        public void Read()
-        {
 
+        public ParkingSpaceDTO Read(int parkingspaceID)
+        {
+            ParkingSpaceDTO pspace = new ParkingSpaceDTO();
+            using var connection = Connection.GetConnection();
+            {
+                using var command = connection.CreateCommand();
+
+                command.CommandText = "SELECT * FROM ParkingSpace WHERE ParkingSpaceID = @parkingspaceID";
+                command.Parameters.AddWithValue("@parkingspaceID", parkingspaceID);
+
+                connection.Open();
+
+                using (MySqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        pspace = new ParkingSpaceDTO(
+                            reader.GetInt32("ParkingSpaceID"),
+                            reader.GetInt32("BusID"),
+                            reader.GetInt32("Number"),
+                            reader.GetInt32("Type"),
+                            reader.GetBoolean("Occupied")
+                            );
+                    }
+                }
+
+                connection.Close();
+                return pspace;
+            }
+        }
+
+
+        public List<ParkingSpaceDTO> ReadAll()
+        {
+            List<ParkingSpaceDTO> pspaceList = new List<ParkingSpaceDTO>();
+            using var connection = Connection.GetConnection();
+            {
+                using var command = connection.CreateCommand();
+
+                command.CommandText = "SELECT * FROM ParkingSpace";
+
+                connection.Open();
+
+                using (MySqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        pspaceList.Add( new ParkingSpaceDTO(
+                            reader.GetInt32("ParkingSpaceID"),
+                            reader.GetInt32("BusID"),
+                            reader.GetInt32("Number"),
+                            reader.GetInt32("Type"),
+                            reader.GetBoolean("Occupied")
+                            ));
+                    }
+                }
+
+                connection.Close();
+                return pspaceList;
+            }
         }
 
 
@@ -46,9 +127,25 @@ namespace BusPlan2_DAL.Handlers
         }
 
 
-        public void Delete()
+        public bool Delete(int parkingspaceID)
         {
+            using var connection = Connection.GetConnection();
+            {
+                try
+                {
+                    using var command = connection.CreateCommand();
 
+                    command.CommandText = "DELETE FROM ParkingSpace WHERE ParkingSpaceID = @parkingspaceID;";
+                    command.Parameters.AddWithValue("@parkingspaceID", parkingspaceID);
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                    connection.Close();
+
+                    return true;
+                }
+                catch { connection.Close(); return false; }
+            }
         }
     }
 }
