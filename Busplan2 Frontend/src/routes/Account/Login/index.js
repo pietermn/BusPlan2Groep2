@@ -12,7 +12,7 @@ const Login = () => {
 
     return (
         <div className="login-container">
-            <input id="loginnumber" type="number" placeholder="Login number" value={loginNumber} onChange={(e) => setLoginNumber(e.target.value)}/>
+            <input id="loginnumber" placeholder="Login number" value={loginNumber} onChange={(e) => setLoginNumber(e.target.value)}/>
             <input id="password" type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
             <button onClick={() => signin(loginNumber, password, history)}>Login</button>
             <p id="loginasbus">Login as bus</p>

@@ -1,6 +1,6 @@
 import React, {useContext, useEffect} from "react";
 import { Context as AuthContext } from '../redux/context/Authcontext';
-import { useLocation, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import "../Style/Navbar.css";
 
 const NavigationBar = () => {
@@ -31,11 +31,9 @@ const NavigationBar = () => {
       <div className="navbar">
         <ul>
           <li id="li_logotext">Hermes</li>
-          <li onClick={handleRedirect}>Home</li>
-          <li onClick={() => handleRedirect("account")}>Login</li>
-          <li onClick={handleRedirect}>Cleaning</li>
-          {state.logincode && <li>{state.logincode}</li>}
-          {state.logincode && <li onClick={() => signout()}>Signout</li>}
+          <li onClick={handleRedirect}>Schoonmaak</li>
+          {state.logincode ? <span><li>{state.logincode}</li>
+          <li onClick={() => signout()}>Signout</li></span> : <span><li onClick={() => handleRedirect("account")}>Login</li></span>}
         </ul>
       </div>
     </div>
