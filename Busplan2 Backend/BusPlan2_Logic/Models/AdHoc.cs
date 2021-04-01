@@ -1,7 +1,8 @@
-﻿using BusPlan2_Logic.Enums;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using BusPlan2_DAL.DTOs;
+using BusPlan2_DAL.Handlers;
 
 namespace BusPlan2_Logic.Models
 {
@@ -14,6 +15,8 @@ namespace BusPlan2_Logic.Models
         public string Description { get; set; }
         public DateTime TimeDone { get; set; }
 
+        private readonly AdHocHandler adhocHandler = new();
+
         public AdHoc() { }
 
         public AdHoc(int adHocID, int busID, int type, int team, string description, DateTime timeDone)
@@ -24,6 +27,11 @@ namespace BusPlan2_Logic.Models
             Team = team;
             Description = description;
             TimeDone = timeDone;
+        }
+
+        public bool Update(AdHoc adHoc)
+        {
+            return adhocHandler.Update(adHoc.AdHocID, adHoc.BusID, adHoc.Type, adHoc.Description, adHoc.TimeDone, adHoc.Team);
         }
     }
 }

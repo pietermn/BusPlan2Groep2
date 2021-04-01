@@ -10,7 +10,7 @@ namespace BusPlan2_DAL.Handlers
     public class CleaningHandler
     {
 
-        public bool Create(int busID, int cleanedBy, DateTime timeCleaned, int status)
+        public bool Create(CleaningDTO cleaningDTO)
         {
             using var connection = Connection.GetConnection();
             {
@@ -19,10 +19,10 @@ namespace BusPlan2_DAL.Handlers
                     using var command = connection.CreateCommand();
 
                     command.CommandText = "INSERT INTO Cleaning(BusID, CleanedBy, TimeCleaned, Status) VALUES(@busID, @cleanedBy, @timeCleaned, @status);";
-                    command.Parameters.AddWithValue("@busID", busID);
-                    command.Parameters.AddWithValue("@cleanedBy", cleanedBy);
-                    command.Parameters.AddWithValue("@timeCleaned", timeCleaned);
-                    command.Parameters.AddWithValue("@status", status);
+                    command.Parameters.AddWithValue("@busID", cleaningDTO.BusID);
+                    command.Parameters.AddWithValue("@cleanedBy", cleaningDTO.CleanedBy);
+                    command.Parameters.AddWithValue("@timeCleaned", cleaningDTO.TimeCleaned);
+                    command.Parameters.AddWithValue("@status", cleaningDTO.Status);
 
                     connection.Open();
                     command.ExecuteNonQuery();
@@ -34,15 +34,15 @@ namespace BusPlan2_DAL.Handlers
         }
 
 
-        public CleaningDTO Read(int busid)
+        public CleaningDTO Read(int cleaningID)
         {
             using var connection = Connection.GetConnection();
             {
                 connection.OpenAsync();
 
                 using var command = connection.CreateCommand();
-                command.CommandText = "SELECT * FROM `Cleaning` WHERE BusID = @busID";
-                command.Parameters.AddWithValue("@busID", busid);
+                command.CommandText = "SELECT * FROM `Cleaning` WHERE CleaningID = @cleaningID";
+                command.Parameters.AddWithValue("@cleaningID", cleaningID);
 
                 var reader = command.ExecuteReader();
 
@@ -79,8 +79,8 @@ namespace BusPlan2_DAL.Handlers
                                 new CleaningDTO(
                                     reader.GetInt32("CleaningID"),
                                     reader.GetInt32("BusID"),
-                                    reader.GetInt32("CleanedBy"),
                                     reader.GetDateTime("TimeCleaned"),
+                                    reader.GetInt32("CleanedBy"),
                                     reader.GetInt32("Status")
                                 )
                             );
@@ -91,18 +91,19 @@ namespace BusPlan2_DAL.Handlers
         }
 
 
-        public bool Update(int busID, int cleanedBy, DateTime timeCleaned, int status)
+        public bool Update(int cleaningID, int busID, int cleanedBy, DateTime timeCleaned, int status)
         {
             using var connection = Connection.GetConnection();
             {
                 connection.OpenAsync();
 
                 using var command = connection.CreateCommand();
-                command.CommandText = "UPDATE `Cleaning` SET CleanedBy=@cleanedby, TimeCleaned=@timecleaned, Status=@status WHERE BusID=@busid";
+                command.CommandText = "UPDATE `Cleaning` SET BusID=@busID, CleanedBy=@cleanedby, TimeCleaned=@timecleaned, Status=@status WHERE CleaningID=@cleaningID";
                 command.Parameters.AddWithValue("@cleanedby", cleanedBy);
                 command.Parameters.AddWithValue("@timecleaned", timeCleaned);
                 command.Parameters.AddWithValue("@status", status);
                 command.Parameters.AddWithValue("@busid", busID);
+                command.Parameters.AddWithValue("@cleaningID", cleaningID);
 
                 command.ExecuteNonQueryAsync();
                 connection.CloseAsync();
@@ -118,8 +119,8 @@ namespace BusPlan2_DAL.Handlers
                 connection.OpenAsync();
 
                 using var command = connection.CreateCommand();
-                command.CommandText = "DELETE * FROM `Cleaning` WHERE CleaningID = @cleaningid";
-                command.Parameters.AddWithValue("@cleanedby", cleaningID);
+                command.CommandText = "DELETE * FROM `Cleaning` WHERE CleaningID = @cleaningID";
+                command.Parameters.AddWithValue("@cleaningID", cleaningID);
 
                 command.ExecuteNonQueryAsync();
                 connection.CloseAsync();

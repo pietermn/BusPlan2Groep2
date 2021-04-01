@@ -10,21 +10,37 @@ namespace BusPlan2_Logic.Containers
 {
     public class CleaningContainer
     {
-        private readonly CleaningHandler cleaningHandler = new CleaningHandler();
+        private readonly CleaningHandler handler = new();
 
-        public void Create(Cleaning cleaning)
+        public bool Create(Cleaning cleaning)
         {
-            //return cleaningHandler.Create()
+            CleaningDTO cleaningDTO = new(cleaning.CleaningID, cleaning.BusID, cleaning.TimeCleaned, cleaning.CleanedBy, (int)cleaning.Status);
+            return handler.Create(cleaningDTO);
         }
 
-        public void Read()
+        public Cleaning Read(int busID)
         {
-
+            CleaningDTO cleaningDTO = handler.Read(busID);
+            Cleaning cleaning = new Cleaning(cleaningDTO.CleaningID, cleaningDTO.BusID, cleaningDTO.TimeCleaned, cleaningDTO.CleanedBy, (CleaningStatusEnum)cleaningDTO.Status);
+            return cleaning;
         }
 
-        public void Delete()
-        {
 
+        public List<Cleaning> ReadAll()
+        {
+            List<CleaningDTO> cleaningsDTO = handler.ReadAll();
+            List<Cleaning> cleanings = new List<Cleaning>();
+            foreach (CleaningDTO cleaningDTO in cleaningsDTO)
+            {
+                cleanings.Add(new Cleaning(cleaningDTO.CleaningID, cleaningDTO.BusID, cleaningDTO.TimeCleaned, cleaningDTO.CleanedBy, (CleaningStatusEnum)cleaningDTO.Status));
+            }
+            return cleanings;
+        }
+
+
+        public bool Delete(int cleaningDTO)
+        {
+            return handler.Delete(cleaningDTO);
         }
     }
 }
