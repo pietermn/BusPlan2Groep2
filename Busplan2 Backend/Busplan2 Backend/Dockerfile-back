@@ -1,0 +1,24 @@
+#See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
+
+FROM mcr.microsoft.com/dotnet/aspnet:3.1 AS base
+WORKDIR /app
+EXPOSE 80
+EXPOSE 443
+
+FROM mcr.microsoft.com/dotnet/sdk:3.1 AS build
+WORKDIR /src
+COPY ["Busplan2 Backend/Busplan2 Backend.csproj", "Busplan2 Backend/"]
+COPY ["BusPlan2_Logic/BusPlan2_Logic.csproj", "BusPlan2_Logic/"]
+COPY ["BusPlan2_DAL/BusPlan2_DAL.csproj", "BusPlan2_DAL/"]
+RUN dotnet restore "Busplan2 Backend/Busplan2 Backend.csproj"
+COPY . .
+WORKDIR "/src/Busplan2 Backend"
+RUN dotnet build "Busplan2 Backend.csproj" -c Release -o /app/build
+
+FROM build AS publish
+RUN dotnet publish "Busplan2 Backend.csproj" -c Release -o /app/publish
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "Busplan2 Backend.dll", "--urls", "http://*:5000", "https://*:5001"]
