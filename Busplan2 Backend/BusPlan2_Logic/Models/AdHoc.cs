@@ -31,7 +31,7 @@ namespace BusPlan2_Logic.Models
 
         public bool Update(AdHoc adHoc)
         {
-            return adhocHandler.Update(adHoc.AdHocID, adHoc.BusID, adHoc.Type, adHoc.Description, adHoc.TimeDone, adHoc.Team);
+            return adhocHandler.Update(adHoc.AdHocID, adHoc.BusID, adHoc.Type, adHoc.Team, adHoc.Description, adHoc.TimeDone);
         }
     }
 }

@@ -1,0 +1,158 @@
+Account: 
+    Read:
+        Input:	(int) AccountID
+        Output:	(Account) model
+    ReadAll:
+        Input:
+        Output:	(List<Account>) account
+    Create:
+        Input:	(int) LoginCode, 
+                	(string) Name, 
+                	(string) Password, 
+                	(int) Team
+        Output:
+    Delete:
+        Input:	(int) AccountID
+        Output:
+    Update:
+        Input:	(int) AccountID, 
+                	(int) LoginCode, 
+                	(string) Name, 
+                	(string) Password, 
+                	(int) Team
+        Output:
+    Login: 
+        Input:	(int) LoginCode, 
+                	(password) Password 
+        Output:	(string) JwtToken
+
+
+Bus: 
+    Read:
+        Input:	(int) BusID
+        Output:	(Bus) bus
+    ReadAll:
+        Input:
+        Output:	(List<Bus>) bus
+    Create:
+        Input:  	(dateTime) periodicCleaning, 
+                	(dateTime) periodicMaintenance, 
+                	(int) busNumber, 
+                	(int) batteryLevel, 
+                	(int) status
+        Output:
+    Delete:
+        Input:	(int) AccountID
+        Output:
+    Update:
+        Input:	(int) BusID
+                	(dateTime) periodicCleaning, 
+                	(dateTime) periodicMaintenance, 
+                	(int) busNumber, 
+                	(int) batteryLevel, 
+                	(int)status
+        Output:
+
+
+AdHoc: 
+    Read:
+        Input:	(int) AdHocID
+        Output:	(AdHoc) adhoc
+    ReadAll:
+        Input:
+        Output:	(List<AdHoc>) adhoc
+    Create:
+        Input:  	(int) BusID, 
+                	(int) Type, 
+                	(int) Team, 
+                	(string) Description, 
+                	(dateTime) TimeDone
+        Output:
+    Delete:
+        Input:	(int) ParkingSpaceID
+        Output:
+    Update:
+        Input:	(int) ParkingSpaceID
+                	(int) BusID, 
+                	(int) Type, 
+                	(int) Team, 
+                	(string) Description, 
+                	(dateTime) TimeDone
+        Output:
+
+
+AdHoc: 
+    Read:
+        Input:	(int) AdHocID
+        Output:	(AdHoc) adhoc
+    ReadAll:
+        Input:
+        Output:	(List<AdHoc>) adhoc
+    Create:
+        Input:  	(int) BusID, 
+                	(int) Type, 
+                	(int) Team, 
+                	(string) Description, 
+                	(dateTime) TimeDone
+        Output:
+    Delete:
+        Input:	(int) AdHocID
+        Output:
+    Update:
+        Input:	(int) AdHocID
+                	(int) BusID, 
+                	(int) Type, 
+                	(int) Team, 
+                	(string) Description, 
+                	(dateTime) TimeDone
+        Output:
+
+
+Cleaning: 
+    Read:
+        Input:	(int) CleaningID
+        Output:	(Cleaning) cleaning
+    ReadAll:
+        Input:
+        Output:	(List<Cleaning>) cleaning
+    Create:
+        Input:  	(int) BusID, 
+                	(dateTime) TimeCleaned, 
+                	(int) CleanedBy, 
+                	(int) Status, 
+        Output:
+    Delete:
+        Input:	(int) CleaningID
+        Output:
+    Update:
+        Input:	(int) CleaningID
+                	(int) BusID, 
+                	(dateTime) TimeCleaned, 
+                	(int) CleanedBy, 
+                	(int) Status, 
+        Output:
+
+
+ParkingSpace: 
+    Read:
+        Input:	(int) ParkingSpaceID
+        Output:	(ParkingSpace) parkingspace
+    ReadAll:
+        Input:
+        Output:	(List<ParkingSpace>) parkingspace
+    Create:
+        Input:  	(int) BusID, 
+                	(dateTime) TimeCleaned, 
+                	(int) CleanedBy, 
+                	(int) Status, 
+        Output:
+    Delete:
+        Input:	(int) ParkingSpaceID
+        Output:
+    Update:
+        Input:	(int) ParkingSpaceID
+                	(int) BusID, 
+                	(dateTime) TimeCleaned, 
+                	(int) CleanedBy, 
+                	(int) Status, 
+        Output:

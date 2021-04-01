@@ -33,15 +33,15 @@ namespace BusPlan2_DAL.Handlers
         }
 
 
-        public AdHocDTO Read(int busid)
+        public AdHocDTO Read(int adhocID)
         {
             using var connection = Connection.GetConnection();
             {
                 connection.OpenAsync();
 
                 using var command = connection.CreateCommand();
-                command.CommandText = "SELECT * FROM `AdHoc` WHERE BusID = @busID";
-                command.Parameters.AddWithValue("@busID", busid);
+                command.CommandText = "SELECT * FROM `AdHoc` WHERE AdHocID = @adhocID";
+                command.Parameters.AddWithValue("@adhocID", adhocID);
 
                 var reader = command.ExecuteReader();
 
@@ -54,7 +54,7 @@ namespace BusPlan2_DAL.Handlers
                     Type = reader.GetInt32("Type"),
                     Team = reader.GetInt32("Team"),
                     Description = reader.GetString("Description"),
-                    TimeDone = reader.GetDateTime("TimeDOne")
+                    TimeDone = reader.GetDateTime("TimeDone")
                 };
                 return adhocobj;
             }
@@ -93,20 +93,20 @@ namespace BusPlan2_DAL.Handlers
         }
 
 
-        public bool Update(int adHocID, int busID, int type,string description, DateTime timeDone, int team)
+        public bool Update(int adHocID, int busID, int type, int team, string description, DateTime timeDone)
         {
             using var connection = Connection.GetConnection();
             {
                 connection.OpenAsync();
 
                 using var command = connection.CreateCommand();
-                command.CommandText = "UPDATE `AdHoc` SET BusID=@busID Type=@type, Team=@team, Description=@description TimeDone=@timeDone WHERE AdHocID=@adHocID";
-                command.Parameters.AddWithValue("@Type", type);
-                command.Parameters.AddWithValue("@Team", team);
+                command.CommandText = "UPDATE `AdHoc` SET BusID=@busID, Type=@type, Team=@team, Description=@description, TimeDone=@timeDone WHERE AdHocID=@adHocID";
+                command.Parameters.AddWithValue("@adHocID", adHocID);
+                command.Parameters.AddWithValue("@busID", busID);
+                command.Parameters.AddWithValue("@type", type);
+                command.Parameters.AddWithValue("@team", team);
                 command.Parameters.AddWithValue("@description", description);
                 command.Parameters.AddWithValue("@timeDone", timeDone);
-                command.Parameters.AddWithValue("@busid", busID);
-                command.Parameters.AddWithValue("@adHocID", adHocID);
 
                 command.ExecuteNonQueryAsync();
                 connection.CloseAsync();
@@ -123,7 +123,7 @@ namespace BusPlan2_DAL.Handlers
                 connection.OpenAsync();
 
                 using var command = connection.CreateCommand();
-                command.CommandText = "DELETE * FROM `AdHoc` WHERE AdHocID = @adhocID";
+                command.CommandText = "DELETE FROM AdHoc WHERE AdHocID = @adhocID";
                 command.Parameters.AddWithValue("@adhocID", adhocID);
 
                 command.ExecuteNonQueryAsync();
