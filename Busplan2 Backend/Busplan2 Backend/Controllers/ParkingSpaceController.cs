@@ -9,8 +9,8 @@ using BusPlan2_Logic.Containers;
 namespace Busplan2_Backend.Controllers
 {
     [ApiController]
-    [Route("parkingplace")]
-    public class ParkingPlaceController : ControllerBase
+    [Route("parkingspace")]
+    public class ParkingSpaceController : ControllerBase
     {
         private readonly ParkingSpace parkingspace = new ParkingSpace();
         private readonly ParkingSpaceContainer parkingspaceContainer = new ParkingSpaceContainer();
@@ -60,9 +60,9 @@ namespace Busplan2_Backend.Controllers
         }
 
         [Route("delete"), HttpPost]
-        public IActionResult Delete(int parkingspaceID)
+        public IActionResult Delete(ParkingSpace pspace)
         {
-            if (parkingspaceContainer.Delete(parkingspaceID))
+            if (parkingspaceContainer.Delete(pspace.ParkingSpaceID))
             {
                 return Ok();
             }

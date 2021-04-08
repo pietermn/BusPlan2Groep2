@@ -119,7 +119,7 @@ namespace BusPlan2_DAL.Handlers
                 connection.OpenAsync();
 
                 using var command = connection.CreateCommand();
-                command.CommandText = "DELETE * FROM `Cleaning` WHERE CleaningID = @cleaningID";
+                command.CommandText = "DELETE FROM `Cleaning` WHERE CleaningID = @cleaningID";
                 command.Parameters.AddWithValue("@cleaningID", cleaningID);
 
                 command.ExecuteNonQueryAsync();
