@@ -14,7 +14,7 @@ namespace BusPlan2_Logic.Containers
 
         public bool Create(Bus bus)
         {
-            return busHandler.Create(bus.PeriodicCleaning, bus.PeriodicMaintenance, bus.BusNumber, bus.BatteryLevel, (int)bus.Status);
+            return busHandler.Create(bus.PeriodicCleaning, bus.SmallCleaning, bus.PeriodicMaintenance, bus.SmallMaintenance, bus.BusNumber, bus.BatteryLevel, (int)bus.Status);
         }
 
 
