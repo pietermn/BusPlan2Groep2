@@ -5,7 +5,7 @@ import Popup from "../../components/Popup";
 import { Context as BusContext } from "../../redux/context/BusContext";
 import "../../Style/busPagesStyles.css";
 
-const Cleaning = () => {
+const Maintenance = () => {
   const { state, GetAllBusses } = useContext(BusContext);
   const location = useLocation();
 
@@ -22,4 +22,4 @@ const Cleaning = () => {
   );
 };
 
-export default Cleaning;
+export default Maintenance;

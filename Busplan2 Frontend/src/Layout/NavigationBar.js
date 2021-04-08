@@ -1,13 +1,13 @@
-import React, {useContext, useEffect} from "react";
-import { Context as AuthContext } from '../redux/context/Authcontext';
+import React, { useContext, useEffect } from "react";
+import { Context as AuthContext } from "../redux/context/Authcontext";
 import { useHistory } from "react-router-dom";
 import "../Style/Navbar.css";
 
 const NavigationBar = () => {
-
-  const {localSignin, state, signout} = useContext(AuthContext);
+  const { localSignin, state, signout } = useContext(AuthContext);
   //const location = useLocation();
   const history = useHistory();
+  const team = state.team;
 
   useEffect(() => {
     localSignin();
@@ -25,15 +25,47 @@ const NavigationBar = () => {
     }
   }
 
+  function NavbarSelector() {
+    switch (team) {
+      case "0":
+        return <li onClick={handleRedirect}>BusChauffeur</li>;
+      case "1":
+        return <li onClick={handleRedirect}>Schoonmaak</li>;
+      case "2":
+        return <li onClick={handleRedirect}>Monteur</li>;
+      case "3":
+        return <li onClick={handleRedirect}>Planner</li>;
+      case "4":
+        return (
+          <span style={{display: "flex", flexDirection: "row"}}>
+            <li onClick={handleRedirect}>Schoonmaak</li>
+            <li onClick={handleRedirect}>Monteur</li>
+            <li onClick={handleRedirect}>Planner</li>
+            <li onClick={handleRedirect}>Overzicht</li>
+          </span>
+        );
+      default:
+        return <li>Something went wrong</li>
+    }
+  }
+
   //html
   return (
     <div className="full-navbar">
       <div className="navbar">
         <ul>
           <li id="li_logotext">Hermes</li>
-          <li onClick={handleRedirect}>Schoonmaak</li>
-          {state.logincode ? <span><li>{state.logincode}</li>
-          <li onClick={() => signout()}>Signout</li></span> : <span><li onClick={() => handleRedirect("account")}>Login</li></span>}
+          {state.team && <NavbarSelector />}
+          {state.logincode ? (
+            <span id="account">
+              <li>{state.logincode}</li>
+              <li onClick={() => signout()}>Signout</li>
+            </span>
+          ) : (
+            <span id="account">
+              <li onClick={() => handleRedirect("account")}>Login</li>
+            </span>
+          )}
         </ul>
       </div>
     </div>

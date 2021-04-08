@@ -1,25 +1,25 @@
 import React, { useContext, useEffect } from "react";
-import { useLocation } from "react-router";
 import BusSideBar from "../../components/BusSideBar";
-import Popup from "../../components/Popup";
 import { Context as BusContext } from "../../redux/context/BusContext";
+import Draggable, { DraggableCore } from "react-draggable";
 import "../../Style/busPagesStyles.css";
 
-const Cleaning = () => {
+const Overview = () => {
   const { state, GetAllBusses } = useContext(BusContext);
-  const location = useLocation();
 
   useEffect(() => {
     GetAllBusses();
   }, []);
 
   return (
-    <div className="cleaning_full_page">
+    <div className="overview_full_page">
       {state.busses && <BusSideBar Busses={state.busses} />}
-      {state.bus && <Popup bus={state.bus} path={location.pathname} />}
+      <Draggable position={{ x: 0, y: 0 }}>
+        <p style={{position: "absolute"}}>Drag</p>
+      </Draggable>
       <div className="busmap"></div>
     </div>
   );
 };
 
-export default Cleaning;
+export default Overview;

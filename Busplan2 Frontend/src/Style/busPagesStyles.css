@@ -1,0 +1,22 @@
+.cleaning_full_page,
+.overview_full_page,
+.maintenance_full_page {
+  height: 90vh;
+  position: relative;
+  display: flex;
+  max-width: 100vw;
+}
+
+.busmap {
+  position: absolute;
+  margin-left: 20%;
+  margin-top: 3%;
+  background-image: url("../Images/plattegrond.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 95%;
+  width: 80%;
+}
+
+.draggable {
+}
