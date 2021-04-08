@@ -12,7 +12,9 @@ CREATE TABLE Bus (
   BatteryLevel INT NOT NULL,
   Status INT NOT NULL,
   PeriodicCleaning DATETIME NOT NULL,
-  PeriodicMaintenance DATETIME NOT NULL
+  SmallCleaning DATETIME NOT NULL,
+  PeriodicMaintenance DATETIME NOT NULL,
+  SmallMaintenance DATETIME NOT NULL
 );
 
 CREATE TABLE ParkingSpace (
@@ -28,6 +30,16 @@ CREATE TABLE Cleaning (
   BusID INT NOT NULL,
   CleanedBy INT NOT NULL,
   TimeCleaned DATETIME NOT NULL,
+  Type INT NOT NULL,
+  Status INT NOT NULL
+);
+
+CREATE TABLE Maintenance (
+  MaintenanceID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  BusID INT NOT NULL,
+  RepairedBy INT NOT NULL,
+  TimeRepaired DATETIME NOT NULL,
+  Type INT NOT NULL,
   Status INT NOT NULL
 );
 
