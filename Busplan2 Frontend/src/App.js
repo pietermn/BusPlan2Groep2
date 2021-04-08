@@ -7,6 +7,9 @@ import { ConnectedRouter } from "connected-react-router";
 import configureStore, { history } from "./redux/store";
 import { Provider as AuthProvider } from "./redux/context/Authcontext";
 import { Provider as BusProvider } from "./redux/context/BusContext";
+import { Provider as CleaningProvider } from "./redux/context/CleaningContext";
+import { Provider as MaintenanceProvider } from "./redux/context/MaintenanceContext";
+
 
 export const store = configureStore();
 
@@ -16,11 +19,15 @@ export default function App() {
       <ConnectedRouter history={history}>
         <BusProvider>
           <AuthProvider>
-            <AppWrapper>
-              <Switch>
-                <Routes />
-              </Switch>
-            </AppWrapper>
+            <CleaningProvider>
+              <MaintenanceProvider>
+                <AppWrapper>
+                  <Switch>
+                    <Routes />
+                  </Switch>
+                </AppWrapper>
+              </MaintenanceProvider>
+            </CleaningProvider>
           </AuthProvider>
         </BusProvider>
       </ConnectedRouter>
