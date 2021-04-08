@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Data;
-using MySql.Data;
 using BusPlan2_DAL.DTOs;
 using System.Collections.Generic;
 using MySql.Data.MySqlClient;
@@ -18,10 +16,11 @@ namespace BusPlan2_DAL.Handlers
                 {
                     using var command = connection.CreateCommand();
 
-                    command.CommandText = "INSERT INTO Cleaning(BusID, CleanedBy, TimeCleaned, Status) VALUES(@busID, @cleanedBy, @timeCleaned, @status);";
+                    command.CommandText = "INSERT INTO Cleaning(BusID, CleanedBy, TimeCleaned, Type, Status) VALUES(@busID, @cleanedBy, @timeCleaned, @type, @status);";
                     command.Parameters.AddWithValue("@busID", cleaningDTO.BusID);
                     command.Parameters.AddWithValue("@cleanedBy", cleaningDTO.CleanedBy);
                     command.Parameters.AddWithValue("@timeCleaned", cleaningDTO.TimeCleaned);
+                    command.Parameters.AddWithValue("@type", cleaningDTO.Type);
                     command.Parameters.AddWithValue("@status", cleaningDTO.Status);
 
                     connection.Open();
@@ -52,8 +51,9 @@ namespace BusPlan2_DAL.Handlers
                 {
                     CleaningID = reader.GetInt32("CleaningID"),
                     BusID = reader.GetInt32("BusID"),
-                    CleanedBy = reader.GetInt32("CleanedBy"),
                     TimeCleaned = reader.GetDateTime("TimeCleaned"),
+                    CleanedBy = reader.GetInt32("CleanedBy"),
+                    Type = reader.GetInt32("Type"),
                     Status = reader.GetInt32("Status")
                 };
                 return cleaningobj;
@@ -81,6 +81,7 @@ namespace BusPlan2_DAL.Handlers
                                     reader.GetInt32("BusID"),
                                     reader.GetDateTime("TimeCleaned"),
                                     reader.GetInt32("CleanedBy"),
+                                    reader.GetInt32("Type"),
                                     reader.GetInt32("Status")
                                 )
                             );
@@ -91,18 +92,19 @@ namespace BusPlan2_DAL.Handlers
         }
 
 
-        public bool Update(int cleaningID, int busID, int cleanedBy, DateTime timeCleaned, int status)
+        public bool Update(int cleaningID, int busID, int cleanedBy, DateTime timeCleaned, int type, int status)
         {
             using var connection = Connection.GetConnection();
             {
                 connection.OpenAsync();
 
                 using var command = connection.CreateCommand();
-                command.CommandText = "UPDATE `Cleaning` SET BusID=@busID, CleanedBy=@cleanedby, TimeCleaned=@timecleaned, Status=@status WHERE CleaningID=@cleaningID";
+                command.CommandText = "UPDATE `Cleaning` SET BusID=@busID, CleanedBy=@cleanedby, TimeCleaned=@timecleaned, Type=@type, Status=@status WHERE CleaningID=@cleaningID";
                 command.Parameters.AddWithValue("@cleanedby", cleanedBy);
                 command.Parameters.AddWithValue("@timecleaned", timeCleaned);
                 command.Parameters.AddWithValue("@status", status);
                 command.Parameters.AddWithValue("@busid", busID);
+                command.Parameters.AddWithValue("@type", type);
                 command.Parameters.AddWithValue("@cleaningID", cleaningID);
 
                 command.ExecuteNonQueryAsync();

@@ -6,7 +6,9 @@ namespace BusPlan2_DAL.DTOs
 
         public int BusID { get; set; }
         public DateTime PeriodicCleaning { get; set; }
+        public DateTime SmallCleaning { get; set; }
         public DateTime PeriodicMaintenance { get; set; }
+        public DateTime SmallMaintenance { get; set; }
         public int BusNumber { get; set; }
         public int BatteryLevel { get; set; }
         public int Status { get; set; }
@@ -18,21 +20,25 @@ namespace BusPlan2_DAL.DTOs
 
         }
 
-        public BusDTO(int busID, DateTime periodicCleaning, DateTime periodicMaintenance, int busNumber, int batteryLevel, int status)
+        public BusDTO(int busID, DateTime periodicCleaning, DateTime smallCleaning, DateTime periodicMaintenance, DateTime smallMaintenance, int busNumber, int batteryLevel, int status)
         {
             BusID = busID;
             PeriodicCleaning = periodicCleaning;
+            SmallCleaning = smallCleaning;
             PeriodicMaintenance = periodicMaintenance;
+            SmallMaintenance = smallMaintenance;
             BusNumber = busNumber;
             BatteryLevel = batteryLevel;
             Status = status;
         }
 
-        public BusDTO(int busID, DateTime periodicCleaning, DateTime periodicMaintenance, int busNumber, int batteryLevel, int status, int parkingSpace)
+        public BusDTO(int busID, DateTime periodicCleaning, DateTime smallCleaning, DateTime periodicMaintenance, DateTime smallMaintenance, int busNumber, int batteryLevel, int status, int parkingSpace)
         {
             BusID = busID;
             PeriodicCleaning = periodicCleaning;
+            SmallCleaning = smallCleaning;
             PeriodicMaintenance = periodicMaintenance;
+            SmallMaintenance = smallMaintenance;
             BusNumber = busNumber;
             BatteryLevel = batteryLevel;
             Status = status;

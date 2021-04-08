@@ -21,7 +21,7 @@ namespace BusPlan2_Logic.Containers
         public Bus Read(int busID)
         {
             BusDTO busDTO = busHandler.Read(busID);
-            Bus bus = new Bus(busDTO.BusID, busDTO.PeriodicCleaning, busDTO.PeriodicMaintenance, busDTO.BusNumber, busDTO.BatteryLevel, (BusStatusEnum)busDTO.Status);
+            Bus bus = new Bus(busDTO.BusID, busDTO.PeriodicCleaning, busDTO.SmallCleaning, busDTO.PeriodicMaintenance, busDTO.SmallMaintenance, busDTO.BusNumber, busDTO.BatteryLevel, (BusStatusEnum)busDTO.Status);
             return bus;
         }
 
@@ -32,7 +32,7 @@ namespace BusPlan2_Logic.Containers
             List<Bus> buses = new List<Bus>();
             foreach (BusDTO busDTO in busesDTO)
             {
-                buses.Add(new Bus(busDTO.BusID, busDTO.PeriodicCleaning, busDTO.PeriodicMaintenance, busDTO.BusNumber, busDTO.BatteryLevel, (BusStatusEnum)busDTO.Status, busDTO.ParkingSpace));
+                buses.Add(new Bus(busDTO.BusID, busDTO.PeriodicCleaning, busDTO.SmallCleaning, busDTO.PeriodicMaintenance, busDTO.SmallMaintenance, busDTO.BusNumber, busDTO.BatteryLevel, (BusStatusEnum)busDTO.Status, busDTO.ParkingSpace));
             }
             return buses;
         }

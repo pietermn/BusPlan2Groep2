@@ -14,14 +14,14 @@ namespace BusPlan2_Logic.Containers
 
         public bool Create(Cleaning cleaning)
         {
-            CleaningDTO cleaningDTO = new(cleaning.CleaningID, cleaning.BusID, cleaning.TimeCleaned, cleaning.CleanedBy, (int)cleaning.Status);
+            CleaningDTO cleaningDTO = new(cleaning.CleaningID, cleaning.BusID, cleaning.TimeCleaned, cleaning.CleanedBy, (int)cleaning.Type, (int)cleaning.Status);
             return handler.Create(cleaningDTO);
         }
 
         public Cleaning Read(int busID)
         {
             CleaningDTO cleaningDTO = handler.Read(busID);
-            Cleaning cleaning = new Cleaning(cleaningDTO.CleaningID, cleaningDTO.BusID, cleaningDTO.TimeCleaned, cleaningDTO.CleanedBy, (CleaningStatusEnum)cleaningDTO.Status);
+            Cleaning cleaning = new Cleaning(cleaningDTO.CleaningID, cleaningDTO.BusID, cleaningDTO.TimeCleaned, cleaningDTO.CleanedBy, (CleanRepairTypeEnum)cleaningDTO.Type, (CleanRepairStatusEnum)cleaningDTO.Status);
             return cleaning;
         }
 
@@ -32,7 +32,7 @@ namespace BusPlan2_Logic.Containers
             List<Cleaning> cleanings = new List<Cleaning>();
             foreach (CleaningDTO cleaningDTO in cleaningsDTO)
             {
-                cleanings.Add(new Cleaning(cleaningDTO.CleaningID, cleaningDTO.BusID, cleaningDTO.TimeCleaned, cleaningDTO.CleanedBy, (CleaningStatusEnum)cleaningDTO.Status));
+                cleanings.Add(new Cleaning(cleaningDTO.CleaningID, cleaningDTO.BusID, cleaningDTO.TimeCleaned, cleaningDTO.CleanedBy, (CleanRepairTypeEnum)cleaningDTO.Type, (CleanRepairStatusEnum)cleaningDTO.Status));
             }
             return cleanings;
         }
