@@ -8,7 +8,7 @@ services:
       context: Busplan2 Backend/
       dockerfile: Busplan2 Backend/Dockerfile-back
     environment:
-      - ASPNETCORE_URLS=http://+:5000/
+      - ASPNETCORE_URLS=http://+:5000/;https://+:5001
     ports:
       - "5000:5000"
       - "5001:5001"
