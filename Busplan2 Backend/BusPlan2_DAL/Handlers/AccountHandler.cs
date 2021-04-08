@@ -154,11 +154,12 @@ namespace BusPlan2_DAL.Handlers
         {
             string AccountID;
             int LoginCode;
+            int Team;
             using var connection = Connection.GetConnection();
             try
             {
                 using var command = connection.CreateCommand();
-                command.CommandText = "SELECT AccountID, LoginCode FROM Account WHERE LoginCode = @LoginCode AND Password = @Password;";
+                command.CommandText = "SELECT AccountID, LoginCode, Team FROM Account WHERE LoginCode = @LoginCode AND Password = @Password;";
                 command.Parameters.AddWithValue("@LoginCode", loginCode);
                 command.Parameters.AddWithValue("@Password", password);
                 connection.Open();
@@ -171,6 +172,7 @@ namespace BusPlan2_DAL.Handlers
                 DataRow row = ds.Tables[0].Rows[0];
                 AccountID = Convert.ToString(row["AccountID"]);
                 LoginCode = Convert.ToInt32(row["LoginCode"]);
+                Team = Convert.ToInt32(row["Team"]);
             }
             catch (MySqlException)
             {
@@ -188,7 +190,8 @@ namespace BusPlan2_DAL.Handlers
                 Subject = new ClaimsIdentity(new Claim[]
                 {
                         new Claim(ClaimTypes.Name, AccountID),
-                        new Claim(ClaimTypes.Email,Convert.ToString(LoginCode)),
+                        new Claim(ClaimTypes.Email, Convert.ToString(LoginCode)),
+                        new Claim(ClaimTypes.Actor, Convert.ToString(Team))
                 }),
                 Expires = DateTime.UtcNow.AddDays(2),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
