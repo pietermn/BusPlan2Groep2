@@ -5,7 +5,6 @@ import { ImCross } from "react-icons/im";
 import ParkingSpaceDropdown from "./ParkingSpaceDropdown";
 
 const Popup = ({ bus, path }) => {
-  console.log(bus);
   const { DeletePopup } = useContext(BusContext);
   const { GetAvailableSpaces, ParkingSpaceState } = useContext(ParkingSpaceContext);
 

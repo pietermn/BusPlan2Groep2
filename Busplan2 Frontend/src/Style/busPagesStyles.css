@@ -24,10 +24,19 @@
   height: 100%;
 }
 
-.busmap img {
+.busmap img, .busmap p {
   position: absolute;
   height: 120px;
   width: 70px;
+}
+
+.busmap p {
+  z-index: 5;
+  font-size: 12px;
+  font-weight: 1000;
+  width: 26px;
+  height: fit-content;
+  text-align: center;
 }
 
 .busmap #left30deg {

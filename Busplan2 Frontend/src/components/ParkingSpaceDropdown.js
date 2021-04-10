@@ -1,16 +1,19 @@
 import React, { useContext } from 'react';
 import { Context as ParkingSpaceContext } from '../redux/context/ParkingSpaceContext';
+import { Context as BusContext } from '../redux/context/BusContext';
 
 const ParkingSpaceDropdown = ({ spaces, BusID, currentParkingSpaceID }) => {
 
     
     const { MoveBus, GetOverviewSpaces } = useContext(ParkingSpaceContext)
+    const {DeletePopup} = useContext(BusContext)
     
     async function UpdateBus(MoveInfo) {
         var UpdateInfo = MoveInfo;
         UpdateInfo.newParkingID = parseInt(UpdateInfo.newParkingID);
         await MoveBus(UpdateInfo);
         await GetOverviewSpaces();
+        await DeletePopup();
     }
 
     const SelectDecider = ({ space }) => {
