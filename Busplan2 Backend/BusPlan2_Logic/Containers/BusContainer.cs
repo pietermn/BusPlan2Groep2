@@ -37,6 +37,27 @@ namespace BusPlan2_Logic.Containers
             return buses;
         }
 
+        public List<Bus> ReadCleaning()
+        {
+            List<BusDTO> busesDTO = busHandler.ReadCleaning();
+            List<Bus> buses = new List<Bus>();
+            foreach (BusDTO busDTO in busesDTO)
+            {
+                buses.Add(new Bus(busDTO.BusID, busDTO.PeriodicCleaning, busDTO.SmallCleaning, busDTO.PeriodicMaintenance, busDTO.SmallMaintenance, busDTO.BusNumber, busDTO.BatteryLevel, (BusStatusEnum)busDTO.Status, busDTO.ParkingSpace));
+            }
+            return buses;
+        }
+
+        public List<Bus> ReadMaintenance()
+        {
+            List<BusDTO> busesDTO = busHandler.ReadMaintenance();
+            List<Bus> buses = new List<Bus>();
+            foreach (BusDTO busDTO in busesDTO)
+            {
+                buses.Add(new Bus(busDTO.BusID, busDTO.PeriodicCleaning, busDTO.SmallCleaning, busDTO.PeriodicMaintenance, busDTO.SmallMaintenance, busDTO.BusNumber, busDTO.BatteryLevel, (BusStatusEnum)busDTO.Status, busDTO.ParkingSpace));
+            }
+            return buses;
+        }
 
         public bool Delete(int busID)
         {

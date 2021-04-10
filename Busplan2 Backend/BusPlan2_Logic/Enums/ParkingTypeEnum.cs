@@ -8,6 +8,10 @@ namespace BusPlan2_Logic.Enums
     {
         Normal,
         Charging,
-        FastCharging
+        FastCharging,
+        Maintenance,
+        Cleaning,
+        NotAvailable,
+        Reserve
     }
 }

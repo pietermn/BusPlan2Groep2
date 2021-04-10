@@ -392,7 +392,7 @@
       },
       {
         "parkingspaceID": 63,
-        "parkingNumber": 18,
+        "parkingNumber": 16,
         "y": 80,
         "x": 1124
       }
@@ -403,25 +403,25 @@
     "parkingspaces": [
       {
         "parkingspaceID": 64,
-        "parkingNumber": 16,
+        "parkingNumber": 17,
         "y": 224,
         "x": 280
       },
       {
         "parkingspaceID": 65,
-        "parkingNumber": 16,
+        "parkingNumber": 18,
         "y": 224,
         "x": 430
       },
       {
         "parkingspaceID": 66,
-        "parkingNumber": 16,
+        "parkingNumber": 19,
         "y": 224,
         "x": 580
       },
       {
         "parkingspaceID": 67,
-        "parkingNumber": 16,
+        "parkingNumber": 20,
         "y": 224,
         "x": 730
       }

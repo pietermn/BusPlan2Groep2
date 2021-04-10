@@ -79,7 +79,7 @@ namespace BusPlan2_DAL.Handlers
             {
                 using var command = connection.CreateCommand();
 
-                command.CommandText = "SELECT Bus.BusID, Bus.PeriodicCleaning, Bus.PeriodicMaintenance, Bus.BusNumber, Bus.BatteryLevel, Bus.Status, ParkingSpace.Number FROM Bus INNER JOIN ParkingSpace ON Bus.BusID = ParkingSpace.BusID;";
+                command.CommandText = "SELECT Bus.BusID, Bus.PeriodicCleaning, Bus.PeriodicMaintenance, Bus.SmallCleaning, Bus.SmallMaintenance, Bus.BusNumber, Bus.BatteryLevel, Bus.Status, ParkingSpace.Number FROM Bus INNER JOIN ParkingSpace ON Bus.BusID = ParkingSpace.BusID;";
 
                 connection.Open();
 
@@ -106,6 +106,73 @@ namespace BusPlan2_DAL.Handlers
             }
         }
 
+        public List<BusDTO> ReadCleaning()
+        {
+            List<BusDTO> buses = new List<BusDTO>();
+            using var connection = Connection.GetConnection();
+            {
+                using var command = connection.CreateCommand();
+
+                command.CommandText = "SELECT Bus.BusID, Bus.PeriodicCleaning, Bus.PeriodicMaintenance, Bus.SmallCleaning, Bus.SmallMaintenance, Bus.BusNumber, Bus.BatteryLevel, Bus.Status, ParkingSpace.Number FROM Bus INNER JOIN ParkingSpace ON Bus.BusID = ParkingSpace.BusID INNER JOIN Cleaning ON Cleaning.BusID = Bus.BusID;";
+
+                connection.Open();
+
+                using (MySqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        buses.Add(new BusDTO(
+                            reader.GetInt32("BusID"),
+                            reader.GetDateTime("PeriodicCleaning"),
+                            reader.GetDateTime("SmallCleaning"),
+                            reader.GetDateTime("PeriodicMaintenance"),
+                            reader.GetDateTime("SmallMaintenance"),
+                            reader.GetInt32("BusNumber"),
+                            reader.GetInt32("BatteryLevel"),
+                            reader.GetInt32("Status"),
+                            reader.GetInt32("Number")
+                            ));
+                    }
+                }
+
+                connection.Close();
+                return buses;
+            }
+        }
+
+        public List<BusDTO> ReadMaintenance()
+        {
+            List<BusDTO> buses = new List<BusDTO>();
+            using var connection = Connection.GetConnection();
+            {
+                using var command = connection.CreateCommand();
+
+                command.CommandText = "SELECT Bus.BusID, Bus.PeriodicCleaning, Bus.PeriodicMaintenance, Bus.SmallCleaning, Bus.SmallMaintenance, Bus.BusNumber, Bus.BatteryLevel, Bus.Status, ParkingSpace.Number FROM Bus INNER JOIN ParkingSpace ON Bus.BusID = ParkingSpace.BusID INNER JOIN Maintenance ON Maintenance.BusID = Bus.BusID;";
+
+                connection.Open();
+
+                using (MySqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        buses.Add(new BusDTO(
+                            reader.GetInt32("BusID"),
+                            reader.GetDateTime("PeriodicCleaning"),
+                            reader.GetDateTime("SmallCleaning"),
+                            reader.GetDateTime("PeriodicMaintenance"),
+                            reader.GetDateTime("SmallMaintenance"),
+                            reader.GetInt32("BusNumber"),
+                            reader.GetInt32("BatteryLevel"),
+                            reader.GetInt32("Status"),
+                            reader.GetInt32("Number")
+                            ));
+                    }
+                }
+
+                connection.Close();
+                return buses;
+            }
+        }
 
         public bool Update(BusDTO bus)
         {

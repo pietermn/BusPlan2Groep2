@@ -46,6 +46,36 @@ const GetAllBusses = (dispatch) => async () => {
   }
 };
 
+const GetAllCleaningBusses = (dispatch) => async () => {
+  try {
+    const response = await BackendApi.get("/bus/readcleaning")
+    const busses = response.data;
+    busses.forEach(bus => {
+      bus.periodicCleaning = fixTime(bus.periodicCleaning);
+      bus.periodicMaintenance = fixTime(bus.periodicMaintenance);
+    });
+
+    dispatch({type: "GetAllBusses", payload: busses})
+  } catch {
+    console.log("Something went wrong")
+  }
+}
+
+const GetAllMaintenanceBusses = (dispatch) => async () => {
+  try {
+    const response = await BackendApi.get("/bus/readmaintenance")
+    const busses = response.data;
+    busses.forEach(bus => {
+      bus.periodicCleaning = fixTime(bus.periodicCleaning);
+      bus.periodicMaintenance = fixTime(bus.periodicMaintenance);
+    });
+
+    dispatch({type: "GetAllBusses", payload: busses})
+  } catch {
+    console.log("Something went wrong")
+  }
+}
+
 const GetOneBusPopup = (dispatch) => async (busID) => {
   try {
     const response = await BackendApi.get(`/bus/read?BusID=${busID}`)
@@ -70,7 +100,9 @@ export const { Provider, Context } = createDataContext(
     DeletePopup,
     GetAllBusses,
     GetOneBusPopup,
-    UpdateBus
+    UpdateBus,
+    GetAllCleaningBusses,
+    GetAllMaintenanceBusses
   },
   []
 );
