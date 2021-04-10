@@ -1,0 +1,44 @@
+.cleaning_full_page,
+.overview_full_page,
+.maintenance_full_page {
+  height: 90vh;
+  position: relative;
+  display: flex;
+  max-width: 100vw;
+}
+
+.busmap {
+  position: absolute;
+  margin-left: 17%;
+  margin-top: 2%;
+  background-image: url("../Images/plattegrond.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  height: 95%;
+  width: 80%;
+}
+
+.busmap .grid {
+  height: inherit;
+  width: 100%;
+  height: 100%;
+}
+
+.busmap img {
+  position: absolute;
+  height: 120px;
+  width: 70px;
+}
+
+.busmap #left30deg {
+    transform: rotate(-30deg);
+}
+
+.busmap #right27deg {
+    transform: rotate(27deg);
+    height: 110px;
+}
+
+.busmap #sideways {
+    transform: rotate(90deg);
+}

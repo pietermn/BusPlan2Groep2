@@ -51,7 +51,7 @@
     color: white;
 }
 
-.navbar ul span {
+.navbar ul #account {
     display: flex;
     flex-direction: row;
     margin-left: auto;
