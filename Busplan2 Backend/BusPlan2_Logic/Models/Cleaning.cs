@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using BusPlan2_DAL.DTOs;
 using BusPlan2_DAL.Handlers;
 using BusPlan2_Logic.Enums;
 
@@ -13,24 +10,26 @@ namespace BusPlan2_Logic.Models
         public int BusID { get; set; }
         public DateTime TimeCleaned { get; set; }
         public int CleanedBy { get; set; }
-        public CleaningStatusEnum Status { get; set; }
+        public CleanRepairTypeEnum Type { get; set; }
+        public CleanRepairStatusEnum Status { get; set; }
 
         private readonly CleaningHandler handler = new();
 
         public Cleaning() { }
 
-        public Cleaning(int cleaningID, int busID, DateTime timeCleaned, int cleanedBy, CleaningStatusEnum status)
+        public Cleaning(int cleaningID, int busID, DateTime timeCleaned, int cleanedBy, CleanRepairTypeEnum type, CleanRepairStatusEnum status)
         {
             CleaningID = cleaningID;
             BusID = busID;
             TimeCleaned = timeCleaned;
             CleanedBy = cleanedBy;
+            Type = type;
             Status = status;
         }
 
         public bool Update(Cleaning cleaning)
         {
-            return handler.Update(cleaning.CleaningID, cleaning.BusID, cleaning.CleanedBy, cleaning.TimeCleaned, (int)cleaning.Status);
+            return handler.Update(cleaning.CleaningID, cleaning.BusID, cleaning.CleanedBy, cleaning.TimeCleaned, (int)cleaning.Type, (int)cleaning.Status);
         }
     }
 }

@@ -7,7 +7,17 @@ import { ConnectedRouter } from "connected-react-router";
 import configureStore, { history } from "./redux/store";
 import { Provider as AuthProvider } from "./redux/context/Authcontext";
 import { Provider as BusProvider } from "./redux/context/BusContext";
+<<<<<<< HEAD
 import { Provider as ParkingSpaceProvider } from "./redux/context/ParkingSpaceContext";
+=======
+<<<<<<< HEAD
+import { Provider as CleaningProvider } from "./redux/context/CleaningContext";
+import { Provider as MaintenanceProvider } from "./redux/context/MaintenanceContext";
+
+=======
+import { Provider as ParkingSpaceProvider } from "./redux/context/ParkingSpaceContext";
+>>>>>>> Frontend
+>>>>>>> main
 
 export const store = configureStore();
 

@@ -14,14 +14,14 @@ namespace BusPlan2_Logic.Containers
 
         public bool Create(Bus bus)
         {
-            return busHandler.Create(bus.PeriodicCleaning, bus.PeriodicMaintenance, bus.BusNumber, bus.BatteryLevel, (int)bus.Status);
+            return busHandler.Create(bus.PeriodicCleaning, bus.SmallCleaning, bus.PeriodicMaintenance, bus.SmallMaintenance, bus.BusNumber, bus.BatteryLevel, (int)bus.Status);
         }
 
 
         public Bus Read(int busID)
         {
             BusDTO busDTO = busHandler.Read(busID);
-            Bus bus = new Bus(busDTO.BusID, busDTO.PeriodicCleaning, busDTO.PeriodicMaintenance, busDTO.BusNumber, busDTO.BatteryLevel, (BusStatusEnum)busDTO.Status);
+            Bus bus = new Bus(busDTO.BusID, busDTO.PeriodicCleaning, busDTO.SmallCleaning, busDTO.PeriodicMaintenance, busDTO.SmallMaintenance, busDTO.BusNumber, busDTO.BatteryLevel, (BusStatusEnum)busDTO.Status);
             return bus;
         }
 
@@ -32,7 +32,7 @@ namespace BusPlan2_Logic.Containers
             List<Bus> buses = new List<Bus>();
             foreach (BusDTO busDTO in busesDTO)
             {
-                buses.Add(new Bus(busDTO.BusID, busDTO.PeriodicCleaning, busDTO.PeriodicMaintenance, busDTO.BusNumber, busDTO.BatteryLevel, (BusStatusEnum)busDTO.Status, busDTO.ParkingSpace));
+                buses.Add(new Bus(busDTO.BusID, busDTO.PeriodicCleaning, busDTO.SmallCleaning, busDTO.PeriodicMaintenance, busDTO.SmallMaintenance, busDTO.BusNumber, busDTO.BatteryLevel, (BusStatusEnum)busDTO.Status, busDTO.ParkingSpace));
             }
             return buses;
         }

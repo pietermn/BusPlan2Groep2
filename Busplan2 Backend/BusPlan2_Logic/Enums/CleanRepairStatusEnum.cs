@@ -4,10 +4,10 @@ using System.Text;
 
 namespace BusPlan2_Logic.Enums
 {
-    public enum CleaningStatusEnum
+    public enum CleanRepairStatusEnum
     {
         NotStarted,
-        BeingCleaned,
+        InProgress,
         Finished
     }
 }
