@@ -19,7 +19,6 @@
 }
 
 .busmap .grid {
-  border: solid 1px black;
   height: inherit;
   width: 100%;
   height: 100%;
@@ -31,11 +30,11 @@
   width: 70px;
 }
 
-.busmap #normal {
+.busmap #left30deg {
     transform: rotate(-30deg);
 }
 
-.busmap #slow {
+.busmap #right27deg {
     transform: rotate(27deg);
     height: 110px;
 }

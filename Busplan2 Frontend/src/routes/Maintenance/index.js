@@ -6,7 +6,7 @@ import { Context as BusContext } from "../../redux/context/BusContext";
 import "../../Style/busPagesStyles.css";
 
 const Maintenance = () => {
-  const { state, GetAllBusses } = useContext(BusContext);
+  const { BusState, GetAllBusses } = useContext(BusContext);
   const location = useLocation();
 
   useEffect(() => {
@@ -15,8 +15,8 @@ const Maintenance = () => {
 
   return (
     <div className="cleaning_full_page">
-      {state.busses && <BusSideBar Busses={state.busses} />}
-      {state.bus && <Popup bus={state.bus} path={location.pathname} />}
+      {BusState.busses && <BusSideBar Busses={BusState.busses} />}
+      {BusState.buspopup && <Popup bus={BusState.buspopup} path={location.pathname} />}
       <div className="busmap"></div>
     </div>
   );

@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { GoPrimitiveDot } from "react-icons/go";
@@ -6,9 +6,13 @@ import { Context as BusContext } from "../redux/context/BusContext";
 import "../Style/componentstyles.css";
 import Error404 from "../routes/ExtraPages/404";
 
-const BusSideBar = ({ Busses, Page }) => {
+const BusSideBar = ({ Busses }) => {
   const location = useLocation();
-  const { GetPopup } = useContext(BusContext);
+  const { BusState, GetAllBusses, GetPopup } = useContext(BusContext);
+
+  useEffect(() => {
+    GetAllBusses();
+  }, []);
 
   const BusItemCleaning = ({ bus }) => {
     const [openExtended, setOpenExtended] = useState(false);
@@ -107,20 +111,14 @@ const BusSideBar = ({ Busses, Page }) => {
   };
 
   const BusItemOverview = ({ bus }) => {
-    const [openExtended, setOpenExtended] = useState(false);
-
     return (
       <div className="bus-container">
-        <div
-          className="bus-item"
-          onClick={() => setOpenExtended(!openExtended)}
-        >
+        <div className="bus-item">
           <h1>Bus {bus.busNumber}</h1>
           <h1 style={{ marginLeft: "auto", marginRight: 15 }}>
             P{bus.parkingSpace}
           </h1>
         </div>
-        {openExtended && <BusExtendedItem />}
       </div>
     );
   };
@@ -140,8 +138,8 @@ const BusSideBar = ({ Busses, Page }) => {
 
   return (
     <div className="sidebar-container">
-      {Busses &&
-        Busses.map((value, index) => {
+      {BusState.busses &&
+        BusState.busses.map((value, index) => {
           return <BusItemDecider bus={value} key={index} />;
         })}
     </div>

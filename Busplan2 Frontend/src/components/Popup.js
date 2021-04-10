@@ -93,8 +93,34 @@ const Popup = ({ bus, path }) => {
     );
   };
 
+  const OverviewPopup = () => {
+    return (
+      <div className="popup-container">
+        <ImCross id="delete-icon" onClick={() => DeletePopup()} />
+        <h1>Bus {bus.busNumber}</h1>
+        <span id="doneby">
+          <p id="title-text">Batterij niveau</p>
+          <p id="info-text">{bus.batteryLevel}</p>
+        </span>
+        <span id="date">
+          <p id="title-text">Laatste Periodiek onderhoud</p>
+          <p id="info-text">{bus.periodicMaintenance}</p>
+        </span>
+        <span id="date">
+          <p id="title-text">Laatste Periodieke schoonmaak</p>
+          <p id="info-text">{bus.periodicCleaning}</p>
+        </span>
+        <span id="date">
+          <p id="title-text">Parkeerplaats:</p>
+          <input />
+        </span>
+      </div>
+    );
+  }
+
   if (path == "/schoonmaak") return <CleaningPopup />;
   if (path == "/monteur") return <MaintenancePopup />;
+  if (path == "/overzicht") return <OverviewPopup />;
 };
 
 export default Popup;

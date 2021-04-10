@@ -4,10 +4,10 @@ import { useHistory } from "react-router-dom";
 import "../Style/Navbar.css";
 
 const NavigationBar = () => {
-  const { localSignin, state, signout } = useContext(AuthContext);
+  const { localSignin, AuthState, signout } = useContext(AuthContext);
   //const location = useLocation();
   const history = useHistory();
-  const team = state.team;
+  const team = AuthState.team;
 
   useEffect(() => {
     localSignin();
@@ -55,10 +55,10 @@ const NavigationBar = () => {
       <div className="navbar">
         <ul>
           <li id="li_logotext">Hermes</li>
-          {state.team && <NavbarSelector />}
-          {state.logincode ? (
+          {AuthState.team && <NavbarSelector />}
+          {AuthState.logincode ? (
             <span id="account">
-              <li>{state.logincode}</li>
+              <li>{AuthState.logincode}</li>
               <li onClick={() => signout()}>Signout</li>
             </span>
           ) : (

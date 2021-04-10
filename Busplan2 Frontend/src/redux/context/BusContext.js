@@ -5,11 +5,13 @@ import BackendApi from "../api/BackendApi";
 const authReducer = (state, action) => {
   switch (action.type) {
     case "GetPopup":
-      return { ...state, bus: action.payload };
+      return { ...state, buspopup: action.payload };
     case "DeletePopup":
-      return { ...state, bus: "" };
+      return { ...state, buspopup: "" };
     case "GetAllBusses":
-      return {...state, busses: action.payload}
+      return {...state, busses: action.payload};
+    case "GetOneBus":
+      return {...state, bus: action.payload };
     default:
       return state;
   }
@@ -44,6 +46,15 @@ const GetAllBusses = (dispatch) => async () => {
   }
 };
 
+const GetOneBusPopup = (dispatch) => async (busID) => {
+  try {
+    const response = await BackendApi.get(`/bus/read?BusID=${busID}`)
+    dispatch({type: "GetPopup", payload: response.data});
+  } catch {
+    console.log("Something went wrong")
+  }
+}
+
 const UpdateBus = (dispatch) => async (bus) => {
   try {
     const response = await BackendApi.post("/bus/update", bus)
@@ -58,6 +69,7 @@ export const { Provider, Context } = createDataContext(
     GetPopup,
     DeletePopup,
     GetAllBusses,
+    GetOneBusPopup,
     UpdateBus
   },
   []

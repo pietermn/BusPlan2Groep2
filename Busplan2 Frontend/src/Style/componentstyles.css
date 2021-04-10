@@ -73,10 +73,9 @@
 
 /* Pop up*/
 .popup-container {
-  z-index: 10;
+  z-index: 15;
   border-radius: 15px;
   background-color: #c4c4c4;
-  height: 40%;
   width: 25%;
   margin: auto;
   display: flex;
