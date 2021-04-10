@@ -167,7 +167,7 @@ namespace BusPlan2_DAL.Handlers
             {
                 using var command = connection.CreateCommand();
 
-                command.CommandText = "SELECT * FROM ParkingSpace WHERE occupied = 0 ORDER BY Type ASC;";
+                command.CommandText = "SELECT * FROM ParkingSpace WHERE occupied = 0 ORDER BY Type ASC, ParkingSpaceID ASC;";
 
                 connection.Open();
 
@@ -205,6 +205,29 @@ namespace BusPlan2_DAL.Handlers
                     command.Parameters.AddWithValue("@Type", ParkingSpace.Type);
                     command.Parameters.AddWithValue("@Occupied", ParkingSpace.Occupied);
                     command.Parameters.AddWithValue("@Number", ParkingSpace.Number);
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                    connection.Close();
+
+                    return true;
+                }
+                catch { connection.Close(); return false; }
+            }
+        }
+
+        public bool UpdateOccupied(ParkingSpaceDTO ParkingSpace)
+        {
+            using var connection = Connection.GetConnection();
+            {
+                try
+                {
+                    using var command = connection.CreateCommand();
+
+                    command.CommandText = "UPDATE ParkingSpace SET BusID = @BusID, Occupied = @Occupied WHERE ParkingSpaceID = @ParkingSpaceID";
+                    command.Parameters.AddWithValue("@ParkingSpaceID", ParkingSpace.ParkingSpaceID);
+                    command.Parameters.AddWithValue("@BusID", ParkingSpace.BusID);
+                    command.Parameters.AddWithValue("@Occupied", ParkingSpace.Occupied);
 
                     connection.Open();
                     command.ExecuteNonQuery();

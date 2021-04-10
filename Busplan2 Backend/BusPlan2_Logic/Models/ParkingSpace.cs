@@ -38,5 +38,11 @@ namespace BusPlan2_Logic.Models
             return handler.Update(parkingSpaceDTO);
         }
 
+        public bool UpdateOccupied(ParkingSpace parkingSpace)
+        {
+            ParkingSpaceDTO parkingSpaceDTO = new ParkingSpaceDTO(parkingSpace.ParkingSpaceID, parkingSpace.BusID, parkingSpace.Occupied);
+            return handler.UpdateOccupied(parkingSpaceDTO);
+        }
+
     }
 }

@@ -1,7 +1,17 @@
-import React from 'react';
-const Coords = require("../components/ParkingSpaceCoords.json");
+import React, { useContext } from 'react';
+import { Context as ParkingSpaceContext } from '../redux/context/ParkingSpaceContext';
 
-const ParkingSpaceDropdown = ({ spaces }) => {
+const ParkingSpaceDropdown = ({ spaces, BusID, currentParkingSpaceID }) => {
+
+    
+    const { MoveBus, GetOverviewSpaces } = useContext(ParkingSpaceContext)
+    
+    async function UpdateBus(MoveInfo) {
+        var UpdateInfo = MoveInfo;
+        UpdateInfo.newParkingID = parseInt(UpdateInfo.newParkingID);
+        await MoveBus(UpdateInfo);
+        await GetOverviewSpaces();
+    }
 
     const SelectDecider = ({ space }) => {
         if (space.type == 0)
@@ -21,7 +31,8 @@ const ParkingSpaceDropdown = ({ spaces }) => {
     }
 
     return (
-        <select>
+        <select onChange={(e) => { UpdateBus({ newParkingID: e.target.value, currentParkingID: currentParkingSpaceID, BusID }); GetOverviewSpaces() }}>
+            <option></option>
             {
                 spaces.map((value, index) => {
                     return (

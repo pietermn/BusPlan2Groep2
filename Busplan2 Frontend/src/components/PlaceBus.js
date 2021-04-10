@@ -19,17 +19,17 @@ const PlaceBus = ({ parkingspace }) => {
             }
         }
 
-        if (type == 2 && parkingspace.number == 17 || type == 2 && parkingspace.number == 18 || type == 2 && parkingspace.number == 19 || type == 2 && parkingspace.number == 20)
+        if (type == 2 && parkingnumber == 17 || type == 2 && parkingnumber == 18 || type == 2 && parkingnumber == 19 || type == 2 && parkingnumber == 20)
             return FindParkingSpace(3);
-        if (type == 6 && parkingspace.number == 1 || type == 6 && parkingspace.number == 2)
+        if (type == 5 && parkingnumber == 1 || type == 5 && parkingnumber == 2)
             return FindParkingSpace(7)
-        if (type == 7)
+        if (type == 6)
             return FindParkingSpace(8);
         else return FindParkingSpace(type);
     }
 
     const data = GetCoords(parkingspace.type, parkingspace.number);
-    
+
     if (parkingspace.type == 0) {
         return (
             <img

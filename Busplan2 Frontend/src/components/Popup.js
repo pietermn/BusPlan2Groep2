@@ -5,6 +5,7 @@ import { ImCross } from "react-icons/im";
 import ParkingSpaceDropdown from "./ParkingSpaceDropdown";
 
 const Popup = ({ bus, path }) => {
+  console.log(bus);
   const { DeletePopup } = useContext(BusContext);
   const { GetAvailableSpaces, ParkingSpaceState } = useContext(ParkingSpaceContext);
 
@@ -120,7 +121,7 @@ const Popup = ({ bus, path }) => {
         </span>
         <span id="date">
           <p id="title-text">Verplaats naar</p>
-          {ParkingSpaceState.available && <ParkingSpaceDropdown spaces={ParkingSpaceState.available} />}
+          {ParkingSpaceState.available && <ParkingSpaceDropdown BusID={bus.busID} spaces={ParkingSpaceState.available} currentParkingSpaceID={bus.parkingSpace}/>}
         </span>
       </div>
     );

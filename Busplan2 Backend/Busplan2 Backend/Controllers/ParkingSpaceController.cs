@@ -119,5 +119,19 @@ namespace Busplan2_Backend.Controllers
                 return StatusCode(501);
             }
         }
+
+        [Route("updateoccupied"), HttpPost]
+        public IActionResult UpdateOccupied(ParkingSpace pspace)
+        {
+            if (parkingspace.UpdateOccupied(pspace))
+            {
+                return Ok();
+            }
+            else
+            {
+                //Error in code
+                return StatusCode(501);
+            }
+        }
     }
 }

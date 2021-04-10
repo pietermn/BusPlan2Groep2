@@ -37,6 +37,24 @@ const GetAvailableSpaces = (dispatch) => async () => {
   dispatch({ type: "GetAvailable", payload: response.data });
 }
 
+const MoveBus = () => async (MoveBusInfo) => {
+  try {
+    await BackendApi.post("/parkingspace/updateoccupied", {
+      parkingSpaceID: MoveBusInfo.newParkingID,
+      busID: MoveBusInfo.busID,
+      occupied: true
+    })
+
+    await BackendApi.post("/parkingspace/updateoccupied", {
+      parkingSpaceID: MoveBusInfo.currentParkingID,
+      busID: MoveBusInfo.busID,
+      occupied: false
+    })
+  } catch {
+    console.log("Something went wrong")
+  }
+}
+
 export const { Provider, Context } = createDataContext(
   authReducer,
   {
@@ -44,6 +62,7 @@ export const { Provider, Context } = createDataContext(
     GetCleaningSpaces,
     GetMaintenanceSpaces,
     GetAvailableSpaces,
+    MoveBus
   },
   []
 );

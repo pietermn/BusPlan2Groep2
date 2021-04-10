@@ -18,6 +18,13 @@ namespace BusPlan2_DAL.DTOs
 
         }
 
+        public ParkingSpaceDTO(int parkingSpaceID, int busID, bool occupied)
+        {
+            ParkingSpaceID = parkingSpaceID;
+            BusID = busID;
+            Occupied = occupied;
+        }
+
         public ParkingSpaceDTO(int parkingSpaceID, int busID, int number, int type, bool occupied)
         {
             ParkingSpaceID = parkingSpaceID;
