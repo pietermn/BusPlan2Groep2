@@ -130,8 +130,7 @@ namespace BusPlan2_DAL.Handlers
                             reader.GetDateTime("SmallMaintenance"),
                             reader.GetInt32("BusNumber"),
                             reader.GetInt32("BatteryLevel"),
-                            reader.GetInt32("Status"),
-                            reader.GetInt32("Number")
+                            reader.GetInt32("Status")
                             ));
                     }
                 }
@@ -164,8 +163,7 @@ namespace BusPlan2_DAL.Handlers
                             reader.GetDateTime("SmallMaintenance"),
                             reader.GetInt32("BusNumber"),
                             reader.GetInt32("BatteryLevel"),
-                            reader.GetInt32("Status"),
-                            reader.GetInt32("Number")
+                            reader.GetInt32("Status")
                             ));
                     }
                 }
