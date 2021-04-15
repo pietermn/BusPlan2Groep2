@@ -3,6 +3,7 @@ import { Redirect, Route, Switch } from "react-router";
 import { useLocation } from "react-router-dom";
 import PageLoader from "../Layout/PageLoader";
 import Account from "./Account";
+import BusDriver from "./BusDriver";
 import Cleaning from "./Cleaning";
 import Maintenance from "./Maintenance";
 import Overview from "./Overview";
@@ -21,6 +22,7 @@ const Routes = () => {
           <Route path="/schoonmaak" component={Cleaning} />
           <Route path="/overzicht" component={Overview} />
           <Route path="/monteur" component={Maintenance} />
+          <Route path="/bus" component={BusDriver} />
           <Route component={lazy(() => import("./ExtraPages/404"))} />
         </Switch>
       </Suspense>
