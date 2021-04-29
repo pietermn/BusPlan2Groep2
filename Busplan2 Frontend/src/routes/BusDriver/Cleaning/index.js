@@ -1,20 +1,32 @@
-import React from 'react';
+import React, {useState, useContext} from 'react';
 import {useLocation, useHistory} from 'react-router-dom';
+import {Context as BusContext} from '../../../redux/context/BusContext';
 
 const Cleaning = () => {
     const location = useLocation();
-    const busID = location.state.busID;
-    const team = location.state.team;
+    const history = useHistory();
+    const AdhocObj = location.state.AdhocObj;
+    const [currentSelected, setCurrentSelected] = useState(3);
+    const [description, setDescription] = useState('');
+    const {CreateAdhoc} = useContext(BusContext);
+
+    const handleButton = () => {
+        AdhocObj.type = parseInt(currentSelected);
+        AdhocObj.description = description;
+
+        CreateAdhoc(AdhocObj);
+        history.push("driveto", {AdhocObj});
+    }
 
     return (
-        <div className="cleaning">
-            <select>
-                <option value={3}>Motor problemen</option>
-                <option value={4}>Exterieur schade</option>
-                <option value={5}>Interieur schade</option>
+        <div className="Dropdown-page">
+            <select onChange={(e) => setCurrentSelected(e.target.value)}>
+                <option value={3}>Exterieur Schoonmaak</option>
+                <option value={4}>Interieur Schoonmaak</option>
+                <option value={5}>Vloer Schoonmaak</option>
             </select>
-            <textarea placeholder="Omschrijving..." />
-            <button>volgende</button>
+            <textarea  onChange={(e) => setDescription(e.target.value)} placeholder="Omschrijving..." />
+            <button onClick={() => handleButton()}>volgende</button>
         </div>
     )
 }

@@ -4,11 +4,11 @@ import BackendApi from '../redux/api/BackendApi';
 const Coords = require('../components/ParkingSpaceCoords.json');
 
 const PlaceBus = ({ parkingspace }) => {
-
     const [busNumber, setBusNumber] = useState(0);
 
     async function GetBusNumber() {
         const response = await BackendApi.get(`/bus/read?busID=${parkingspace.busID}`)
+        console.log(response.data);
         setBusNumber(response.data.busNumber);
     }
     GetBusNumber();

@@ -4,19 +4,22 @@ import { useHistory, useLocation } from 'react-router-dom';
 const Problems = () => {
     const history = useHistory();
     const location = useLocation();
-    const busID = location.state.busID
+    const AdhocObj = location.state.AdhocObj
 
     const handleButton = (option) => {
         if (option == "cleaning") {
-            history.push("cleaning", { busID, team: 1 })
+            AdhocObj.team = 1;
+            history.push("cleaning", { AdhocObj })
         }
 
         if (option == "maintenance") {
-            history.push("maintenance", { busID, team: 2 })
+            AdhocObj.team = 2;
+            history.push("maintenance", { AdhocObj })
         }
 
         if (option == "other") {
-            history.push("other", {busID, team: 3})
+            AdhocObj.team = 3;
+            history.push("other", {AdhocObj})
         }
     }
 
@@ -24,7 +27,7 @@ const Problems = () => {
         <div className="problems">
             <button onClick={() => handleButton("maintenance")}>Heeft reparatie nodig</button>
             <button onClick={() => handleButton("cleaning")} id="button-2">Heeft schoonmaak nodig</button>
-            <button>Anders...</button>
+            <button onClick={() => handleButton("other")}>Anders...</button>
         </div>
     )
 }

@@ -5,13 +5,21 @@ const Manual = () => {
     const [busID, setBusID] = useState('');
     const history = useHistory();
 
+    const AdhocObj = {
+        busID: "",
+        type: "",
+        team: "",
+        description: "",
+    }
+
     const handleNumberButton = (char) => {
         if (char == "C") {
             setBusID("");
         }
 
         if (char == "->") {
-            history.push('drivein', {busID: busID});
+            AdhocObj.busID = parseInt(busID);
+            history.push('drivein', {AdhocObj});
         }
 
         if (busID.length != 2) {

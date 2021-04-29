@@ -7,6 +7,7 @@ import BusDriver from "./BusDriver";
 import Cleaning from "./Cleaning";
 import Maintenance from "./Maintenance";
 import Overview from "./Overview";
+import Planner from "./Planner";
 
 const Routes = () => {
   const location = useLocation();
@@ -23,6 +24,7 @@ const Routes = () => {
           <Route path="/overzicht" component={Overview} />
           <Route path="/monteur" component={Maintenance} />
           <Route path="/bus" component={BusDriver} />
+          <Route path="/planner" component={Planner} />
           <Route component={lazy(() => import("./ExtraPages/404"))} />
         </Switch>
       </Suspense>

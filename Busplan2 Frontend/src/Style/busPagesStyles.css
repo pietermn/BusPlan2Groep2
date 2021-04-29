@@ -193,14 +193,14 @@
   background-color: #553D67;
 }
 
-.maintenance {
+.Dropdown-page{
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.maintenance select, .maintenance textarea {
+.Dropdown-page select, .Dropdown-page textarea {
   width: 60%;
   background-color: #F04977;
   color: white;
@@ -209,12 +209,12 @@
   margin-top: 1%;
 }
 
-.maintenance select {
+.Dropdown-page select {
   height: 20%;
   font-size: 38px;
 }
 
-.maintenance textarea {
+.Dropdown-page textarea {
   width: 56%;
   border: none;
   padding: 1% 2% 0 2%;
@@ -223,11 +223,11 @@
   color: white;
 }
 
-.maintenance textarea::placeholder {
+.Dropdown-page textarea::placeholder {
   color: rgba(255, 255, 255, 0.7);
 }
 
-.maintenance button {
+.Dropdown-page button {
   margin-top: 1%;
   width: 25%;
   height: 10%;

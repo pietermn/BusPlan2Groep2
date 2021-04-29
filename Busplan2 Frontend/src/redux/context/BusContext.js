@@ -9,9 +9,9 @@ const authReducer = (state, action) => {
     case "DeletePopup":
       return { ...state, buspopup: "" };
     case "GetAllBusses":
-      return {...state, busses: action.payload};
+      return { ...state, busses: action.payload };
     case "GetOneBus":
-      return {...state, bus: action.payload };
+      return { ...state, bus: action.payload };
     default:
       return state;
   }
@@ -40,7 +40,7 @@ const GetAllBusses = (dispatch) => async () => {
       bus.periodicMaintenance = fixTime(bus.periodicMaintenance);
     });
 
-    dispatch({type: "GetAllBusses", payload: busses})
+    dispatch({ type: "GetAllBusses", payload: busses })
   } catch {
     console.log("Something went wrong")
   }
@@ -55,7 +55,7 @@ const GetAllCleaningBusses = (dispatch) => async () => {
       bus.periodicMaintenance = fixTime(bus.periodicMaintenance);
     });
 
-    dispatch({type: "GetAllBusses", payload: busses})
+    dispatch({ type: "GetAllBusses", payload: busses })
   } catch {
     console.log("Something went wrong")
   }
@@ -70,7 +70,7 @@ const GetAllMaintenanceBusses = (dispatch) => async () => {
       bus.periodicMaintenance = fixTime(bus.periodicMaintenance);
     });
 
-    dispatch({type: "GetAllBusses", payload: busses})
+    dispatch({ type: "GetAllBusses", payload: busses })
   } catch {
     console.log("Something went wrong")
   }
@@ -79,15 +79,23 @@ const GetAllMaintenanceBusses = (dispatch) => async () => {
 const GetOneBusPopup = (dispatch) => async (busID) => {
   try {
     const response = await BackendApi.get(`/bus/read?BusID=${busID}`)
-    dispatch({type: "GetPopup", payload: response.data});
+    dispatch({ type: "GetPopup", payload: response.data });
   } catch {
     console.log("Something went wrong")
   }
 }
 
-const UpdateBus = (dispatch) => async (bus) => {
+const CreateAdhoc = (dispatch) => async (Adhoc) => {
   try {
-    const response = await BackendApi.post("/bus/update", bus)
+    const response = await BackendApi.post("/adhoc/create", Adhoc)
+  } catch {
+    console.log("Something went wrong");
+  }
+}
+
+const GetDriveToParkingSpace = (dispatch) => async (BusID) => {
+  try {
+    const response = await BackendApi.get("/adhoc/get", BusID);
   } catch {
     console.log("Something went wrong");
   }
@@ -100,9 +108,19 @@ export const { Provider, Context } = createDataContext(
     DeletePopup,
     GetAllBusses,
     GetOneBusPopup,
-    UpdateBus,
+    CreateAdhoc,
     GetAllCleaningBusses,
-    GetAllMaintenanceBusses
+    GetAllMaintenanceBusses,
+    GetDriveToParkingSpace
+  },
+  {
+    DriveTo: {
+      "parkingSpaceID": 23,
+      "busID": 7,
+      "number": 20,
+      "type": 0,
+      "occupied": true
+    }
   },
   []
 );

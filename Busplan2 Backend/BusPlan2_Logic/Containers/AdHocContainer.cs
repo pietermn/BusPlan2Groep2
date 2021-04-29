@@ -13,6 +13,8 @@ namespace BusPlan2_Logic.Containers
 
         public bool Create(AdHoc adHoc)
         {
+            adHoc.TimeDone = DateTime.Now;
+
             AdHocDTO adHocDTO = new(adHoc.AdHocID, adHoc.BusID, adHoc.Type, adHoc.Team, adHoc.Description, adHoc.TimeDone);
             return adhocHandler.Create(adHocDTO);
         }
