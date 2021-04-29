@@ -11,6 +11,7 @@ namespace BusPlan2_Logic.Enums
         InteriorDamage,
         ExteriorCleaning,
         InteriorCleaning,
-        FloorCleaning
+        FloorCleaning,
+        Anders
     }
 }
