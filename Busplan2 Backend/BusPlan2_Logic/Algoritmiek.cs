@@ -15,7 +15,7 @@ namespace BusPlan2_Logic
         static DateTime naElfUur = new DateTime(2021, 8, 2, 23, 00, 00);
         static DateTime voorVijfUur = new DateTime(2021, 8, 2, 5, 00, 00);
 
-        public ParkingSpace test(int id)
+        public ParkingSpace GeefParkeerPlaats(int id)
         {
             Bus bus = busContainer.Read(id);
             int adhocType = (int)adHocContainer.ReadFromBusID(id).Type;
