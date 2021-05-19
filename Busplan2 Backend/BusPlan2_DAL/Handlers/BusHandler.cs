@@ -44,7 +44,7 @@ namespace BusPlan2_DAL.Handlers
             {
                 using var command = connection.CreateCommand();
 
-                command.CommandText = "SELECT * FROM Bus WHERE BusID = @busID";
+                command.CommandText = "SELECT Bus.BusID, Bus.PeriodicCleaning, Bus.PeriodicMaintenance, Bus.SmallCleaning, Bus.SmallMaintenance, Bus.BusNumber, Bus.BatteryLevel, Bus.Status, ParkingSpace.ParkingSpaceID FROM Bus INNER JOIN ParkingSpace ON Bus.BusID = ParkingSpace.BusID AND Bus.BusID = @busID;";
                 command.Parameters.AddWithValue("@busID", busID);
 
                 connection.Open();
@@ -61,7 +61,8 @@ namespace BusPlan2_DAL.Handlers
                             reader.GetDateTime("SmallMaintenance"),
                             reader.GetInt32("BusNumber"),
                             reader.GetInt32("BatteryLevel"),
-                            reader.GetInt32("Status")
+                            reader.GetInt32("Status"),
+                            reader.GetInt32("ParkingSpaceID")
                             );
                     }
                 }
@@ -79,7 +80,7 @@ namespace BusPlan2_DAL.Handlers
             {
                 using var command = connection.CreateCommand();
 
-                command.CommandText = "SELECT Bus.BusID, Bus.PeriodicCleaning, Bus.PeriodicMaintenance, Bus.BusNumber, Bus.BatteryLevel, Bus.Status, ParkingSpace.Number FROM Bus INNER JOIN ParkingSpace ON Bus.BusID = ParkingSpace.BusID;";
+                command.CommandText = "SELECT Bus.BusID, Bus.PeriodicCleaning, Bus.PeriodicMaintenance, Bus.SmallCleaning, Bus.SmallMaintenance, Bus.BusNumber, Bus.BatteryLevel, Bus.Status, ParkingSpace.ParkingSpaceID FROM Bus INNER JOIN ParkingSpace ON Bus.BusID = ParkingSpace.BusID;";
 
                 connection.Open();
 
@@ -96,7 +97,7 @@ namespace BusPlan2_DAL.Handlers
                             reader.GetInt32("BusNumber"),
                             reader.GetInt32("BatteryLevel"),
                             reader.GetInt32("Status"),
-                            reader.GetInt32("Number")
+                            reader.GetInt32("ParkingSpaceID")
                             ));
                     }
                 }
@@ -106,6 +107,71 @@ namespace BusPlan2_DAL.Handlers
             }
         }
 
+        public List<BusDTO> ReadCleaning()
+        {
+            List<BusDTO> buses = new List<BusDTO>();
+            using var connection = Connection.GetConnection();
+            {
+                using var command = connection.CreateCommand();
+
+                command.CommandText = "SELECT Bus.BusID, Bus.PeriodicCleaning, Bus.PeriodicMaintenance, Bus.SmallCleaning, Bus.SmallMaintenance, Bus.BusNumber, Bus.BatteryLevel, Bus.Status, ParkingSpace.ParkingSpaceID FROM Bus INNER JOIN ParkingSpace ON Bus.BusID = ParkingSpace.BusID INNER JOIN Cleaning ON Cleaning.BusID = Bus.BusID;";
+
+                connection.Open();
+
+                using (MySqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        buses.Add(new BusDTO(
+                            reader.GetInt32("BusID"),
+                            reader.GetDateTime("PeriodicCleaning"),
+                            reader.GetDateTime("SmallCleaning"),
+                            reader.GetDateTime("PeriodicMaintenance"),
+                            reader.GetDateTime("SmallMaintenance"),
+                            reader.GetInt32("BusNumber"),
+                            reader.GetInt32("BatteryLevel"),
+                            reader.GetInt32("Status")
+                            ));
+                    }
+                }
+
+                connection.Close();
+                return buses;
+            }
+        }
+
+        public List<BusDTO> ReadMaintenance()
+        {
+            List<BusDTO> buses = new List<BusDTO>();
+            using var connection = Connection.GetConnection();
+            {
+                using var command = connection.CreateCommand();
+
+                command.CommandText = "SELECT Bus.BusID, Bus.PeriodicCleaning, Bus.PeriodicMaintenance, Bus.SmallCleaning, Bus.SmallMaintenance, Bus.BusNumber, Bus.BatteryLevel, Bus.Status, ParkingSpace.ParkingSpaceID FROM Bus INNER JOIN ParkingSpace ON Bus.BusID = ParkingSpace.BusID INNER JOIN Maintenance ON Maintenance.BusID = Bus.BusID;";
+
+                connection.Open();
+
+                using (MySqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        buses.Add(new BusDTO(
+                            reader.GetInt32("BusID"),
+                            reader.GetDateTime("PeriodicCleaning"),
+                            reader.GetDateTime("SmallCleaning"),
+                            reader.GetDateTime("PeriodicMaintenance"),
+                            reader.GetDateTime("SmallMaintenance"),
+                            reader.GetInt32("BusNumber"),
+                            reader.GetInt32("BatteryLevel"),
+                            reader.GetInt32("Status")
+                            ));
+                    }
+                }
+
+                connection.Close();
+                return buses;
+            }
+        }
 
         public bool Update(BusDTO bus)
         {
@@ -124,7 +190,7 @@ namespace BusPlan2_DAL.Handlers
                     command.Parameters.AddWithValue("@busNumber", bus.BusNumber);
                     command.Parameters.AddWithValue("@batteryLevel", bus.BatteryLevel);
                     command.Parameters.AddWithValue("@status", bus.Status);
-                    
+
                     connection.Open();
                     command.ExecuteNonQuery();
                     connection.Close();

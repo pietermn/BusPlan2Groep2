@@ -1,0 +1,69 @@
+.planner_full_page {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.planner-navbar {
+    width: 100%;
+    background-color: rgba(36, 37, 130, 0.7);
+    height: 5%;
+    display: flex;
+    color: white;
+    font-family: var(--fontstyle);
+}
+
+.planner-navbar ul {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+}
+
+.planner-navbar li {
+    margin-left: 15px;
+    margin-right: 15px;
+    list-style-type: none;
+    font-size: 16px;
+    font-family: var(--fontstyle);
+    padding-bottom: 5px;
+    padding-top: 5px;
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.planner-navbar li:hover {
+    cursor: pointer;
+}
+
+.planner-table {
+    width: 70%;
+    height: 85%;
+    border: 1px solid black;
+    display: flex;
+    align-self: center;
+    margin-top: 3%;
+}
+
+.planner-table div {
+    width: 25%;
+    background-color: #272DC1;
+}
+
+.planner-table .status, .planner-table .date {
+    background-color: #242582;
+}
+
+.planner-table .bus, .planner-table .status, .planner-table .doneby {
+    border-right: 1px solid black;
+}
+
+.planner-table div>ul {
+    list-style-type: none;
+    color: white;
+    font-family: var(--fontstyle);
+    display: flex;
+    justify-content: center;
+}

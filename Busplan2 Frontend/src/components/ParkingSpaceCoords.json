@@ -10,7 +10,7 @@
       },
       {
         "parkingSpaceID": 2,
-        "parkingNumber": 3,
+        "parkingNumber": 2,
         "y": 640,
         "x": 168
       },
@@ -45,128 +45,128 @@
         "x": 360
       },
       {
-        "parkingSpaceID": 7,
-        "parkingNumber": 7,
-        "y": 640,
-        "x": 398
-      },
-      {
         "parkingSpaceID": 8,
         "parkingNumber": 8,
         "y": 640,
-        "x": 436
+        "x": 398
       },
       {
         "parkingSpaceID": 9,
         "parkingNumber": 9,
         "y": 640,
-        "x": 476
+        "x": 436
       },
       {
         "parkingSpaceID": 10,
         "parkingNumber": 10,
         "y": 640,
+        "x": 476
+      },
+      {
+        "parkingSpaceID": 10,
+        "parkingNumber": 11,
+        "y": 640,
         "x": 514
       },
       {
         "parkingSpaceID": 11,
-        "parkingNumber": 11,
+        "parkingNumber": 12,
         "y": 640,
         "x": 552
       },
       {
         "parkingSpaceID": 12,
-        "parkingNumber": 12,
+        "parkingNumber": 13,
         "y": 640,
         "x": 592
       },
       {
         "parkingSpaceID": 13,
-        "parkingNumber": 13,
+        "parkingNumber": 14,
         "y": 640,
         "x": 630
       },
       {
         "parkingSpaceID": 14,
-        "parkingNumber": 14,
+        "parkingNumber": 15,
         "y": 640,
         "x": 668
       },
       {
         "parkingSpaceID": 15,
-        "parkingNumber": 15,
+        "parkingNumber": 16,
         "y": 640,
         "x": 708
       },
       {
         "parkingSpaceID": 16,
-        "parkingNumber": 16,
+        "parkingNumber": 17,
         "y": 640,
         "x": 746
       },
       {
         "parkingSpaceID": 17,
-        "parkingNumber": 17,
+        "parkingNumber": 18,
         "y": 640,
         "x": 784
       },
       {
         "parkingSpaceID": 18,
-        "parkingNumber": 18,
+        "parkingNumber": 19,
         "y": 640,
         "x": 822
       },
       {
         "parkingSpaceID": 19,
-        "parkingNumber": 19,
+        "parkingNumber": 20,
         "y": 640,
         "x": 860
       },
       {
         "parkingSpaceID": 20,
-        "parkingNumber": 20,
+        "parkingNumber": 21,
         "y": 640,
         "x": 898
       },
       {
         "parkingSpaceID": 21,
-        "parkingNumber": 21,
+        "parkingNumber": 22,
         "y": 640,
         "x": 936
       },
       {
         "parkingSpaceID": 22,
-        "parkingNumber": 22,
+        "parkingNumber": 23,
         "y": 640,
         "x": 974
       },
       {
         "parkingSpaceID": 23,
-        "parkingNumber": 23,
+        "parkingNumber": 24,
         "y": 640,
         "x": 1012
       },
       {
         "parkingSpaceID": 24,
-        "parkingNumber": 24,
+        "parkingNumber": 25,
         "y": 640,
         "x": 1052
       },
       {
         "parkingSpaceID": 25,
-        "parkingNumber": 25,
+        "parkingNumber": 26,
         "y": 640,
         "x": 1092
       },
       {
         "parkingSpaceID": 26,
-        "parkingNumber": 26,
+        "parkingNumber": 27,
         "y": 640,
         "x": 1130
       },
       {
         "parkingSpaceID": 27,
-        "parkingNumber": 27,
+        "parkingNumber": 28,
         "y": 640,
         "x": 1168
       }
@@ -255,43 +255,43 @@
       },
       {
         "parkingspaceID": 41,
-        "parkingNumber": 13,
+        "parkingNumber": 14,
         "y": 405,
         "x": 547
       },
       {
         "parkingspaceID": 42,
-        "parkingNumber": 14,
+        "parkingNumber": 15,
         "y": 405,
         "x": 586
       },
       {
         "parkingspaceID": 43,
-        "parkingNumber": 15,
+        "parkingNumber": 16,
         "y": 405,
         "x": 623
       },
       {
         "parkingspaceID": 44,
-        "parkingNumber": 16,
+        "parkingNumber": 17,
         "y": 405,
         "x": 662
       },
       {
         "parkingspaceID": 45,
-        "parkingNumber": 17,
+        "parkingNumber": 18,
         "y": 405,
         "x": 701
       },
       {
         "parkingspaceID": 46,
-        "parkingNumber": 18,
+        "parkingNumber": 19,
         "y": 405,
         "x": 739
       },
       {
         "parkingspaceID": 47,
-        "parkingNumber": 19,
+        "parkingNumber": 20,
         "y": 405,
         "x": 777
       }
@@ -380,19 +380,19 @@
       },
       {
         "parkingspaceID": 61,
-        "parkingNumber": 34,
+        "parkingNumber": 14,
         "y": 80,
         "x": 1024
       },
       {
         "parkingspaceID": 62,
-        "parkingNumber": 36,
+        "parkingNumber": 15,
         "y": 80,
         "x": 1073
       },
       {
         "parkingspaceID": 63,
-        "parkingNumber": 18,
+        "parkingNumber": 16,
         "y": 80,
         "x": 1124
       }
@@ -403,25 +403,25 @@
     "parkingspaces": [
       {
         "parkingspaceID": 64,
-        "parkingNumber": 16,
+        "parkingNumber": 17,
         "y": 224,
         "x": 280
       },
       {
         "parkingspaceID": 65,
-        "parkingNumber": 16,
+        "parkingNumber": 18,
         "y": 224,
         "x": 430
       },
       {
         "parkingspaceID": 66,
-        "parkingNumber": 16,
+        "parkingNumber": 19,
         "y": 224,
         "x": 580
       },
       {
         "parkingspaceID": 67,
-        "parkingNumber": 16,
+        "parkingNumber": 20,
         "y": 224,
         "x": 730
       }
@@ -505,7 +505,7 @@
         "x": 255
       },
       {
-        "parkingspaceID": 78,
+        "parkingspaceID": 77,
         "parkingNumber": 2,
         "y": 515,
         "x": 406

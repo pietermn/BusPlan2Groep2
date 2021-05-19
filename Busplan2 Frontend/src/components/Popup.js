@@ -1,9 +1,16 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Context as BusContext } from "../redux/context/BusContext";
+import { Context as ParkingSpaceContext } from "../redux/context/ParkingSpaceContext";
 import { ImCross } from "react-icons/im";
+import ParkingSpaceDropdown from "./ParkingSpaceDropdown";
 
 const Popup = ({ bus, path }) => {
   const { DeletePopup } = useContext(BusContext);
+  const { GetAvailableSpaces, ParkingSpaceState } = useContext(ParkingSpaceContext);
+
+  useEffect(() => {
+    GetAvailableSpaces();
+  }, [])
 
   const CleaningPopup = () => {
     const options = [
@@ -94,6 +101,7 @@ const Popup = ({ bus, path }) => {
   };
 
   const OverviewPopup = () => {
+
     return (
       <div className="popup-container">
         <ImCross id="delete-icon" onClick={() => DeletePopup()} />
@@ -111,8 +119,8 @@ const Popup = ({ bus, path }) => {
           <p id="info-text">{bus.periodicCleaning}</p>
         </span>
         <span id="date">
-          <p id="title-text">Parkeerplaats:</p>
-          <input />
+          <p id="title-text">Verplaats naar</p>
+          {ParkingSpaceState.available && <ParkingSpaceDropdown BusID={bus.busID} spaces={ParkingSpaceState.available} currentParkingSpaceID={bus.parkingSpace}/>}
         </span>
       </div>
     );

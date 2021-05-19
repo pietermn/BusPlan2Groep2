@@ -68,12 +68,13 @@ const signin = (dispatch) => async (logincodeString, password, history) => {
   }
 };
 
-const signout = (dispatch) => async () => {
+const signout = (dispatch) => async (history) => {
   localStorage.removeItem("jwt-token");
   localStorage.removeItem("account_id");
   localStorage.removeItem("logincode");
   localStorage.removeItem("team");
 
+  history.push('/');
   dispatch({ type: "signout" });
 };
 

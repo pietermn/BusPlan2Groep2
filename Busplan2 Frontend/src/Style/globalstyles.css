@@ -2,11 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Baloo+Thambi&display=swap');
 
 :root {
-    --specialColor: #fdd08d;
     --firstColor: #FFFFFF;
-    --secondColor: #ECECEC;
-
-    --buttonColor: #F8851B;
+    --secondColor: #272DC1;
 
     --fontstyle: 'Baloo Thambi 2';
     --fontweight900: 900;
