@@ -8,7 +8,6 @@ const PlaceBus = ({ parkingspace }) => {
 
     async function GetBusNumber() {
         const response = await BackendApi.get(`/bus/read?busID=${parkingspace.busID}`)
-        console.log(response.data);
         setBusNumber(response.data.busNumber);
     }
     GetBusNumber();

@@ -55,11 +55,11 @@ const NavigationBar = () => {
       <div className="navbar">
         <ul>
           <li id="li_logotext">Hermes</li>
-          {AuthState.team && <NavbarSelector />}
+          {AuthState.team && AuthState.logincode ? <NavbarSelector /> : null}
           {AuthState.logincode ? (
             <span id="account">
               <li>{AuthState.logincode}</li>
-              <li onClick={() => signout()}>Signout</li>
+              <li onClick={() => signout(history)}>Signout</li>
             </span>
           ) : (
             <span id="account">
