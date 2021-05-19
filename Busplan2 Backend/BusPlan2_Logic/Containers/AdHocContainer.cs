@@ -14,15 +14,19 @@ namespace BusPlan2_Logic.Containers
 
         public bool Create(AdHoc adHoc)
         {
-            adHoc.TimeDone = DateTime.Now;
+            adHoc.TimeSubmitted = DateTime.Now;
 
-            AdHocDTO adHocDTO = new(adHoc.AdHocID, adHoc.BusID, (int)adHoc.Type, adHoc.Team, adHoc.Description, adHoc.TimeDone);
+            AdHocDTO adHocDTO = new(adHoc.AdHocID, adHoc.BusID, (int)adHoc.Type, adHoc.Team, adHoc.Description, adHoc.TimeSubmitted);
             return adhocHandler.Create(adHocDTO);
         }
 
         public AdHoc Read(int id)
         {
-            return GetAdHocFromAdHocDTO(adhocHandler.Read(id));
+            AdHocDTO adHocDTO = adhocHandler.Read(id);
+
+            if (adHocDTO != null) return GetAdHocFromAdHocDTO(adHocDTO);
+            else return null;
+
         }
 
         public AdHoc ReadFromBusID(int id)
@@ -66,9 +70,11 @@ namespace BusPlan2_Logic.Containers
             AdHoc adHoc = new AdHoc(
                 dto.AdHocID,
                 dto.BusID,
+                dto.AccountID,
                 (AdHocTypeEnum)dto.Type,
                 dto.Team,
                 dto.Description,
+                dto.TimeSubmitted,
                 dto.TimeDone
             );
 

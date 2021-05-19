@@ -11,9 +11,11 @@ namespace BusPlan2_Logic.Models
     {
         public int AdHocID { get; set; }
         public int BusID { get; set; }
+        public int AccountID { get; set; }
         public AdHocTypeEnum Type { get; set; }
         public int Team { get; set; }
         public string Description { get; set; }
+        public DateTime TimeSubmitted { get; set; }
         public DateTime TimeDone { get; set; }
 
         private readonly AdHocHandler adhocHandler = new();
@@ -27,6 +29,18 @@ namespace BusPlan2_Logic.Models
             Type = type;
             Team = team;
             Description = description;
+            TimeDone = timeDone;
+        }
+
+        public AdHoc(int adHocID, int busID, int accountID, int type, int team, string description, DateTime timeSubmitted, DateTime timeDone)
+        {
+            AdHocID = adHocID;
+            BusID = busID;
+            AccountID = accountID;
+            Type = type;
+            Team = team;
+            Description = description;
+            TimeSubmitted = timeSubmitted;
             TimeDone = timeDone;
         }
 
