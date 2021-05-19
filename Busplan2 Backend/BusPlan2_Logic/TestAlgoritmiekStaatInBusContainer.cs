@@ -1,78 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
-using BusPlan2_Logic.Enums;
-using BusPlan2_Logic.Models;
-using BusPlan2_DAL.DTOs;
-using BusPlan2_DAL.Handlers;
 using System.Linq;
+using System.Text;
+using BusPlan2_Logic.Containers;
+using BusPlan2_Logic.Models;
 
-namespace BusPlan2_Logic.Containers
+namespace BusPlan2_Logic
 {
-    public class BusContainer
+    public class TestAlgoritmiekStaatInBusContainer
     {
-        private readonly BusHandler busHandler = new BusHandler();
-        private readonly AdHocContainer adHocContainer = new AdHocContainer();
-        
-        private static DateTime naElfUur = new DateTime(2021, 8, 2, 23, 00, 00);
-        private static DateTime voorVijfUur = new DateTime(2021, 8, 2, 5, 00, 00);
+        BusContainer busContainer = new BusContainer();
+        AdHocContainer adHocContainer = new AdHocContainer();
 
-        public bool Create(Bus bus)
+        static DateTime naElfUur = new DateTime(2021, 8, 2, 23, 00, 00);
+        static DateTime voorVijfUur = new DateTime(2021, 8, 2, 5, 00, 00);
+
+        public ParkingSpace GeefParkeerPlaats(int id)
         {
-            return busHandler.Create(bus.PeriodicCleaning, bus.SmallCleaning, bus.PeriodicMaintenance, bus.SmallMaintenance, bus.BusNumber, bus.BatteryLevel, (int)bus.Status);
-        }
-
-
-        public Bus Read(int busID)
-        {
-            BusDTO busDTO = busHandler.Read(busID);
-            Bus bus = new Bus(busDTO.BusID, busDTO.PeriodicCleaning, busDTO.SmallCleaning, busDTO.PeriodicMaintenance, busDTO.SmallMaintenance, busDTO.BusNumber, busDTO.BatteryLevel, (BusStatusEnum)busDTO.Status, busDTO.ParkingSpace);
-            return bus;
-        }
-
-
-        public List<Bus> ReadAll()
-        {
-            List<BusDTO> busesDTO = busHandler.ReadAll();
-            List<Bus> buses = new List<Bus>();
-            foreach (BusDTO busDTO in busesDTO)
-            {
-                buses.Add(new Bus(busDTO.BusID, busDTO.PeriodicCleaning, busDTO.SmallCleaning, busDTO.PeriodicMaintenance, busDTO.SmallMaintenance, busDTO.BusNumber, busDTO.BatteryLevel, (BusStatusEnum)busDTO.Status, busDTO.ParkingSpace));
-            }
-            return buses;
-        }
-
-        public List<Bus> ReadCleaning()
-        {
-            List<BusDTO> busesDTO = busHandler.ReadCleaning();
-            List<Bus> buses = new List<Bus>();
-            foreach (BusDTO busDTO in busesDTO)
-            {
-                buses.Add(new Bus(busDTO.BusID, busDTO.PeriodicCleaning, busDTO.SmallCleaning, busDTO.PeriodicMaintenance, busDTO.SmallMaintenance, busDTO.BusNumber, busDTO.BatteryLevel, (BusStatusEnum)busDTO.Status, busDTO.ParkingSpace));
-            }
-            return buses;
-        }
-
-        public List<Bus> ReadMaintenance()
-        {
-            List<BusDTO> busesDTO = busHandler.ReadMaintenance();
-            List<Bus> buses = new List<Bus>();
-            foreach (BusDTO busDTO in busesDTO)
-            {
-                buses.Add(new Bus(busDTO.BusID, busDTO.PeriodicCleaning, busDTO.SmallCleaning, busDTO.PeriodicMaintenance, busDTO.SmallMaintenance, busDTO.BusNumber, busDTO.BatteryLevel, (BusStatusEnum)busDTO.Status, busDTO.ParkingSpace));
-            }
-            return buses;
-        }
-
-        public bool Delete(int busID)
-        {
-            return busHandler.Delete(busID);
-        }
-
-
-        public ParkingSpace GiveParkingSpace(int id)
-        {
-            Bus bus = Read(id);
+            Bus bus = busContainer.Read(id);
             int adhocType = (int)adHocContainer.ReadFromBusID(id).Type;
             List<ParkingSpace> parkingSpaces = new ParkingSpaceContainer().ReadAll();
 
@@ -109,7 +54,7 @@ namespace BusPlan2_Logic.Containers
                         else
                         {//nee
                             //------------------------------BATTERIJ LAAG?
-                            if (bus.BatteryLevel <= 80)
+                            if (bus.BatteryLevel <= 70)
                             {//ja
                                 return IsTherePlaceOnParking(parkingSpaces, Enums.ParkingTypeEnum.Charging, Enums.ParkingTypeEnum.Normal);
                             }
@@ -122,7 +67,7 @@ namespace BusPlan2_Logic.Containers
                     else
                     {//nee
                         //----------------------------------Batterij Laag?---------------------------------------------------//
-                        if (bus.BatteryLevel <= 80)
+                        if (bus.BatteryLevel <= 70)
                         {//ja
                             return IsTherePlaceOnParking(parkingSpaces, Enums.ParkingTypeEnum.FastCharging, Enums.ParkingTypeEnum.Normal);
                         }
@@ -154,5 +99,14 @@ namespace BusPlan2_Logic.Containers
             }
             return new ParkingSpace();
         }
+
+
+
+
+
+
+
+
+
     }
 }

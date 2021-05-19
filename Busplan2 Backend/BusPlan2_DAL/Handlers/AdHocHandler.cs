@@ -132,5 +132,32 @@ namespace BusPlan2_DAL.Handlers
                 return true;
             }
         }
+
+        public AdHocDTO ReadFromBusID(int busID)
+        {
+            using var connection = Connection.GetConnection();
+            {
+                connection.OpenAsync();
+
+                using var command = connection.CreateCommand();
+                command.CommandText = "SELECT * FROM `AdHoc` WHERE BusID = @busID";
+                command.Parameters.AddWithValue("@busID", busID);
+
+                var reader = command.ExecuteReader();
+
+                if (!reader.Read()) return null;
+
+                var adhocobj = new AdHocDTO()
+                {
+                    AdHocID = reader.GetInt32("AdHocID"),
+                    BusID = reader.GetInt32("BusID"),
+                    Type = reader.GetInt32("Type"),
+                    Team = reader.GetInt32("Team"),
+                    Description = reader.GetString("Description"),
+                    TimeDone = reader.GetDateTime("TimeDone")
+                };
+                return adhocobj;
+            }
+        }
     }
 }

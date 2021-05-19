@@ -82,5 +82,22 @@ namespace Busplan2_Backend.Controllers
                 return StatusCode(501);
             }
         }
+
+        [Route("giveparkingspace"), HttpPost]
+        public IActionResult GiveParkingSpace(int id)
+        {
+            ParkingSpace parkingSpace = busContainer.GiveParkingSpace(id);
+            if (parkingSpace != null)
+            {
+                return Ok(parkingSpace);
+            }
+            else 
+            {
+                //Error in code
+                return StatusCode(501);
+            }
+
+        }
+
     }
 }
