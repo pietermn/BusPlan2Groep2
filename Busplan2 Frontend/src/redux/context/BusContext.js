@@ -86,6 +86,7 @@ const GetOneBusPopup = (dispatch) => async (busID) => {
 }
 
 const CreateAdhoc = (dispatch) => async (Adhoc) => {
+  console.log(Adhoc);
   try {
     const response = await BackendApi.post("/adhoc/create", Adhoc)
   } catch {
@@ -95,7 +96,7 @@ const CreateAdhoc = (dispatch) => async (Adhoc) => {
 
 const GetDriveToParkingSpace = (dispatch) => async (BusID) => {
   try {
-    const response = await BackendApi.get("/adhoc/get", BusID);
+    await BackendApi.get("/adhoc/get", BusID);
   } catch {
     console.log("Something went wrong");
   }
