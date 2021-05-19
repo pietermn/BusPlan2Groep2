@@ -62,6 +62,34 @@ namespace BusPlan2_DAL.Handlers
             }
         }
 
+        public AdHocDTO ReadFromBusID(int busID)
+        {
+            using var connection = Connection.GetConnection();
+            {
+                connection.OpenAsync();
+
+                using var command = connection.CreateCommand();
+                command.CommandText = "SELECT * FROM `AdHoc` WHERE BusID = @busID";
+                command.Parameters.AddWithValue("@busID", busID);
+
+                var reader = command.ExecuteReader();
+
+                if (!reader.Read()) return null;
+
+                var adhocobj = new AdHocDTO()
+                {
+                    AdHocID = reader.GetInt32("AdHocID"),
+                    BusID = reader.GetInt32("BusID"),
+                    AccountID = reader.GetInt32("AccountID"),
+                    Type = reader.GetInt32("Type"),
+                    Team = reader.GetInt32("Team"),
+                    Description = reader.GetString("Description"),
+                    TimeSubmitted = reader.GetDateTime("TimeSubmitted"),
+                    TimeDone = reader.GetDateTime("TimeDone")
+                };
+                return adhocobj;
+            }
+        }
 
         public List<AdHocDTO> ReadAll()
         {
@@ -134,33 +162,6 @@ namespace BusPlan2_DAL.Handlers
                 connection.CloseAsync();
 
                 return true;
-            }
-        }
-
-        public AdHocDTO ReadFromBusID(int busID)
-        {
-            using var connection = Connection.GetConnection();
-            {
-                connection.OpenAsync();
-
-                using var command = connection.CreateCommand();
-                command.CommandText = "SELECT * FROM `AdHoc` WHERE BusID = @busID";
-                command.Parameters.AddWithValue("@busID", busID);
-
-                var reader = command.ExecuteReader();
-
-                if (!reader.Read()) return null;
-
-                var adhocobj = new AdHocDTO()
-                {
-                    AdHocID = reader.GetInt32("AdHocID"),
-                    BusID = reader.GetInt32("BusID"),
-                    Type = reader.GetInt32("Type"),
-                    Team = reader.GetInt32("Team"),
-                    Description = reader.GetString("Description"),
-                    TimeDone = reader.GetDateTime("TimeDone")
-                };
-                return adhocobj;
             }
         }
     }

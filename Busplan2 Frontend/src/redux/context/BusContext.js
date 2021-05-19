@@ -12,6 +12,8 @@ const authReducer = (state, action) => {
       return { ...state, busses: action.payload };
     case "GetOneBus":
       return { ...state, bus: action.payload };
+    case "GetParkingSpace":
+      return { ...state, DriveTo: action.payload };
     default:
       return state;
   }
@@ -78,25 +80,65 @@ const GetAllMaintenanceBusses = (dispatch) => async () => {
 
 const GetOneBusPopup = (dispatch) => async (busID) => {
   try {
-    const response = await BackendApi.get(`/bus/read?BusID=${busID}`)
+    const response = await BackendApi.get(`bus/read?busID=${busID}`)
     dispatch({ type: "GetPopup", payload: response.data });
   } catch {
     console.log("Something went wrong")
   }
 }
 
-const CreateAdhoc = (dispatch) => async (Adhoc) => {
-  console.log(Adhoc);
+const CreateAdhoc = (dispatch) => async (Adhoc, history) => {
   try {
-    const response = await BackendApi.post("/adhoc/create", Adhoc)
+    // Create Adhoc
+    await BackendApi.post("/adhoc/create", Adhoc)
+;
+    const parkingspace = await GetParkingSpaceAndMoveBus(Adhoc.busID);
+
+    dispatch({type: "GetParkingSpace", payload: parkingspace});
+    history.push("driveto");
   } catch {
     console.log("Something went wrong");
   }
 }
 
-const GetDriveToParkingSpace = (dispatch) => async (BusID) => {
+async function GetParkingSpaceAndMoveBus(busID) {
   try {
-    await BackendApi.get("/adhoc/get", BusID);
+    // Get Parkingspace algorithm
+    const response = await BackendApi.post(`bus/giveparkingspace?id=${busID}`);
+
+    // Get Current parkingspace
+    const responseBus = await BackendApi.get(`bus/read?busID=${busID}`);
+    const oldParkingSpaceID = responseBus.data.parkingSpace;
+
+    const parkingspace = response.data;
+    parkingspace.occupied = true;
+
+    // Move bus to new parkingspace
+    await BackendApi.post("parkingspace/updateoccupied", {
+      parkingSpaceID: parkingspace.parkingSpaceID,
+      busID: busID,
+      occupied: true
+    })
+
+    // Remove old parkingspace;
+    await BackendApi.post("parkingspace/updateoccupied", {
+      parkingSpaceID: oldParkingSpaceID,
+      busID: 0,
+      occupied: false
+    })
+
+    return parkingspace;
+  } catch {
+    console.log("Something went wrong");
+  }
+}
+
+const GiveParkingSpaceWithoutAdhoc = (dispatch) => async (busID, history) => {
+  try {
+    const parkingspace = await GetParkingSpaceAndMoveBus(busID);
+
+    dispatch({type: "GetParkingSpace", payload: parkingspace});
+    history.push("driveto");
   } catch {
     console.log("Something went wrong");
   }
@@ -112,16 +154,7 @@ export const { Provider, Context } = createDataContext(
     CreateAdhoc,
     GetAllCleaningBusses,
     GetAllMaintenanceBusses,
-    GetDriveToParkingSpace
-  },
-  {
-    DriveTo: {
-      "parkingSpaceID": 23,
-      "busID": 7,
-      "number": 20,
-      "type": 0,
-      "occupied": true
-    }
+    GiveParkingSpaceWithoutAdhoc
   },
   []
 );

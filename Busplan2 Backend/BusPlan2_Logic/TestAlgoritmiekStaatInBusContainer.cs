@@ -18,7 +18,7 @@ namespace BusPlan2_Logic
         public ParkingSpace GeefParkeerPlaats(int id)
         {
             Bus bus = busContainer.Read(id);
-            int adhocType = (int)adHocContainer.ReadFromBusID(id).Type;
+            int adhocType = (int)adHocContainer.Read(id).Type;
             List<ParkingSpace> parkingSpaces = new ParkingSpaceContainer().ReadAll();
 
             //----------------------------------------------Heeft reparatie?-------------------------------------------------//

@@ -14,8 +14,7 @@ const Other = () => {
         AdhocObj.type = parseInt(currentSelected);
         AdhocObj.description = description;
 
-        CreateAdhoc(AdhocObj);
-        history.push("driveto", {AdhocObj});
+        CreateAdhoc(AdhocObj, history);
     }
 
     return (

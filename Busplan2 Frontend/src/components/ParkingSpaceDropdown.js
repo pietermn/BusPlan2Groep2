@@ -4,9 +4,8 @@ import { Context as BusContext } from '../redux/context/BusContext';
 
 const ParkingSpaceDropdown = ({ spaces, BusID, currentParkingSpaceID }) => {
 
-    
     const { MoveBus, GetOverviewSpaces } = useContext(ParkingSpaceContext)
-    const {DeletePopup} = useContext(BusContext)
+    const {DeletePopup, GetAllBusses} = useContext(BusContext)
     
     async function UpdateBus(MoveInfo) {
         var UpdateInfo = MoveInfo;
@@ -34,7 +33,7 @@ const ParkingSpaceDropdown = ({ spaces, BusID, currentParkingSpaceID }) => {
     }
 
     return (
-        <select onChange={(e) => { UpdateBus({ newParkingID: e.target.value, currentParkingID: currentParkingSpaceID, BusID }); GetOverviewSpaces() }}>
+        <select onChange={(e) => { UpdateBus({ newParkingID: e.target.value, currentParkingID: currentParkingSpaceID, BusID }); GetOverviewSpaces(); GetAllBusses() }}>
             <option></option>
             {
                 spaces.map((value, index) => {

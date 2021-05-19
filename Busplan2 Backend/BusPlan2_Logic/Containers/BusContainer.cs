@@ -13,9 +13,9 @@ namespace BusPlan2_Logic.Containers
     {
         private readonly BusHandler busHandler = new BusHandler();
         private readonly AdHocContainer adHocContainer = new AdHocContainer();
-        
-        private static DateTime naElfUur = new DateTime(2021, 8, 2, 23, 00, 00);
-        private static DateTime voorVijfUur = new DateTime(2021, 8, 2, 5, 00, 00);
+
+        private static DateTime after11oClock = new DateTime(2021, 8, 2, 23, 00, 00);
+        private static DateTime before5oClock = new DateTime(2021, 8, 2, 5, 00, 00);
 
         public bool Create(Bus bus)
         {
@@ -73,49 +73,56 @@ namespace BusPlan2_Logic.Containers
         public ParkingSpace GiveParkingSpace(int id)
         {
             Bus bus = Read(id);
-            int adhocType = (int)adHocContainer.ReadFromBusID(id).Type;
+
+            AdHoc adhoc = adHocContainer.Read(id);
+
+            //int adhocType = (int).Type;
             List<ParkingSpace> parkingSpaces = new ParkingSpaceContainer().ReadAll();
 
             //----------------------------------------------Heeft reparatie?-------------------------------------------------//
             if (bus.PeriodicMaintenance <= DateTime.UtcNow.AddYears(-1) || bus.SmallMaintenance <= DateTime.UtcNow.AddDays(-90))
             {//ja
-                return parkingSpaces.Where(x => x.Type == Enums.ParkingTypeEnum.Maintenance && x.Occupied == false).First();
+                return parkingSpaces.Where(x => x.Type == ParkingTypeEnum.Maintenance && x.Occupied == false).First();
             }
             else
             {//nee
-                //------------------------------------------Heeft Adhoc?-----------------------------------------------------//
-                if (adhocType == 0 || adhocType == 1 || adhocType == 2)
-                {//ja maintenance
-                    return IsTherePlaceOnParking(parkingSpaces, Enums.ParkingTypeEnum.Maintenance, Enums.ParkingTypeEnum.NotAvailable);
-                }
-                else if (adhocType == 3 || adhocType == 4 || adhocType == 5)
-                {//ja schoonmaak
-                    return IsTherePlaceOnParking(parkingSpaces, Enums.ParkingTypeEnum.FastCharging, Enums.ParkingTypeEnum.Normal);
-                }
-                else if (adhocType == 6)
-                {//ja anders
-                    return parkingSpaces.Where(x => x.Type == Enums.ParkingTypeEnum.Normal && x.Occupied == false).First();
+                if (adhoc != null)
+                {
+                    int adhocTeam = (int)adhoc.Team;
+                    //------------------------------------------Heeft Adhoc?-----------------------------------------------------//
+                    if (adhocTeam == 1)
+                    {//ja schoonmaak
+                        return IsTherePlaceOnParking(parkingSpaces, ParkingTypeEnum.FastCharging, ParkingTypeEnum.Normal);
+                    }
+                    else if (adhocTeam == 2)
+                    {//ja maintenance
+                        return IsTherePlaceOnParking(parkingSpaces, ParkingTypeEnum.Maintenance, ParkingTypeEnum.NotAvailable);
+                    }
+                    else
+                    {//ja anders
+                        return IsTherePlaceOnParking(parkingSpaces, ParkingTypeEnum.Normal, ParkingTypeEnum.FastCharging);
+                    }
                 }
                 else
                 {//nee
                     //--------------------------------------Laatste rit?-----------------------------------------------------//
-                    if (voorVijfUur.Hour >= DateTime.Now.Hour || DateTime.Now.Hour >= naElfUur.Hour)
+                    if (before5oClock.Hour >= DateTime.Now.Hour || DateTime.Now.Hour >= after11oClock.Hour)
                     {//ja
                         //----------------------------------GEPLANDE SCHOONMAAK?
                         if (bus.SmallCleaning >= DateTime.Now.AddDays(-7) || bus.PeriodicCleaning >= DateTime.Now.AddDays(-21))
                         {//ja
-                            return parkingSpaces.Where(x => x.Type == Enums.ParkingTypeEnum.Charging && x.Occupied == false).First();
+                            return parkingSpaces.Where(x => x.Type == ParkingTypeEnum.Charging && x.Occupied == false).First();
                         }
                         else
                         {//nee
                             //------------------------------BATTERIJ LAAG?
                             if (bus.BatteryLevel <= 80)
                             {//ja
-                                return IsTherePlaceOnParking(parkingSpaces, Enums.ParkingTypeEnum.Charging, Enums.ParkingTypeEnum.Normal);
+                                return IsTherePlaceOnParking(parkingSpaces, ParkingTypeEnum.Charging, ParkingTypeEnum.Normal);
                             }
                             else
                             {//nee
-                                return IsTherePlaceOnParking(parkingSpaces, Enums.ParkingTypeEnum.Normal, Enums.ParkingTypeEnum.Charging);
+                                return IsTherePlaceOnParking(parkingSpaces, ParkingTypeEnum.Normal, ParkingTypeEnum.Charging);
                             }
                         }
                     }
@@ -124,11 +131,11 @@ namespace BusPlan2_Logic.Containers
                         //----------------------------------Batterij Laag?---------------------------------------------------//
                         if (bus.BatteryLevel <= 80)
                         {//ja
-                            return IsTherePlaceOnParking(parkingSpaces, Enums.ParkingTypeEnum.FastCharging, Enums.ParkingTypeEnum.Normal);
+                            return IsTherePlaceOnParking(parkingSpaces, ParkingTypeEnum.FastCharging, ParkingTypeEnum.Normal);
                         }
                         else
                         {//nee
-                            return IsTherePlaceOnParking(parkingSpaces, Enums.ParkingTypeEnum.Normal, Enums.ParkingTypeEnum.FastCharging);
+                            return IsTherePlaceOnParking(parkingSpaces, ParkingTypeEnum.Normal, ParkingTypeEnum.FastCharging);
                         }
 
                     }
@@ -136,7 +143,7 @@ namespace BusPlan2_Logic.Containers
             }
         }
 
-        private ParkingSpace IsTherePlaceOnParking(List<ParkingSpace> parkingSpaces, Enums.ParkingTypeEnum firstChoiceType, Enums.ParkingTypeEnum secondChoiceType)
+        private ParkingSpace IsTherePlaceOnParking(List<ParkingSpace> parkingSpaces, ParkingTypeEnum firstChoiceType, ParkingTypeEnum secondChoiceType)
         {
             foreach (ParkingSpace parkingSpace in parkingSpaces)
             {

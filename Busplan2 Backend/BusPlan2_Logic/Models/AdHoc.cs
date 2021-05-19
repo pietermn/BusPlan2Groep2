@@ -32,7 +32,7 @@ namespace BusPlan2_Logic.Models
             TimeDone = timeDone;
         }
 
-        public AdHoc(int adHocID, int busID, int accountID, int type, int team, string description, DateTime timeSubmitted, DateTime timeDone)
+        public AdHoc(int adHocID, int busID, int accountID, AdHocTypeEnum type, int team, string description, DateTime timeSubmitted, DateTime timeDone)
         {
             AdHocID = adHocID;
             BusID = busID;

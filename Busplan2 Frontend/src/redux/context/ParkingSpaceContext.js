@@ -38,7 +38,6 @@ const GetAvailableSpaces = (dispatch) => async () => {
 }
 
 const MoveBus = () => async (MoveBusInfo) => {
-  console.log(MoveBusInfo);
   try {
     await BackendApi.post("/parkingspace/updateoccupied", {
       parkingSpaceID: MoveBusInfo.newParkingID,
@@ -48,7 +47,7 @@ const MoveBus = () => async (MoveBusInfo) => {
 
     await BackendApi.post("/parkingspace/updateoccupied", {
       parkingSpaceID: MoveBusInfo.currentParkingID,
-      busID: MoveBusInfo.BusID,
+      busID: 0,
       occupied: false
     })
   } catch {

@@ -17,12 +17,12 @@ const Manual = () => {
             setBusID("");
         }
 
-        if (char == "->") {
+        else if (char == "->") {
             AdhocObj.busID = parseInt(busID);
             history.push('drivein', {AdhocObj});
         }
 
-        if (busID.length != 2) {
+        else if (busID.length != 2) {
             setBusID(busID + char);
         }
     }

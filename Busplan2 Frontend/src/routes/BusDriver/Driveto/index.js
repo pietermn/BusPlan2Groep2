@@ -13,7 +13,7 @@ const Driveto = () => {
     console.log(BusState.DriveTo);
     return (
         <div>
-            <h1 style={{position: 'absolute', left: "50%"}}>Drive to P{BusState.DriveTo.number}</h1>
+            <h1 style={{position: 'absolute', left: "50%"}}>Rij naar P{BusState.DriveTo.number}</h1>
             <div className="busmap">
                 <div className="grid">
                     <div id="busImage">

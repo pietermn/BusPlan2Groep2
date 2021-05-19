@@ -53,7 +53,7 @@ const PlaceBus = ({ parkingspace }) => {
                     src={GreyBus}
                     style={{ left: data.x, top: data.y }}
                 />
-                <p id="left30deg" style={{ left: data.x + 10, top: data.y + 20 }}>{busNumber}</p>
+                {busNumber != 0 && <p id="left30deg" style={{ left: data.x + 10, top: data.y + 20 }}>{busNumber}</p>}
             </span>
         );
     } else if (parkingspace.type == 2 && parkingspace.number == 17 || parkingspace.type == 2 && parkingspace.number == 18 || parkingspace.type == 2 && parkingspace.number == 19 || parkingspace.type == 2 && parkingspace.number == 20 || parkingspace.type == 6) {
@@ -64,7 +64,7 @@ const PlaceBus = ({ parkingspace }) => {
                     src={GreyBus}
                     style={{ left: data.x, top: data.y }}
                 />
-                <p style={{ left: data.x + 15, top: data.y + 39 }}>{busNumber}</p>
+                {busNumber != 0 && <p style={{ left: data.x + 15, top: data.y + 39 }}>{busNumber}</p>}
             </span>
         );
     } else if (parkingspace.type == 2) {
@@ -76,13 +76,13 @@ const PlaceBus = ({ parkingspace }) => {
                     src={GreyBus}
                     style={{ left: data.x, top: data.y }}
                 />
-                <p id="right27deg" style={{ left: data.x + 10, top: data.y + 10 }}>{busNumber}</p>
+                {busNumber != 0 && <p id="right27deg" style={{ left: data.x + 10, top: data.y + 10 }}>{busNumber}</p>}
             </span>
         );
     }
     return <span>
         <img src={GreyBus} style={{ left: data.x, top: data.y }} />
-        <p style={{ left: data.x + 22, top: data.y + 38 }}>{busNumber}</p>
+        {busNumber != 0 && <p style={{ left: data.x + 22, top: data.y + 38 }}>{busNumber}</p>}
     </span>;
 };
 
