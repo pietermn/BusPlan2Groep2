@@ -7,7 +7,7 @@ using BusPlan2_Logic.Models;
 
 namespace BusPlan2_Logic
 {
-    public class Algoritmiek
+    public class TestAlgoritmiekStaatInBusContainer
     {
         BusContainer busContainer = new BusContainer();
         AdHocContainer adHocContainer = new AdHocContainer();
