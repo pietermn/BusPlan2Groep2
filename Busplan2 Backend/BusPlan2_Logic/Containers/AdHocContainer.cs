@@ -4,6 +4,7 @@ using BusPlan2_Logic.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using BusPlan2_Logic.Enums;
 
 namespace BusPlan2_Logic.Containers
 {
@@ -13,13 +14,20 @@ namespace BusPlan2_Logic.Containers
 
         public bool Create(AdHoc adHoc)
         {
-            AdHocDTO adHocDTO = new(adHoc.AdHocID, adHoc.BusID, adHoc.Type, adHoc.Team, adHoc.Description, adHoc.TimeDone);
+            adHoc.TimeDone = DateTime.Now;
+
+            AdHocDTO adHocDTO = new(adHoc.AdHocID, adHoc.BusID, (int)adHoc.Type, adHoc.Team, adHoc.Description, adHoc.TimeDone);
             return adhocHandler.Create(adHocDTO);
         }
 
         public AdHoc Read(int id)
         {
             return GetAdHocFromAdHocDTO(adhocHandler.Read(id));
+        }
+
+        public AdHoc ReadFromBusID(int id)
+        {
+            return GetAdHocFromAdHocDTO(adhocHandler.ReadFromBusID(id));
         }
 
         public List<AdHoc> ReadAll()
@@ -42,7 +50,7 @@ namespace BusPlan2_Logic.Containers
                     new AdHoc(
                         dto.AdHocID,
                         dto.BusID,
-                        dto.Type,
+                        (AdHocTypeEnum)dto.Type,
                         dto.Team,
                         dto.Description,
                         dto.TimeDone
@@ -58,7 +66,7 @@ namespace BusPlan2_Logic.Containers
             AdHoc adHoc = new AdHoc(
                 dto.AdHocID,
                 dto.BusID,
-                dto.Type,
+                (AdHocTypeEnum)dto.Type,
                 dto.Team,
                 dto.Description,
                 dto.TimeDone
