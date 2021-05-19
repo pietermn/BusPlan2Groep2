@@ -32,10 +32,7 @@ const Routes = () => {
         return <Redirect to={"/planner"} />;
       case "4":
         return <Redirect to={"/overzicht"} />;
-      
     }
-
-    
   }
 
   return (

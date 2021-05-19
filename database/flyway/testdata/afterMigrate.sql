@@ -114,5 +114,5 @@ INSERT INTO Cleaning (CleaningID, BusID, CleanedBy, TimeCleaned, Type, Status) V
 INSERT INTO Maintenance (MaintenanceID, BusID, RepairedBy, TimeRepaired, Type, Status) VALUES
 (1, 1, 1, '2021-04-19 12:50:00', 1, 2);
 
-INSERT INTO AdHoc (AdHocID, BusID, Type, Team, Description, TimeDone) VALUES
-(1, 1, 3, 1, 'Graffiti op de linker zijkant', '2021-04-19 12:50:00');
+INSERT INTO AdHoc (AdHocID, BusID, AccountID, Type, Team, Description, TimeSubmitted, TimeDone) VALUES
+(1, 1, 3, 3, 1, 'Graffiti op de linker zijkant', '2021-04-17 12:50:00', '2021-04-19 12:50:00');
