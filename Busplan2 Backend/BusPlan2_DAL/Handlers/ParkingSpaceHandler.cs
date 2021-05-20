@@ -108,7 +108,7 @@ namespace BusPlan2_DAL.Handlers
                 using var command = connection.CreateCommand();
 
                 command.CommandText = "SELECT ParkingSpace.ParkingSpaceID, ParkingSpace.BusID, ParkingSpace.Number, ParkingSpace.Type, ParkingSpace.Occupied FROM ParkingSpace INNER JOIN Cleaning ON ParkingSpace.BusID = Cleaning.BusID" +
-                    " UNION SELECT ParkingSpace.ParkingSpaceID, ParkingSpace.BusID, ParkingSpace.Number, ParkingSpace.Type, ParkingSpace.Occupied FROM ParkingSpace INNER JOIN AdHoc ON ParkingSpace.BusID = AdHoc.BusID AND AdHoc.Type = 1;";
+                    " UNION SELECT ParkingSpace.ParkingSpaceID, ParkingSpace.BusID, ParkingSpace.Number, ParkingSpace.Type, ParkingSpace.Occupied FROM ParkingSpace INNER JOIN AdHoc ON ParkingSpace.BusID = AdHoc.BusID AND AdHoc.Team = 1;";
 
                 connection.Open();
 
@@ -138,7 +138,8 @@ namespace BusPlan2_DAL.Handlers
             {
                 using var command = connection.CreateCommand();
 
-                command.CommandText = "SELECT ParkingSpace.ParkingSpaceID, ParkingSpace.BusID, ParkingSpace.Number, ParkingSpace.Type, ParkingSpace.Occupied FROM ParkingSpace INNER JOIN Maintenance ON ParkingSpace.BusID = Maintenance.BusID;";
+                command.CommandText = "SELECT ParkingSpace.ParkingSpaceID, ParkingSpace.BusID, ParkingSpace.Number, ParkingSpace.Type, ParkingSpace.Occupied FROM ParkingSpace INNER JOIN Cleaning ON ParkingSpace.BusID = Cleaning.BusID" +
+                    " UNION SELECT ParkingSpace.ParkingSpaceID, ParkingSpace.BusID, ParkingSpace.Number, ParkingSpace.Type, ParkingSpace.Occupied FROM ParkingSpace INNER JOIN AdHoc ON ParkingSpace.BusID = AdHoc.BusID AND AdHoc.Team = 2;";
 
                 connection.Open();
 
