@@ -34,6 +34,21 @@ namespace BusPlan2_Logic.Containers
             return GetAdHocListFromAdHocDTO(adhocHandler.ReadAll());
         }
 
+        public List<AdHoc> ReadAllCleaning()
+        {
+            return GetAdHocListFromAdHocDTO(adhocHandler.ReadAllCleaning());
+        }
+
+        public List<AdHoc> ReadAllMaintenance()
+        {
+            return GetAdHocListFromAdHocDTO(adhocHandler.ReadAllMaintenance());
+        }
+
+        public List<AdHoc> ReadAllPlanning()
+        {
+            return GetAdHocListFromAdHocDTO(adhocHandler.ReadAllPlanning());
+        }
+
         public bool Delete(int adHocID)
         {
             return adhocHandler.Delete(adHocID);

@@ -124,6 +124,104 @@ namespace BusPlan2_DAL.Handlers
             }
         }
 
+        public List<AdHocDTO> ReadAllCleaning()
+        {
+            List<AdHocDTO> adHocDTOList = new List<AdHocDTO>();
+            using var connection = Connection.GetConnection();
+            {
+                connection.OpenAsync();
+
+                using var command = connection.CreateCommand();
+                command.CommandText = "SELECT * FROM `AdHoc` WHERE type = 1";
+
+                using (MySqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        adHocDTOList.Add(
+                                new AdHocDTO(
+                                    reader.GetInt32("AdHocID"),
+                                    reader.GetInt32("BusID"),
+                                    reader.GetInt32("AccountID"),
+                                    reader.GetInt32("Type"),
+                                    reader.GetInt32("Team"),
+                                    reader.GetString("Description"),
+                                    reader.GetDateTime("TimeSubmitted"),
+                                    reader.GetDateTime("TimeDone")
+                                )
+                            );
+
+                    }
+                }
+                return adHocDTOList;
+            }
+        }
+
+        public List<AdHocDTO> ReadAllMaintenance()
+        {
+            List<AdHocDTO> adHocDTOList = new List<AdHocDTO>();
+            using var connection = Connection.GetConnection();
+            {
+                connection.OpenAsync();
+
+                using var command = connection.CreateCommand();
+                command.CommandText = "SELECT * FROM `AdHoc` WHERE type = 2";
+
+                using (MySqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        adHocDTOList.Add(
+                                new AdHocDTO(
+                                    reader.GetInt32("AdHocID"),
+                                    reader.GetInt32("BusID"),
+                                    reader.GetInt32("AccountID"),
+                                    reader.GetInt32("Type"),
+                                    reader.GetInt32("Team"),
+                                    reader.GetString("Description"),
+                                    reader.GetDateTime("TimeSubmitted"),
+                                    reader.GetDateTime("TimeDone")
+                                )
+                            );
+
+                    }
+                }
+                return adHocDTOList;
+            }
+        }
+
+        public List<AdHocDTO> ReadAllPlanning()
+        {
+            List<AdHocDTO> adHocDTOList = new List<AdHocDTO>();
+            using var connection = Connection.GetConnection();
+            {
+                connection.OpenAsync();
+
+                using var command = connection.CreateCommand();
+                command.CommandText = "SELECT * FROM `AdHoc` WHERE type = 3";
+
+                using (MySqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        adHocDTOList.Add(
+                                new AdHocDTO(
+                                    reader.GetInt32("AdHocID"),
+                                    reader.GetInt32("BusID"),
+                                    reader.GetInt32("AccountID"),
+                                    reader.GetInt32("Type"),
+                                    reader.GetInt32("Team"),
+                                    reader.GetString("Description"),
+                                    reader.GetDateTime("TimeSubmitted"),
+                                    reader.GetDateTime("TimeDone")
+                                )
+                            );
+
+                    }
+                }
+                return adHocDTOList;
+            }
+        }
 
         public bool Update(int adHocID, int busID, int type, int team, string description, DateTime timeDone)
         {

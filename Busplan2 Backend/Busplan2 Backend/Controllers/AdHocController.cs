@@ -45,6 +45,51 @@ namespace Busplan2_Backend.Controllers
             }
         }
 
+        [Route("ReadallCleaning"), HttpGet]
+        public IActionResult ReadAllCleaning()
+        {
+            List<AdHoc> adhocList = adHocContainer.ReadAllCleaning();
+            if (adhocList != null)
+            {
+                return Ok(adhocList);
+            }
+            else
+            {
+                //Error in code
+                return StatusCode(501);
+            }
+        }
+
+        [Route("ReadallMaintenance"), HttpGet]
+        public IActionResult ReadAllMaintenance()
+        {
+            List<AdHoc> adhocList = adHocContainer.ReadAllMaintenance();
+            if (adhocList != null)
+            {
+                return Ok(adhocList);
+            }
+            else
+            {
+                //Error in code
+                return StatusCode(501);
+            }
+        }
+
+        [Route("ReadallPlanning"), HttpGet]
+        public IActionResult ReadallPlanning()
+        {
+            List<AdHoc> adhocList = adHocContainer.ReadAllPlanning();
+            if (adhocList != null)
+            {
+                return Ok(adhocList);
+            }
+            else
+            {
+                //Error in code
+                return StatusCode(501);
+            }
+        }
+
         [Route("create"), HttpPost]
         public IActionResult Create(AdHoc adhoc)
         {

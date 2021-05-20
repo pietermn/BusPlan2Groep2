@@ -56,7 +56,7 @@ const PlaceBus = ({ parkingspace }) => {
                 {busNumber != 0 && <p id="left30deg" style={{ left: data.x + 10, top: data.y + 20 }}>{busNumber}</p>}
             </span>
         );
-    } else if (parkingspace.type == 2 && parkingspace.number == 17 || parkingspace.type == 2 && parkingspace.number == 18 || parkingspace.type == 2 && parkingspace.number == 19 || parkingspace.type == 2 && parkingspace.number == 20 || parkingspace.type == 6) {
+    } else if (parkingspace.type == 2 && parkingspace.number == 17 || parkingspace.type == 2 && parkingspace.number == 18 || parkingspace.type == 2 && parkingspace.number == 19 || parkingspace.type == 2 && parkingspace.number == 20 || parkingspace.type == 5 && parkingspace.number == 1 || parkingspace.type == 5 && parkingspace.number == 2 ) {
         return (
             <span>
                 <img

@@ -50,7 +50,8 @@ const GetAllBusses = (dispatch) => async () => {
 
 const GetAllCleaningBusses = (dispatch) => async () => {
   try {
-    const response = await BackendApi.get("/bus/readcleaning")
+    const response = await BackendApi.get("/bus/readcleaning");
+
     const busses = response.data;
     busses.forEach(bus => {
       bus.periodicCleaning = fixTime(bus.periodicCleaning);
