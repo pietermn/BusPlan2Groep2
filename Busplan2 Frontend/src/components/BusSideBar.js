@@ -29,10 +29,6 @@ const BusSideBar = ({ Busses }) => {
             <p>{bus.batteryLevel}</p>
           </span>
           <span id="text-container">
-            <p>Parkeerplaats</p>
-            <p>{bus.parkingSpace}</p>
-          </span>
-          <span id="text-container">
             <p>Type schoonmaak</p>
             <p>Periodiek (test data)</p>
           </span>

@@ -114,7 +114,8 @@ namespace BusPlan2_DAL.Handlers
             {
                 using var command = connection.CreateCommand();
 
-                command.CommandText = "SELECT Bus.BusID, Bus.PeriodicCleaning, Bus.PeriodicMaintenance, Bus.SmallCleaning, Bus.SmallMaintenance, Bus.BusNumber, Bus.BatteryLevel, Bus.Status, ParkingSpace.ParkingSpaceID FROM Bus INNER JOIN ParkingSpace ON Bus.BusID = ParkingSpace.BusID INNER JOIN Cleaning ON Cleaning.BusID = Bus.BusID;";
+                command.CommandText = "SELECT Bus.BusID, Bus.PeriodicCleaning, Bus.PeriodicMaintenance, Bus.SmallCleaning, Bus.SmallMaintenance, Bus.BusNumber, Bus.BatteryLevel, Bus.Status, ParkingSpace.ParkingSpaceID FROM Bus INNER JOIN ParkingSpace ON Bus.BusID = ParkingSpace.BusID INNER JOIN Cleaning ON Cleaning.BusID = Bus.BusID" +
+                    " UNION SELECT Bus.BusID, Bus.PeriodicCleaning, Bus.PeriodicMaintenance, Bus.SmallCleaning, Bus.SmallMaintenance, Bus.BusNumber, Bus.BatteryLevel, Bus.Status, ParkingSpace.ParkingSpaceID FROM Bus INNER JOIN ParkingSpace ON Bus.BusID = ParkingSpace.BusID INNER JOIN AdHoc ON AdHoc.BusID = Bus.BusID;";
 
                 connection.Open();
 
