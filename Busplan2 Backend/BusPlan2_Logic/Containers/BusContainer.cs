@@ -10,7 +10,7 @@ namespace BusPlan2_Logic.Containers
 {
     public class BusContainer
     {
-        private readonly BusHandler busHandler = new BusHandler();
+        private readonly BusTestHandler busHandler = new BusTestHandler();
 
         public bool Create(Bus bus)
         {

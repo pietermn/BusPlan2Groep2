@@ -1,3 +1,4 @@
+using BusPlan2_Logic;
 using BusPlan2_Logic.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -6,14 +7,16 @@ namespace Busplan2_Tests
     [TestClass]
     public class AlgorithmTests
     {
+        Algoritmiek algoritmiek = new Algoritmiek();
+
+        //In de containers heb ik de handlers veranderd.
         [TestMethod]
         public void If_Bus_Needs_Repair_Go_To_Workplace()
         {
             //Arrange
             Bus bus = new Bus(1, new System.DateTime(), new System.DateTime(), new System.DateTime(), new System.DateTime(), 322, 1, BusPlan2_Logic.Enums.BusStatusEnum.NeedsMaintenance, 0);
-            ParkingSpace p1 = new ParkingSpace(1, 1, 322, BusPlan2_Logic.Enums.ParkingTypeEnum.Maintenance, false);
             //Act
-
+            ParkingSpace p1 = algoritmiek.GeefParkeerPlaats(1);
             //Assert
             Assert.AreEqual(p1.Number, bus.ParkingSpace);
         }
