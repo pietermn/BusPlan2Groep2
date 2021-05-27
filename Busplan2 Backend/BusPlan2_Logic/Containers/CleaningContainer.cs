@@ -21,6 +21,7 @@ namespace BusPlan2_Logic.Containers
         public Cleaning Read(int busID)
         {
             CleaningDTO cleaningDTO = handler.Read(busID);
+            if (cleaningDTO.CleaningID == 0) { return null; }
             Cleaning cleaning = new Cleaning(cleaningDTO.CleaningID, cleaningDTO.BusID, cleaningDTO.TimeCleaned, cleaningDTO.CleanedBy, (CleanRepairTypeEnum)cleaningDTO.Type, (CleanRepairStatusEnum)cleaningDTO.Status);
             return cleaning;
         }
