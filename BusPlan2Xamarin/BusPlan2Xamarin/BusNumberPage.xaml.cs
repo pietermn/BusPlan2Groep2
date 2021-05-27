@@ -10,11 +10,23 @@ namespace BusPlan2Xamarin
 {
     public partial class BusNumberPage : ContentPage
     {
-        private BusConnector busCon = new();
+        private BusConnector busCon;
 
         public BusNumberPage()
         {
             InitializeComponent();
+            BusConnector BusCon = new();
+            busCon = BusCon;
+            NavigationPage.SetHasBackButton(this, false);
+            NavigationPage.SetHasNavigationBar(this, false);
+        }
+
+        public BusNumberPage(BusConnector BusCon)
+        {
+            InitializeComponent();
+            busCon = BusCon;
+            NavigationPage.SetHasBackButton(this, false);
+            NavigationPage.SetHasNavigationBar(this, false);
         }
 
         async void Button_Clicked(object sender, EventArgs e)
@@ -26,7 +38,7 @@ namespace BusPlan2Xamarin
                 Bus bus = await busCon.GetBus(nmbrEntry.Text);
                 if (bus != null)
                 {
-                    await Navigation.PushAsync(new Drivein(bus));
+                    await Navigation.PushAsync(new Drivein(bus, busCon));
                 }
                 else{
                     errorLbl.Text = "Bus niet gevonden";

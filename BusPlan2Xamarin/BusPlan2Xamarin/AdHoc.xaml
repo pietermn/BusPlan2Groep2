@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="BusPlan2Xamarin.AdHoc">
+    
+    <ContentPage.Resources>
+        <StyleSheet Source="Styles/MainPage.css"/>
+    </ContentPage.Resources>
+
+    <Grid RowSpacing="0"
+          ColumnSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition Height="100" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <BoxView/>
+        <Button 
+                Text="Heeft Reparatie Nodig"
+                Clicked="Button_Clicked"
+                FontSize="25"
+                TextColor="White"
+                WidthRequest="400"
+                CornerRadius="30"
+                BackgroundColor="#F04977"
+                VerticalOptions="CenterAndExpand"
+                HeightRequest="100"
+                HorizontalOptions="Center"/>
+
+        <BoxView Grid.Row="1" />
+        <Button Grid.Row="1"
+                Text="Heeft Schoonmaak Nodig"
+                Clicked="Button_Clicked"
+                FontSize="25"
+                TextColor="White"
+                WidthRequest="400"
+                CornerRadius="30"
+                BackgroundColor="#553D67"
+                VerticalOptions="CenterAndExpand"
+                HeightRequest="100"
+                HorizontalOptions="Center"/>
+
+        <BoxView Grid.Row="2"/>
+        <Button Grid.Row="2"
+                TextColor="White"
+                BackgroundColor="#F04977"
+                Clicked="Button_Clicked"
+                Text="Anders"
+                CornerRadius="30"
+                FontSize="25"
+                WidthRequest="400"
+                HeightRequest="100"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="Center"/>
+
+        <BoxView Grid.Row="3"/>
+
+        <BoxView Grid.Row="4" />
+        <Button Grid.Row="4"
+                BackgroundColor="#242582"
+                TextColor="White"
+                FontSize="15"
+                CornerRadius="60"
+                Text="Terug"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="StartAndExpand"/>
+    </Grid>
+
+
+</ContentPage>

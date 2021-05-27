@@ -2,37 +2,39 @@
 using System.Collections.Generic;
 using BusPlan2Xamarin.ApiCalls;
 using BusPlan2Xamarin.Models;
-
 using Xamarin.Forms;
 
 namespace BusPlan2Xamarin
 {
-    public partial class Drivein : ContentPage
+    public partial class AdHoc : ContentPage
     {
-        public Bus bus;
+        private Bus bus;
         private BusConnector busCon;
 
-        public Drivein(Bus Bus, BusConnector BusCon)
+        public AdHoc(Bus Bus, BusConnector BusCon)
         {
             InitializeComponent();
-            bus = Bus;
-            busCon = BusCon;
-            frontLbl.Text = "Welkom bus " + bus.BusID.ToString();
             NavigationPage.SetHasBackButton(this, false);
             NavigationPage.SetHasNavigationBar(this, false);
+            bus = Bus;
+            busCon = BusCon;
         }
 
         public void Button_Clicked(object sender, EventArgs e)
         {
 
             Button button = sender as Button;
-            if (button.Text == "Geen Problemen")
+            if (button.Text == "Heeft Reparatie Nodig")
             {
-                Navigation.PushAsync(new ParkeerOp(bus,busCon));
+                Navigation.PushAsync(new Reparatie(bus, busCon));
             }
-            else if (button.Text == "Problemen")
+            else if (button.Text == "Heeft Schoonmaak Nodig")
             {
-                Navigation.PushAsync(new AdHoc(bus, busCon));
+                Navigation.PushAsync(new Schoonmaak(bus, busCon));
+            }
+            else if (button.Text == "Anders")
+            {
+                Navigation.PushAsync(new Anders(bus, busCon));
             }
             else if (button.Text == "Terug")
             {

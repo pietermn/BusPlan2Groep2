@@ -13,6 +13,8 @@ namespace BusPlan2Xamarin
         public MainPage()
         {
             InitializeComponent();
+            NavigationPage.SetHasBackButton(this, false);
+            NavigationPage.SetHasNavigationBar(this, false);
         }
 
         public void Button_Clicked(System.Object sender, System.EventArgs e)
