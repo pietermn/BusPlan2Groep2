@@ -21,6 +21,7 @@ namespace BusPlan2_Logic.Containers
         public Maintenance Read(int busID)
         {
             MaintenanceDTO maintenanceDTO = handler.Read(busID);
+            if (maintenanceDTO.MaintenanceID == 0) { return null; }
             Maintenance maintenance = new Maintenance(maintenanceDTO.MaintenanceID, maintenanceDTO.BusID, maintenanceDTO.TimeRepaired, maintenanceDTO.RepairedBy, (CleanRepairTypeEnum)maintenanceDTO.Type, (CleanRepairStatusEnum)maintenanceDTO.Status);
             return maintenance;
         }
