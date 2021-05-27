@@ -7,10 +7,7 @@ import { Context as BusContext } from '../../../redux/context/BusContext';
 const Driveto = () => {
 
     const { BusState } = useContext(BusContext);
-    useEffect(() => {
 
-    })
-    console.log(BusState.DriveTo);
     return (
         <div>
             <h1 style={{position: 'absolute', left: "50%"}}>Rij naar P{BusState.DriveTo.number}</h1>

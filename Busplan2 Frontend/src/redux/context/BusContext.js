@@ -25,6 +25,13 @@ function fixTime(time) {
   return date;
 }
 
+function changeTimeBack(time) {
+  const timeArr = time.split(" ");
+  const date = timeArr[0] + "T" + timeArr[1];
+  console.log(date);
+  return date;
+}
+
 const GetPopup = (dispatch) => async (bus) => {
   dispatch({ type: "GetPopup", payload: bus });
 };
@@ -36,7 +43,7 @@ const DeletePopup = (dispatch) => async () => {
 const GetAllBusses = (dispatch) => async () => {
   try {
     const response = await BackendApi.get("/bus/readall")
-    const busses = response.data;
+    var busses = response.data;
     busses.forEach(bus => {
       bus.periodicCleaning = fixTime(bus.periodicCleaning);
       bus.periodicMaintenance = fixTime(bus.periodicMaintenance);
@@ -52,7 +59,7 @@ const GetAllCleaningBusses = (dispatch) => async () => {
   try {
     const response = await BackendApi.get("/bus/readcleaning");
 
-    const busses = response.data;
+    var busses = response.data;
     busses.forEach(bus => {
       bus.periodicCleaning = fixTime(bus.periodicCleaning);
       bus.periodicMaintenance = fixTime(bus.periodicMaintenance);
@@ -67,7 +74,7 @@ const GetAllCleaningBusses = (dispatch) => async () => {
 const GetAllMaintenanceBusses = (dispatch) => async () => {
   try {
     const response = await BackendApi.get("/bus/readmaintenance")
-    const busses = response.data;
+    var busses = response.data;
     busses.forEach(bus => {
       bus.periodicCleaning = fixTime(bus.periodicCleaning);
       bus.periodicMaintenance = fixTime(bus.periodicMaintenance);
@@ -82,7 +89,12 @@ const GetAllMaintenanceBusses = (dispatch) => async () => {
 const GetOneBusPopup = (dispatch) => async (busID) => {
   try {
     const response = await BackendApi.get(`bus/read?busID=${busID}`)
-    dispatch({ type: "GetPopup", payload: response.data });
+
+    var bus = response.data;
+    bus.periodicCleaning = fixTime(bus.periodicCleaning);
+    bus.periodicMaintenance = fixTime(bus.periodicMaintenance);
+
+    dispatch({ type: "GetPopup", payload: bus });
   } catch {
     console.log("Something went wrong")
   }
@@ -91,14 +103,23 @@ const GetOneBusPopup = (dispatch) => async (busID) => {
 const CreateAdhoc = (dispatch) => async (Adhoc, history) => {
   try {
     // Create Adhoc
-    await BackendApi.post("/adhoc/create", Adhoc)
-;
+    await BackendApi.post("/adhoc/create", Adhoc);
+
     const parkingspace = await GetParkingSpaceAndMoveBus(Adhoc.busID);
 
-    dispatch({type: "GetParkingSpace", payload: parkingspace});
+    dispatch({ type: "GetParkingSpace", payload: parkingspace });
     history.push("driveto");
   } catch {
     console.log("Something went wrong");
+  }
+}
+
+const PlannerCreateAdhoc = () => async (Adhoc) => {
+  console.log(Adhoc);
+  try {
+    await BackendApi.post("/adhoc/create", Adhoc);
+  } catch {
+
   }
 }
 
@@ -138,11 +159,30 @@ const GiveParkingSpaceWithoutAdhoc = (dispatch) => async (busID, history) => {
   try {
     const parkingspace = await GetParkingSpaceAndMoveBus(busID);
 
-    dispatch({type: "GetParkingSpace", payload: parkingspace});
+    dispatch({ type: "GetParkingSpace", payload: parkingspace });
     history.push("driveto");
   } catch {
     console.log("Something went wrong");
   }
+}
+
+const UpdateBus = (dispatch) => async (busParam) => {
+
+  var bus = busParam;
+  bus.status = parseInt(bus.status);
+  const periodicCleaning = changeTimeBack(bus.periodicCleaning);
+  const periodicMaintenance = changeTimeBack(bus.periodicMaintenance);
+
+  bus.periodicCleaning = periodicCleaning;
+  bus.periodicMaintenance = periodicMaintenance;
+
+  BackendApi.post("/bus/update", bus)
+    .then(function (response) {
+
+    })
+    .catch(function (error) {
+      console.log(error);
+    })
 }
 
 export const { Provider, Context } = createDataContext(
@@ -155,7 +195,9 @@ export const { Provider, Context } = createDataContext(
     CreateAdhoc,
     GetAllCleaningBusses,
     GetAllMaintenanceBusses,
-    GiveParkingSpaceWithoutAdhoc
+    GiveParkingSpaceWithoutAdhoc,
+    UpdateBus,
+    PlannerCreateAdhoc
   },
   []
 );

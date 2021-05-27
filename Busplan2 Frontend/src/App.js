@@ -20,8 +20,8 @@ export default function App() {
         <BusProvider namestate="BusContext">
           <AuthProvider namestate="AuthContext">
             <ParkingSpaceProvider namestate="ParkingSpaceContext">
-              <CleaningProvider>
-                <MaintenanceProvider>
+              <CleaningProvider namestate="CleaningContext">
+                <MaintenanceProvider namestate="MaintenanceContext">
                   <AppWrapper>
                     <Switch>
                       <Routes />

@@ -16,7 +16,6 @@ const Routes = () => {
   const team = localStorage.getItem('team');
 
   if (location.pathname === "" || location.pathname === "/") {
-    console.log({team, account_id});
     if (!account_id) {
       return <Redirect to={"/account"} />;
     }

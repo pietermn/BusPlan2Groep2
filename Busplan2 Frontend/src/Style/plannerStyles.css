@@ -40,32 +40,137 @@
 
 .planner-table {
     width: 70%;
-    height: 85%;
+    height: fit-content;
     border: 1px solid black;
+    border-bottom: none;
     display: flex;
-    align-self: center;
     margin-top: 3%;
+    flex-direction: column;
 }
 
-.planner-table div {
-    width: 25%;
+.planner-table .row {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    width: 100%;
     background-color: #272DC1;
+    display: flex;
+    flex-direction: row;
+    height: 80px;
+    justify-content: space-between;
 }
 
-.planner-table .status, .planner-table .date {
+.planner-table span {
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+}
+
+.planner-table .indexRow {
+    font-weight: 700;
+}
+
+.planner-table :is(.description, .date) {
     background-color: #242582;
 }
 
-.planner-table .bus, .planner-table .status, .planner-table .doneby {
+.planner-table :is(.bus, .description, .doneby) {
     border-right: 1px solid black;
 }
 
-.planner-table div>ul {
-    padding: 0;
-    list-style-type: none;
-    color: white;
-    font-family: var(--fontstyle);
+.planner-table .description {
+    padding: 0 15px;
+    text-align: center;
+}
+
+.cleaning-page {
     display: flex;
-    flex-direction: column;
+    position: relative;
+    height: 100%;
+    justify-content: center;
+}
+
+.addAdhoc-button {
+    z-index: 5;
+    position: absolute;
+    bottom: 10px;
+    right: 50px;
+    background-color: #6566A7;
+    height: 100px;
+    width: 100px;
+    border-radius: 100px;
+    text-align: center;
+    display: flex;
     align-items: center;
+    color: white;
+    font-weight: 900;
+    box-shadow: 0 0 0 3px #242582;
+    padding: 5px;
+    text-transform: capitalize;
+}
+
+.addAdhoc-button:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+.adhoc-popup {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -225px 0 0 -225px;
+    height: 350px;
+    width: 450px;
+    background-color: grey;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.adhoc-popup #close-icon {
+    position: absolute;
+    color: red;
+    right: 15px;
+    top: 15px;
+}
+
+.adhoc-popup #close-icon:hover {
+    cursor: pointer;
+    color: rgb(231, 65, 65)
+}
+
+.adhoc-popup button {
+    border: none;
+    width: 50%;
+    height: 10%;
+    border-radius: 50px;
+    margin-top: 10px;
+    background-color: #272DC1;
+    color: white;
+    font-size: 22;
+    font-weight: 1000;
+}
+
+.adhoc-popup span {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.adhoc-popup h4 {
+    margin: 10px;
+}
+
+.adhoc-popup .description-container {
+    width: 70%;
+}
+
+.adhoc-popup .description-container textarea {
+    resize: none;
+    height: 60px;
+    width: 80%;
 }

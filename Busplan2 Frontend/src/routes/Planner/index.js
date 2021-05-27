@@ -1,20 +1,23 @@
-import React, {useState} from 'react';
+import React, { useState, lazy, Suspense } from 'react';
+import { Redirect, Route, Switch } from "react-router";
 import '../../Style/plannerStyles.css';
 import Navbar from './Navbar';
-import Table from './Table';
+import PageLoader from '../../Layout/PageLoader';
 
-const Planner = () => {
-
-    const [selectedType, setSelectedType] = useState('')
-
-    const handleNavbar = (type) => {
-        setSelectedType(type);
-    }
+const Planner = ({ match }) => {
+    const requestedUrl = match.url.replace(/\/$/, '');
 
     return (
         <div className="planner_full_page">
-            <Navbar func={handleNavbar}/>
-            <Table />
+            <Navbar />
+            <Suspense fallback={<PageLoader />}>
+                <Switch>
+                    <Redirect exact from={`${requestedUrl}/`} to={`${requestedUrl}/schoonmaak`} />
+                    <Route path={`${requestedUrl}/schoonmaak`} component={lazy(() => import('./Cleaning'))} />
+                    <Route path={`${requestedUrl}/onderhoud`} component={lazy(() => import('./Maintenance'))} />
+                    <Route component={lazy(() => import("../ExtraPages/404"))} />
+                </Switch>
+            </Suspense>
         </div>
     )
 }
