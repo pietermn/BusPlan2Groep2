@@ -25,8 +25,8 @@
 	background-image: -webkit-gradient(linear,
 									   left bottom,
 									   left top,
-									   color-stop(0.44, rgb(253, 201, 171)),
-									   color-stop(0.86, rgba(253, 208, 141)))
+									   color-stop(0.44, rgb(55, 99, 245)),
+									   color-stop(0.86, rgb(77, 80, 247)))
 }
 
 .button-component {

@@ -27,7 +27,7 @@ const AdhocPopup = ({ options, busses, text, closePopup }) => {
 
     return (
         <div className="adhoc-popup">
-            <div onClick={() => closePopup()}><ImCross id="close-icon"  /></div>
+            <div onClick={() => closePopup()}><ImCross id="close-icon" /></div>
             <span className="busid-container">
                 <h4>Selecteer bus om {text} aan toe te voegen</h4>
                 <select value={busID} onChange={(e) => setBusID(e.target.value)}>
