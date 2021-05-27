@@ -26,6 +26,7 @@ namespace BusPlan2_Logic.Containers
         public Bus Read(int busID)
         {
             BusDTO busDTO = busHandler.Read(busID);
+            if (busDTO.BusID == 0) { return null; }
             Bus bus = new Bus(busDTO.BusID, busDTO.PeriodicCleaning, busDTO.SmallCleaning, busDTO.PeriodicMaintenance, busDTO.SmallMaintenance, busDTO.BusNumber, busDTO.BatteryLevel, (BusStatusEnum)busDTO.Status, busDTO.ParkingSpace);
             return bus;
         }
@@ -73,7 +74,7 @@ namespace BusPlan2_Logic.Containers
         public ParkingSpace GiveParkingSpace(int id)
         {
             Bus bus = Read(id);
-
+            if (bus == null) { return null; }
             AdHoc adhoc = adHocContainer.Read(id);
 
             //int adhocType = (int).Type;
