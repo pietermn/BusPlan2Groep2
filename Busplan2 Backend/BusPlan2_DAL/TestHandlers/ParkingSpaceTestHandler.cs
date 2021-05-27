@@ -6,15 +6,19 @@ using System.Text;
 
 namespace BusPlan2_DAL.Handlers
 {
-    class ParkingSpaceTestHandler
+    public class ParkingSpaceTestHandler
     {
         List<ParkingSpaceDTO> parkingLots = new List<ParkingSpaceDTO>();
 
         public ParkingSpaceTestHandler()
         {
             parkingLots.Add(new ParkingSpaceDTO(1, 1, 322, 2, true));
-            parkingLots.Add(new ParkingSpaceDTO(2, 2, 0, 2, false));
-            parkingLots.Add(new ParkingSpaceDTO(3, 3, 0, 0, false));
+            parkingLots.Add(new ParkingSpaceDTO(2, 0, 0, 2, false));
+            parkingLots.Add(new ParkingSpaceDTO(3, 0, 0, 0, false));
+            parkingLots.Add(new ParkingSpaceDTO(4, 0, 0, 1, false));
+            parkingLots.Add(new ParkingSpaceDTO(5, 0, 0, 4, false));
+            parkingLots.Add(new ParkingSpaceDTO(6, 0, 0, 3, false));
+            parkingLots.Add(new ParkingSpaceDTO(7, 0, 0, 5, false));
         }
         public bool Create(ParkingSpaceDTO pspaceDTO)
         {
@@ -46,8 +50,8 @@ namespace BusPlan2_DAL.Handlers
         {
             try
             {
-                var busOld = bussen.Find(x => x.BusID == bus.BusID);
-                busOld = bus;
+                var parkingLotOld = parkingLots.Find(x => x.ParkingSpaceID == ParkingSpace.ParkingSpaceID);
+                parkingLotOld = ParkingSpace;
                 return true;
             }
             catch

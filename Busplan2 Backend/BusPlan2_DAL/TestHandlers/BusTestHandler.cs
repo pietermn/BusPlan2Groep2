@@ -12,9 +12,12 @@ namespace BusPlan2_DAL.Handlers
         
         public BusTestHandler()
         {
-            bussen.Add(new BusDTO(1, new System.DateTime(), new System.DateTime(), new System.DateTime(), new System.DateTime(), 322, 1, 1, 0));
-            bussen.Add(new BusDTO(2, new System.DateTime(), new System.DateTime(), new System.DateTime(), new System.DateTime(), 406, 1, 1, 0));
-            bussen.Add(new BusDTO(3, new System.DateTime(), new System.DateTime(), new System.DateTime(), new System.DateTime(), 406, 1, 1, 0));
+            bussen.Add(new BusDTO(1, new System.DateTime(), new System.DateTime(), new System.DateTime(), new System.DateTime(), 322, 100, 1, 0));
+            bussen.Add(new BusDTO(2, new System.DateTime(), new System.DateTime(), new System.DateTime(), new System.DateTime(), 406, 100, 1, 0));
+            bussen.Add(new BusDTO(3, new System.DateTime(), new System.DateTime(), new System.DateTime(), new System.DateTime(), 406, 100, 2, 0));
+            bussen.Add(new BusDTO(4, new System.DateTime(), new System.DateTime(), new System.DateTime(), new System.DateTime(), 406, 100, 2, 0));
+            bussen.Add(new BusDTO(5, new System.DateTime(2021, 05, 27), new System.DateTime(2021, 05, 27), new System.DateTime(), new System.DateTime(), 406, 1, 2, 0));
+            bussen.Add(new BusDTO(6, new System.DateTime(2021, 05, 27), new System.DateTime(2021, 05, 27), new System.DateTime(), new System.DateTime(), 406, 100, 2, 0));
         }
 
         public bool Create(DateTime periodicCleaning, DateTime smallCleaning, DateTime periodicMaintenance, DateTime smallMaintenance, int busNumber, int batteryLevel, int status)

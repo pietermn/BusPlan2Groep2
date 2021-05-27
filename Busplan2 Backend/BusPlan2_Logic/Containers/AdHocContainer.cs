@@ -10,7 +10,7 @@ namespace BusPlan2_Logic.Containers
 {
     public class AdHocContainer
     {
-        private readonly AdHocTestHandler adhocHandler = new();
+        private readonly AdHocTestHandler adhocHandler = new AdHocTestHandler();
 
         public bool Create(AdHoc adHoc)
         {

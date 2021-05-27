@@ -9,7 +9,7 @@ namespace BusPlan2_Logic.Containers
 {
     public class ParkingSpaceContainer
     {
-        private readonly ParkingSpaceHandler handler = new ParkingSpaceHandler();
+        private readonly ParkingSpaceTestHandler handler = new ParkingSpaceTestHandler();
 
         public bool Create(ParkingSpace pspace)
         {
