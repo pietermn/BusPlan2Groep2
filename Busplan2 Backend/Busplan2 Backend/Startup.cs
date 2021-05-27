@@ -81,7 +81,7 @@ namespace Busplan2_Backend
 
             app.UseCors("AllowAll");
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             app.UseRouting();
 
