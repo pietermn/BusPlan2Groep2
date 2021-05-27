@@ -20,6 +20,7 @@ namespace BusPlan2_Logic.Containers
         public ParkingSpace Read(int parkingspaceID)
         {
             ParkingSpaceDTO pspaceDTO = handler.Read(parkingspaceID);
+            if (pspaceDTO.ParkingSpaceID == 0) { return null; }
             ParkingSpace pspace = new(pspaceDTO.ParkingSpaceID, pspaceDTO.BusID, pspaceDTO.Number, (ParkingTypeEnum)pspaceDTO.Type, pspaceDTO.Occupied);
             return pspace;
         }
