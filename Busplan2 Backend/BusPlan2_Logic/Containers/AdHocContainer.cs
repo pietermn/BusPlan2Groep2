@@ -64,9 +64,11 @@ namespace BusPlan2_Logic.Containers
                     new AdHoc(
                         dto.AdHocID,
                         dto.BusID,
+                        dto.AccountID,
                         (AdHocTypeEnum)dto.Type,
                         dto.Team,
                         dto.Description,
+                        dto.TimeSubmitted,
                         dto.TimeDone
                     )
                 );

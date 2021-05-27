@@ -29,6 +29,18 @@ export default (reducer, actions, defaultValue) => {
           {children}
         </Context.Provider>
       );
+    } else if (namestate == "CleaningContext") {
+      return (
+        <Context.Provider value={{ CleaningState: state, ...boundActions }}>
+          {children}
+        </Context.Provider>
+      );
+    } else if (namestate == "MaintenanceContext") {
+      return (
+        <Context.Provider value={{ MaintenanceState: state, ...boundActions }}>
+          {children}
+        </Context.Provider>
+      );
     } else {
       return (
         <Context.Provider value={{ state, ...boundActions }}>

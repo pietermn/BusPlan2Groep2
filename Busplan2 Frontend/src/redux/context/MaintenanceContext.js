@@ -5,9 +5,11 @@ import BackendApi from "../api/BackendApi";
 const authReducer = (state, action) => {
   switch (action.type) {
     case "GetMaintenance":
-        return {...state, maintenance: action.payload}
+      return { ...state, maintenance: action.payload }
     case "GetAllMaintenance":
-      return {...state, maintenanceList: action.payload}
+      return { ...state, maintenanceList: action.payload }
+    case "GetAllAdhocMaintenance":
+      return { ...state, adhoc: action.payload }
     default:
       return state;
   }
@@ -20,24 +22,24 @@ function fixTime(time) {
 }
 
 const CreateMaintenance = (dispatch) => async (maintenance) => {
-    try {
-      const response = await BackendApi.get("/maintenance/create", maintenance)
-    } catch {
-      console.log("Something went wrong")
-    }
-  };
+  try {
+    const response = await BackendApi.get("/maintenance/create", maintenance)
+  } catch {
+    console.log("Something went wrong")
+  }
+};
 
 const GetMaintenance = (dispatch) => async (maintenanceID) => {
-    try {
-      const response = await BackendApi.get("/maintenance/read", maintenanceID)
-      const maintenance = response.data;
-      maintenance.TimeCleaned = fixTime(maintenance.TimeCleaned);
-  
-      dispatch({type: "GetMaintenance", payload: maintenance})
-    } catch {
-      console.log("Something went wrong")
-    }
-  };
+  try {
+    const response = await BackendApi.get("/maintenance/read", maintenanceID)
+    const maintenance = response.data;
+    maintenance.TimeCleaned = fixTime(maintenance.TimeCleaned);
+
+    dispatch({ type: "GetMaintenance", payload: maintenance })
+  } catch {
+    console.log("Something went wrong")
+  }
+};
 
 const GetAllMaintenance = (dispatch) => async () => {
   try {
@@ -47,7 +49,7 @@ const GetAllMaintenance = (dispatch) => async () => {
       maintenance.TimeCleaned = fixTime(maintenance.TimeCleaned);
     });
 
-    dispatch({type: "GetAllMaintenance", payload: maintenanceList})
+    dispatch({ type: "GetAllMaintenance", payload: maintenanceList })
   } catch {
     console.log("Something went wrong")
   }
@@ -62,12 +64,23 @@ const UpdateMaintenance = (dispatch) => async (maintenance) => {
 }
 
 const DeleteMaintenance = (dispatch) => async (maintenanceID) => {
-    try {
-      const response = await BackendApi.post("/maintenance/delete", maintenanceID)
-    } catch {
-      console.log("Something went wrong");
-    }
+  try {
+    const response = await BackendApi.post("/maintenance/delete", maintenanceID)
+  } catch {
+    console.log("Something went wrong");
   }
+}
+
+const GetAllAdhocMaintenance = (dispatch) => async () => {
+  const response = await BackendApi.get("/adhoc/readall");
+
+  var maintenanceAdhoc = [];
+  response.data.forEach(adhoc => {
+    if (adhoc.team == 2) maintenanceAdhoc.push(adhoc);
+  })
+
+  dispatch({ type: "GetAllAdhocMaintenance", payload: maintenanceAdhoc });
+}
 
 export const { Provider, Context } = createDataContext(
   authReducer,
@@ -76,7 +89,8 @@ export const { Provider, Context } = createDataContext(
     GetMaintenance,
     GetAllMaintenance,
     UpdateMaintenance,
-    DeleteMaintenance
+    DeleteMaintenance,
+    GetAllAdhocMaintenance
   },
   []
 );

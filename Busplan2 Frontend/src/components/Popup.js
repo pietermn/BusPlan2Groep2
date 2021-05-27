@@ -5,7 +5,7 @@ import { ImCross } from "react-icons/im";
 import ParkingSpaceDropdown from "./ParkingSpaceDropdown";
 
 const Popup = ({ bus, path }) => {
-  const { DeletePopup } = useContext(BusContext);
+  const { DeletePopup, UpdateBus, GetAllMaintenanceBusses, GetAllCleaningBusses } = useContext(BusContext);
   const { GetAvailableSpaces, ParkingSpaceState } = useContext(ParkingSpaceContext);
 
   useEffect(() => {
@@ -57,17 +57,26 @@ const Popup = ({ bus, path }) => {
   };
 
   const MaintenancePopup = () => {
+
+    function handleUpdateBusStatus(e) {
+      var newStatus = e.target.value;
+      var newBus = bus;
+
+      newBus.status = newStatus;
+      UpdateBus(newBus);
+    }
+
     const options = [
       {
-        name: "reparatie nodig",
+        name: "Buiten gebruik",
         number: 0,
       },
       {
-        name: "wordt gerepareerd",
+        name: "Moet worden gerepareerd",
         number: 1,
       },
       {
-        name: "gerepareerd",
+        name: "Geen problemen",
         number: 2,
       },
     ];
@@ -82,7 +91,7 @@ const Popup = ({ bus, path }) => {
         </span>
         <span id="status">
           <p id="title-text">Status:</p>
-          <select>
+          <select defaultValue={bus.status} onChange={handleUpdateBusStatus}>
             {options.map((value, index) => {
               return (
                 <option key={index} value={value.number}>
@@ -120,7 +129,7 @@ const Popup = ({ bus, path }) => {
         </span>
         <span id="date">
           <p id="title-text">Verplaats naar</p>
-          {ParkingSpaceState.available && <ParkingSpaceDropdown BusID={bus.busID} spaces={ParkingSpaceState.available} currentParkingSpaceID={bus.parkingSpace}/>}
+          {ParkingSpaceState.available && <ParkingSpaceDropdown BusID={bus.busID} spaces={ParkingSpaceState.available} currentParkingSpaceID={bus.parkingSpace} />}
         </span>
       </div>
     );
