@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
+import BackendApi from "../../../redux/api/BackendApi";
 
 const Manual = () => {
     const [busID, setBusID] = useState('');
     const history = useHistory();
+    const [busExists, setBusExists] = useState('placeholder');
 
     const AdhocObj = {
         busID: "",
@@ -12,14 +14,36 @@ const Manual = () => {
         description: "",
     }
 
-    const handleNumberButton = (char) => {
+    async function DoesBusExist() {
+        try {
+            const response = await BackendApi.get(`/bus/read?busID=${busID}`)
+            if (!response.data) {
+                return false;
+            } else {
+                return true;
+            }
+        } catch {
+            console.log("Something went wrong")
+        }
+    }
+
+    const handleNumberButton = async (char) => {
         if (char == "C") {
             setBusID("");
         }
 
         else if (char == "->") {
             AdhocObj.busID = parseInt(busID);
-            history.push('drivein', {AdhocObj});
+            var exists = await DoesBusExist(AdhocObj.busID)
+            console.log(exists);
+            setBusExists(exists);
+            if (exists) {
+                history.push('drivein', { AdhocObj });
+            }
+
+            setTimeout(() => {
+                setBusExists("placeholder");
+            }, 4000);
         }
 
         else if (busID.length != 2) {
@@ -39,7 +63,7 @@ const Manual = () => {
 
     return (
         <div className="manual">
-            <h1 style={{color: "white"}}>Bus Identificatie nummer</h1>
+            <h1 style={{ color: "white" }}>Bus Identificatie nummer</h1>
             <input maxLength={2} value={busID} onChange={(e) => { setBusID(e.target.value) }} />
             <div className="number-container">
                 {
@@ -48,6 +72,7 @@ const Manual = () => {
                     })
                 }
             </div>
+            {busExists == false && <p style={{marginTop: 80, fontSize: 22, fontWeight: 700, color: "red"}}>Ingevoerde bus bestaat niet</p>}
         </div>
     )
 }

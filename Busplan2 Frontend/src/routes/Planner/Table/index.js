@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Table = ({ type, data }) => {
-    console.log(data);
     return (
         <div className="planner-table">
             <div className="row indexRow">

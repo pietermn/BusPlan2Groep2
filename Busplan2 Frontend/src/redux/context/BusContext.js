@@ -14,6 +14,8 @@ const authReducer = (state, action) => {
       return { ...state, bus: action.payload };
     case "GetParkingSpace":
       return { ...state, DriveTo: action.payload };
+    case "DoesBusExist":
+      return { ...state, DoesBusExist: action.payload }
     default:
       return state;
   }
