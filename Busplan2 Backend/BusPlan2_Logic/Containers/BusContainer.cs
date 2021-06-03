@@ -14,8 +14,8 @@ namespace BusPlan2_Logic.Containers
         private readonly BusTestHandler busHandler = new BusTestHandler();
         private readonly AdHocContainer adHocContainer = new AdHocContainer();
 
-        private static DateTime after11oClock = new DateTime(2021, 8, 2, 23, 00, 00);
-        private static DateTime before5oClock = new DateTime(2021, 8, 2, 5, 00, 00);
+        public DateTime after11oClock = new DateTime(2021, 8, 2, 23, 00, 00);
+        public DateTime before5oClock = new DateTime(2021, 8, 2, 5, 00, 00);
 
         public bool Create(Bus bus)
         {
@@ -115,7 +115,7 @@ namespace BusPlan2_Logic.Containers
                     if (before5oClock.Hour >= DateTime.Now.Hour || DateTime.Now.Hour >= after11oClock.Hour)
                     {//ja
                         //----------------------------------GEPLANDE SCHOONMAAK?
-                        if (bus.SmallCleaning >= DateTime.Now.AddDays(-7) || bus.PeriodicCleaning >= DateTime.Now.AddDays(-21))
+                        if (bus.SmallCleaning <= DateTime.Now.AddDays(-7) || bus.PeriodicCleaning <= DateTime.Now.AddDays(-21))
                         {//ja
                             return parkingSpaces.Where(x => x.Type == ParkingTypeEnum.Charging && x.Occupied == false).First();
                         }

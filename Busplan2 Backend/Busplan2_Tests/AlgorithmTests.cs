@@ -1,8 +1,10 @@
+using BusPlan2_DAL.DTOs;
 using BusPlan2_DAL.Handlers;
 using BusPlan2_Logic;
 using BusPlan2_Logic.Containers;
 using BusPlan2_Logic.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 
 namespace Busplan2_Tests
 {
@@ -17,7 +19,7 @@ namespace Busplan2_Tests
             //Arrange
             BusContainer busContainer = new BusContainer();
             //Act
-            ParkingSpace p1 = busContainer.GiveParkingSpace(1);
+            ParkingSpace p1 = busContainer.GiveParkingSpace(7);
             //Assert
             Assert.AreEqual(6, p1.ParkingSpaceID);
         }
@@ -30,8 +32,9 @@ namespace Busplan2_Tests
             ParkingSpaceTestHandler handler = new ParkingSpaceTestHandler();
             //Act
             ParkingSpace p1 = busContainer.GiveParkingSpace(1);
+           
             //Assert
-            Assert.AreEqual(6, p1.ParkingSpaceID);
+            Assert.AreEqual(2, p1.ParkingSpaceID);
         }
 
         [TestMethod]
@@ -62,7 +65,6 @@ namespace Busplan2_Tests
             //Arrange
             BusContainer busContainer= new BusContainer();
             //Act
-            //update nog implementen hiervoor
             ParkingSpace p1 = busContainer.GiveParkingSpace(3);
             //Assert
             Assert.AreEqual(7, p1.ParkingSpaceID);
@@ -73,20 +75,24 @@ namespace Busplan2_Tests
         {
             //Arrange
             BusContainer busContainer= new BusContainer();
+            busContainer.after11oClock = new DateTime(2021, 8, 2, 12, 00, 00);
+            busContainer.before5oClock = new DateTime(2021, 8, 2, 18, 00, 00);
             //Act
 
             //datetime staat op 01/01/0001
             ParkingSpace p1 = busContainer.GiveParkingSpace(4);
 
             //Assert
-            Assert.AreEqual(2, p1.ParkingSpaceID);
+            Assert.AreEqual(4, p1.ParkingSpaceID);
         }
 
         [TestMethod]
         public void If_Last_Ride_No_Planned_Cleaning_Low_Battery_Slowcharger_Free_Send_To_Slowcharger()
         {
             //Arrange
-            BusContainer busContainer= new BusContainer();
+            BusContainer busContainer = new BusContainer();
+            busContainer.after11oClock = new DateTime(2021, 8, 2, 12, 00, 00);
+            busContainer.before5oClock = new DateTime(2021, 8, 2, 18, 00, 00);
             //Act
             ParkingSpace p1 = busContainer.GiveParkingSpace(5);
 
@@ -99,13 +105,16 @@ namespace Busplan2_Tests
         {
             //Arrange
             BusContainer busContainer= new BusContainer();
+            
+            busContainer.after11oClock = new DateTime(2021, 8, 2, 12, 00, 00);
+            busContainer.before5oClock = new DateTime(2021, 8, 2, 18, 00, 00);
+            
             //Act
-
-            //update nog implementen hiervoor
+            
             ParkingSpace p1 = busContainer.GiveParkingSpace(5);
 
             //Assert
-            Assert.Fail();
+            Assert.AreEqual(3, p1.ParkingSpaceID);
         }
 
         [TestMethod]
@@ -113,11 +122,13 @@ namespace Busplan2_Tests
         {
             //Arrange
             BusContainer busContainer= new BusContainer();
+            busContainer.after11oClock = new DateTime(2021, 8, 2, 12, 00, 00);
+            busContainer.before5oClock = new DateTime(2021, 8, 2, 18, 00, 00);
             //Act
             ParkingSpace p1 = busContainer.GiveParkingSpace(6);
 
             //Assert
-            Assert.AreEqual(4, p1.ParkingSpaceID);
+            Assert.AreEqual(3, p1.ParkingSpaceID);
         }
     }
 }
