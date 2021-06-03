@@ -26,5 +26,16 @@ namespace BusPlan2Xamarin
             ParkingSpace parkingSpace = await busCon.GetParkingSpace(bus.BusID.ToString());
             parkeerLbl.Text = "Parkeer op " + parkingSpace.Type.ToString() + parkingSpace.Number.ToString();
         }
+
+        public async void Button_Clicked(object sender, EventArgs e)
+        {
+
+            Button button = sender as Button;
+            
+            if (button.Text == "Terug")
+            {
+                await Navigation.PushAsync(new BusNumberPage(busCon));
+            }
+        }
     }
 }
