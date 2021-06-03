@@ -14,7 +14,8 @@ namespace BusPlan2Xamarin.ApiCalls
         public BusConnector()
         {
             // Update port # in the following line.
-            client.BaseAddress = new Uri("http://45.32.233.3:80/");
+            //client.BaseAddress = new Uri("http://45.32.233.3:80/");
+            client.BaseAddress = new Uri("http://localhost:5000/");
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(
                 new MediaTypeWithQualityHeaderValue("application/json"));

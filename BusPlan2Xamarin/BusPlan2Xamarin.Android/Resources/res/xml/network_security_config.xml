@@ -3,5 +3,9 @@
     <domain-config cleartextTrafficPermitted="true">
         <domain includeSubdomains="true">45.32.233.3</domain>
         <domain includeSubdomains="true">45.32.233.3:80</domain>
+        <domain includeSubdomains="true">http://localhost:5000</domain>
+        <domain includeSubdomains="true">localhost:5000</domain>
+        <domain includeSubdomains="true">https://localhost:5001</domain>
+        <domain includeSubdomains="true">localhost:5001</domain>
     </domain-config>
 </network-security-config>
