@@ -13,7 +13,7 @@ namespace BusPlan2_DAL.Handlers
         public ParkingSpaceTestHandler()
         {
             parkingLots.Add(new ParkingSpaceDTO(1, 1, 322, 2, true));
-            parkingLots.Add(new ParkingSpaceDTO(2, 0, 0, 2, false));
+            parkingLots.Add(new ParkingSpaceDTO(2, 0, 0, 2, true));
             parkingLots.Add(new ParkingSpaceDTO(3, 0, 0, 0, false));
             parkingLots.Add(new ParkingSpaceDTO(4, 0, 0, 1, false));
             parkingLots.Add(new ParkingSpaceDTO(5, 0, 0, 4, false));
@@ -71,6 +71,20 @@ namespace BusPlan2_DAL.Handlers
             {
                 return false;
             }
+        }
+        public List<ParkingSpaceDTO> ReadCleaning()
+        {
+            return parkingLots;
+        }
+
+        public List<ParkingSpaceDTO> ReadMaintenance()
+        {
+            return parkingLots;
+        }
+
+        public List<ParkingSpaceDTO> ReadAvailable()
+        {
+            return parkingLots;
         }
     }
 }

@@ -73,13 +73,18 @@ namespace BusPlan2_Logic.Containers
 
         public ParkingSpace GiveParkingSpace(int id)
         {
+            AdHoc adhoc = new AdHoc();
             Bus bus = Read(id);
             if (bus == null) { return null; }
-            AdHoc adhoc = adHocContainer.Read(id);
+            if (id != 0)
+            {
+                adhoc = adHocContainer.Read(id);
+            }
+            
 
             //int adhocType = (int).Type;
             List<ParkingSpace> parkingSpaces = new ParkingSpaceContainer().ReadAll();
-
+            
             //----------------------------------------------Heeft reparatie?-------------------------------------------------//
             if (bus.PeriodicMaintenance <= DateTime.UtcNow.AddYears(-1) || bus.SmallMaintenance <= DateTime.UtcNow.AddDays(-90))
             {//ja

@@ -11,8 +11,8 @@ namespace BusPlan2_DAL.Handlers
         List<AdHocDTO> adhocList = new List<AdHocDTO>();
         public AdHocTestHandler()
         {
-            adhocList.Add(new AdHocDTO(1, 2, 5, 2, "Spuug in het gangpad", new System.DateTime()));
-            adhocList.Add(new AdHocDTO(2, 3, 5, 2, "Spuug in het gangpad", new System.DateTime()));
+            adhocList.Add(new AdHocDTO(1, 1, 5, 1, "Spuug in het gangpad", new System.DateTime()));
+            adhocList.Add(new AdHocDTO(2, 2, 5, 1, "Spuug in het gangpad", new System.DateTime()));
             adhocList.Add(new AdHocDTO(3, 3, 0, 2, "Motor valt uit", new System.DateTime()));
         }
         public bool Create(AdHocDTO adHocDTO)
@@ -36,6 +36,21 @@ namespace BusPlan2_DAL.Handlers
 
 
         public List<AdHocDTO> ReadAll()
+        {
+            return adhocList;
+        }
+
+        public List<AdHocDTO> ReadAllCleaning()
+        {
+            return adhocList;
+        }
+
+        public List<AdHocDTO> ReadAllMaintenance()
+        {
+            return adhocList;
+        }
+
+        public List<AdHocDTO> ReadAllPlanning()
         {
             return adhocList;
         }
@@ -71,7 +86,16 @@ namespace BusPlan2_DAL.Handlers
 
         public AdHocDTO ReadFromBusID(int busID)
         {
-            return adhocList.Find(adhoc => adhoc.BusID == busID);
+            AdHocDTO adhoc = adhocList.Find(adhoc => adhoc.BusID == busID);
+            if (adhoc != null)
+            {
+                return adhoc;
+            }
+            else
+            {
+                //Moet een adhoc returnen met adhocId 0
+                return new AdHocDTO(0, busID, 0, 2, "0", new System.DateTime());
+            }
         }
     }
 }
