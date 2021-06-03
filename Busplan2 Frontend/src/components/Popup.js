@@ -1,9 +1,16 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Context as BusContext } from "../redux/context/BusContext";
+import { Context as ParkingSpaceContext } from "../redux/context/ParkingSpaceContext";
 import { ImCross } from "react-icons/im";
+import ParkingSpaceDropdown from "./ParkingSpaceDropdown";
 
 const Popup = ({ bus, path }) => {
-  const { DeletePopup } = useContext(BusContext);
+  const { DeletePopup, UpdateBus, GetAllMaintenanceBusses, GetAllCleaningBusses } = useContext(BusContext);
+  const { GetAvailableSpaces, ParkingSpaceState } = useContext(ParkingSpaceContext);
+
+  useEffect(() => {
+    GetAvailableSpaces();
+  }, [])
 
   const CleaningPopup = () => {
     const options = [
@@ -50,17 +57,26 @@ const Popup = ({ bus, path }) => {
   };
 
   const MaintenancePopup = () => {
+
+    function handleUpdateBusStatus(e) {
+      var newStatus = e.target.value;
+      var newBus = bus;
+
+      newBus.status = newStatus;
+      UpdateBus(newBus);
+    }
+
     const options = [
       {
-        name: "reparatie nodig",
+        name: "Buiten gebruik",
         number: 0,
       },
       {
-        name: "wordt gerepareerd",
+        name: "Moet worden gerepareerd",
         number: 1,
       },
       {
-        name: "gerepareerd",
+        name: "Geen problemen",
         number: 2,
       },
     ];
@@ -75,7 +91,7 @@ const Popup = ({ bus, path }) => {
         </span>
         <span id="status">
           <p id="title-text">Status:</p>
-          <select>
+          <select defaultValue={bus.status} onChange={handleUpdateBusStatus}>
             {options.map((value, index) => {
               return (
                 <option key={index} value={value.number}>
@@ -94,6 +110,7 @@ const Popup = ({ bus, path }) => {
   };
 
   const OverviewPopup = () => {
+
     return (
       <div className="popup-container">
         <ImCross id="delete-icon" onClick={() => DeletePopup()} />
@@ -111,8 +128,8 @@ const Popup = ({ bus, path }) => {
           <p id="info-text">{bus.periodicCleaning}</p>
         </span>
         <span id="date">
-          <p id="title-text">Parkeerplaats:</p>
-          <input />
+          <p id="title-text">Verplaats naar</p>
+          {ParkingSpaceState.available && <ParkingSpaceDropdown BusID={bus.busID} spaces={ParkingSpaceState.available} currentParkingSpaceID={bus.parkingSpace} />}
         </span>
       </div>
     );

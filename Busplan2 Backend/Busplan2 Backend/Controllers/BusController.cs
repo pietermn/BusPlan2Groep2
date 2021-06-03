@@ -20,13 +20,25 @@ namespace Busplan2_Backend.Controllers
         public IActionResult Read(int busID)
         {
 
-            return Ok(busContainer.Read(busID)); //Not implemented code
+            return Ok(busContainer.Read(busID));
         }
 
         [Route("readall"), HttpGet]
         public IActionResult ReadAll()
         {
-            return Ok(busContainer.ReadAll()); //Not implemented code
+            return Ok(busContainer.ReadAll());
+        }
+
+        [Route("readcleaning"), HttpGet]
+        public IActionResult ReadCleaning()
+        {
+            return Ok(busContainer.ReadCleaning());
+        }
+
+        [Route("readmaintenance"), HttpGet]
+        public IActionResult ReadMaintenance()
+        {
+            return Ok(busContainer.ReadMaintenance());
         }
 
         [Route("create"), HttpPost]
@@ -70,5 +82,22 @@ namespace Busplan2_Backend.Controllers
                 return StatusCode(501);
             }
         }
+
+        [Route("giveparkingspace"), HttpPost]
+        public IActionResult GiveParkingSpace(int id)
+        {
+            ParkingSpace parkingSpace = busContainer.GiveParkingSpace(id);
+            if (parkingSpace != null)
+            {
+                return Ok(parkingSpace);
+            }
+            else 
+            {
+                //Error in code
+                return StatusCode(501);
+            }
+
+        }
+
     }
 }

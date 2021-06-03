@@ -5,9 +5,11 @@ import BackendApi from "../api/BackendApi";
 const authReducer = (state, action) => {
   switch (action.type) {
     case "GetCleaning":
-        return {...state, cleaning: action.payload}
+      return { ...state, cleaning: action.payload }
     case "GetAllCleaning":
-      return {...state, cleaningList: action.payload}
+      return { ...state, cleaningList: action.payload };
+    case "GetAllAdhocCleaning":
+      return { ...state, adhoc: action.payload };
     default:
       return state;
   }
@@ -20,24 +22,24 @@ function fixTime(time) {
 }
 
 const CreateCleaning = (dispatch) => async (cleaning) => {
-    try {
-      const response = await BackendApi.get("/cleaning/create", cleaning)
-    } catch {
-      console.log("Something went wrong")
-    }
-  };
+  try {
+    const response = await BackendApi.get("/cleaning/create", cleaning)
+  } catch {
+    console.log("Something went wrong")
+  }
+};
 
 const GetCleaning = (dispatch) => async (cleaningID) => {
-    try {
-      const response = await BackendApi.get("/cleaning/read", cleaningID)
-      const cleaning = response.data;
-      cleaning.TimeCleaned = fixTime(cleaning.TimeCleaned);
-  
-      dispatch({type: "GetCleaning", payload: cleaning})
-    } catch {
-      console.log("Something went wrong")
-    }
-  };
+  try {
+    const response = await BackendApi.get("/cleaning/read", cleaningID)
+    const cleaning = response.data;
+    cleaning.TimeCleaned = fixTime(cleaning.TimeCleaned);
+
+    dispatch({ type: "GetCleaning", payload: cleaning })
+  } catch {
+    console.log("Something went wrong")
+  }
+};
 
 const GetAllCleaning = (dispatch) => async () => {
   try {
@@ -47,11 +49,22 @@ const GetAllCleaning = (dispatch) => async () => {
       cleaning.TimeCleaned = fixTime(cleaning.TimeCleaned);
     });
 
-    dispatch({type: "GetAllCleaning", payload: cleaningList})
+    dispatch({ type: "GetAllCleaning", payload: cleaningList })
   } catch {
     console.log("Something went wrong")
   }
 };
+
+const GetAllAdhocCleaning = (dispatch) => async () => {
+  const response = await BackendApi.get("/adhoc/readall");
+
+  var cleaningAdhoc = [];
+  response.data.forEach(adhoc => {
+    if (adhoc.team == 1) cleaningAdhoc.push(adhoc);
+  })
+
+  dispatch({ type: "GetAllAdhocCleaning", payload: cleaningAdhoc });
+}
 
 const UpdateCleaning = (dispatch) => async (cleaning) => {
   try {
@@ -62,12 +75,12 @@ const UpdateCleaning = (dispatch) => async (cleaning) => {
 }
 
 const DeleteCleaning = (dispatch) => async (cleaningID) => {
-    try {
-      const response = await BackendApi.post("/cleaning/delete", cleaningID)
-    } catch {
-      console.log("Something went wrong");
-    }
+  try {
+    const response = await BackendApi.post("/cleaning/delete", cleaningID)
+  } catch {
+    console.log("Something went wrong");
   }
+}
 
 export const { Provider, Context } = createDataContext(
   authReducer,
@@ -76,7 +89,8 @@ export const { Provider, Context } = createDataContext(
     GetCleaning,
     GetAllCleaning,
     UpdateCleaning,
-    DeleteCleaning
+    DeleteCleaning,
+    GetAllAdhocCleaning
   },
   []
 );

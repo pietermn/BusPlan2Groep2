@@ -17,8 +17,7 @@
   padding: 3% 0;
 }
 
-.bus-item p,
-.bus-item h1 {
+.bus-item p, .bus-item h1 {
   font-family: var(--fontstyle);
 }
 
@@ -72,6 +71,7 @@
 }
 
 /* Pop up*/
+
 .popup-container {
   z-index: 15;
   border-radius: 15px;

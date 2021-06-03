@@ -22,6 +22,7 @@ namespace BusPlan2_Logic.Containers
         public Account Read(int accountID)
         {
             AccountDTO accountDTO = handler.Read(accountID);
+            if (accountDTO.AccountID == 0) { return null; }
             Account account = new Account(accountDTO.AccountID, accountDTO.LoginCode, accountDTO.Name, (TeamsEnum)accountDTO.Team);
             return account;
         }

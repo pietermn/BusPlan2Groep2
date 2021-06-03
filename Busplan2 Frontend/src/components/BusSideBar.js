@@ -8,11 +8,7 @@ import Error404 from "../routes/ExtraPages/404";
 
 const BusSideBar = ({ Busses }) => {
   const location = useLocation();
-  const { BusState, GetAllBusses, GetPopup } = useContext(BusContext);
-
-  useEffect(() => {
-    GetAllBusses();
-  }, []);
+  const { GetPopup } = useContext(BusContext);
 
   const BusItemCleaning = ({ bus }) => {
     const [openExtended, setOpenExtended] = useState(false);
@@ -31,10 +27,6 @@ const BusSideBar = ({ Busses }) => {
           <span id="text-container">
             <p>Batterij niveau</p>
             <p>{bus.batteryLevel}</p>
-          </span>
-          <span id="text-container">
-            <p>Parkeerplaats</p>
-            <p>{bus.parkingSpace}</p>
           </span>
           <span id="text-container">
             <p>Type schoonmaak</p>
@@ -138,8 +130,8 @@ const BusSideBar = ({ Busses }) => {
 
   return (
     <div className="sidebar-container">
-      {BusState.busses &&
-        BusState.busses.map((value, index) => {
+      {
+        Busses.map((value, index) => {
           return <BusItemDecider bus={value} key={index} />;
         })}
     </div>

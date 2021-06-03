@@ -3,15 +3,36 @@ import { Redirect, Route, Switch } from "react-router";
 import { useLocation } from "react-router-dom";
 import PageLoader from "../Layout/PageLoader";
 import Account from "./Account";
+import BusDriver from "./BusDriver";
 import Cleaning from "./Cleaning";
 import Maintenance from "./Maintenance";
 import Overview from "./Overview";
+import Planner from "./Planner";
 
 const Routes = () => {
   const location = useLocation();
 
-  if (location.pathname === "" || location.pathname === "/")
-    return <Redirect to={"/schoonmaak"} />;
+  const account_id = localStorage.getItem('account_id');
+  const team = localStorage.getItem('team');
+
+  if (location.pathname === "" || location.pathname === "/") {
+    if (!account_id) {
+      return <Redirect to={"/account"} />;
+    }
+
+    switch(team) {
+      case "0":
+        return <Redirect to={"/bus"} />;
+      case "1":
+        return <Redirect to={"/schoonmaak"} />;
+      case "2":
+        return <Redirect to={"/monteur"} />;
+      case "3":
+        return <Redirect to={"/planner"} />;
+      case "4":
+        return <Redirect to={"/overzicht"} />;
+    }
+  }
 
   return (
     <div>
@@ -21,6 +42,8 @@ const Routes = () => {
           <Route path="/schoonmaak" component={Cleaning} />
           <Route path="/overzicht" component={Overview} />
           <Route path="/monteur" component={Maintenance} />
+          <Route path="/bus" component={BusDriver} />
+          <Route path="/planner" component={Planner} />
           <Route component={lazy(() => import("./ExtraPages/404"))} />
         </Switch>
       </Suspense>

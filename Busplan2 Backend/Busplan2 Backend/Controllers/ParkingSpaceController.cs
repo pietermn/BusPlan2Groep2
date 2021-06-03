@@ -45,6 +45,39 @@ namespace Busplan2_Backend.Controllers
             }
         }
 
+        [Route("readcleaning"), HttpGet]
+        public IActionResult ReadCleaning()
+        {
+            List<ParkingSpace> newpSpace = parkingspaceContainer.ReadCleaning();
+            if (newpSpace != null) {
+                return Ok(newpSpace);
+            }
+            return StatusCode(403);
+        }
+
+        [Route("readmaintenance"), HttpGet]
+        public IActionResult ReadMaintenace()
+        {
+            List<ParkingSpace> newpSpace = parkingspaceContainer.ReadMaintenance();
+            if (newpSpace != null)
+            {
+                return Ok(newpSpace);
+            }
+            return StatusCode(403);
+        }
+
+        [Route("readavailable"), HttpGet]
+        public IActionResult ReadAvailable()
+        {
+            List<ParkingSpace> newpSpace = parkingspaceContainer.ReadAvailable();
+            if (newpSpace != null)
+            {
+                return Ok(newpSpace);
+            }
+            return StatusCode(403);
+        }
+
+
         [Route("create"), HttpPost]
         public IActionResult Create(ParkingSpace pspace)
         {
@@ -77,6 +110,20 @@ namespace Busplan2_Backend.Controllers
         public IActionResult Update(ParkingSpace pspace)
         {
             if (parkingspace.Update(pspace))
+            {
+                return Ok();
+            }
+            else
+            {
+                //Error in code
+                return StatusCode(501);
+            }
+        }
+
+        [Route("updateoccupied"), HttpPost]
+        public IActionResult UpdateOccupied(ParkingSpace pspace)
+        {
+            if (parkingspace.UpdateOccupied(pspace))
             {
                 return Ok();
             }
