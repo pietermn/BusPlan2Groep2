@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using BusPlan2_Logic.Models;
 using BusPlan2_Logic.Containers;
 
-
 namespace Busplan2_Backend.Controllers
 {
     [ApiController]

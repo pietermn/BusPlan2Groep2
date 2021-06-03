@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BusPlan2Xamarin.MainPage">
+
+    <StackLayout BackgroundColor="#272EC0">
+        <Frame BackgroundColor="#272EC0" Padding="20" CornerRadius="0">
+            <Label Text="Hermes Bus service" HorizontalTextAlignment="Center" TextColor="White" FontSize="24" Margin="0, 24, 0, 0" FontAttributes="Bold"/>
+        </Frame>
+        <Label Text="Scan Bus" FontSize="48" Padding="30,10,30,10" TextColor="White" HorizontalTextAlignment="Center" Margin="0, 50, 0, 0"/>
+        <Button Clicked="Button_Clicked" Text="Scan Bus" BorderColor="#F04A77" BorderRadius="5" BorderWidth="2" TextColor="#F04A77" FontSize="Large" FontAttributes="Bold" Margin="70, 50, 70, 0"/>
+         
+    </StackLayout>
+
+</ContentPage>

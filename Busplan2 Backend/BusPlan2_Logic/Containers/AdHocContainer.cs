@@ -23,7 +23,7 @@ namespace BusPlan2_Logic.Containers
         public AdHoc Read(int id)
         {
             AdHocDTO adHocDTO = adhocHandler.ReadFromBusID(id);
-            if (adHocDTO.AdHocID == 0) { return null; }
+            if (adHocDTO == null || adHocDTO.AdHocID == 0) { return null; }
             if (adHocDTO != null) return GetAdHocFromAdHocDTO(adHocDTO);
             else return null;
 
