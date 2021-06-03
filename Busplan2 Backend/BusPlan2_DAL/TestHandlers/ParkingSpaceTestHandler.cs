@@ -63,22 +63,13 @@ namespace BusPlan2_DAL.Handlers
 
         public bool Delete(int parkingspaceID)
         {
-            using var connection = Connection.GetConnection();
+            try
             {
-                try
-                {
-                    using var command = connection.CreateCommand();
-
-                    command.CommandText = "DELETE FROM ParkingSpace WHERE ParkingSpaceID = @parkingspaceID;";
-                    command.Parameters.AddWithValue("@parkingspaceID", parkingspaceID);
-
-                    connection.Open();
-                    command.ExecuteNonQuery();
-                    connection.Close();
-
-                    return true;
-                }
-                catch { connection.Close(); return false; }
+                return true;
+            }
+            catch
+            {
+                return false;
             }
         }
     }

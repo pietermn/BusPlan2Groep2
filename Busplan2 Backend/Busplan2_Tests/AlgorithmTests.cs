@@ -20,15 +20,7 @@ namespace Busplan2_Tests
             ParkingSpace p1 = algoritmiek.GeefParkeerPlaats(1);
             ParkingSpace parkingCheck = container.Read(5);
             //Assert
-            try
-            {
-                Assert.AreEqual(p1, parkingCheck);
-            }
-            catch (System.Exception)
-            {
-
-                throw;
-            }
+            Assert.AreEqual(p1, parkingCheck);
         }
 
         [TestMethod]
@@ -41,15 +33,7 @@ namespace Busplan2_Tests
             ParkingSpace p1 = algoritmiek.GeefParkeerPlaats(1);
             ParkingSpace parkingCheck = container.Read(5);
             //Assert
-            try
-            {
-                Assert.AreEqual(p1, parkingCheck);
-            }
-            catch (System.Exception)
-            {
-
-                throw;
-            }
+            Assert.AreEqual(p1, parkingCheck);
         }
 
         [TestMethod]
@@ -62,15 +46,7 @@ namespace Busplan2_Tests
             ParkingSpace p1 = algoritmiek.GeefParkeerPlaats(2);
             ParkingSpace parkingCheck = container.Read(3);
             //Assert
-            try
-            {
-                Assert.AreEqual(p1, parkingCheck);
-            }
-            catch (System.Exception)
-            {
-
-                throw;
-            }
+            Assert.AreEqual(p1, parkingCheck);
         }
 
         [TestMethod]
@@ -83,14 +59,7 @@ namespace Busplan2_Tests
             ParkingSpace p1 = algoritmiek.GeefParkeerPlaats(3);
             ParkingSpace parkingCheck = container.Read(3);
             //Assert
-            try
-            {
-                Assert.AreEqual(p1, parkingCheck);
-            }
-            catch (System.Exception)
-            {
-                throw;
-            }
+            Assert.AreEqual(p1, parkingCheck);
         }
 
         [TestMethod]
@@ -104,14 +73,7 @@ namespace Busplan2_Tests
             ParkingSpace p1 = algoritmiek.GeefParkeerPlaats(3);
             ParkingSpace parkingCheck = container.Read(3);
             //Assert
-            try
-            {
-                Assert.AreEqual(p1, parkingCheck);
-            }
-            catch (System.Exception)
-            {
-                throw;
-            }
+            Assert.AreEqual(p1, parkingCheck);
         }
 
         [TestMethod]
@@ -127,14 +89,7 @@ namespace Busplan2_Tests
             ParkingSpace parkingCheck = container.Read(4);
 
             //Assert
-            try
-            {
-                Assert.AreEqual(p1, parkingCheck);
-            }
-            catch (System.Exception)
-            {
-                throw;
-            }
+            Assert.AreEqual(p1, parkingCheck);
         }
 
         [TestMethod]
@@ -148,14 +103,7 @@ namespace Busplan2_Tests
             ParkingSpace parkingCheck = container.Read(4);
 
             //Assert
-            try
-            {
-                Assert.AreEqual(p1, parkingCheck);
-            }
-            catch (System.Exception)
-            {
-                throw;
-            }
+             Assert.AreEqual(p1, parkingCheck);
         }
 
         [TestMethod]
@@ -171,14 +119,7 @@ namespace Busplan2_Tests
             ParkingSpace parkingCheck = container.Read(4);
 
             //Assert
-            try
-            {
-                Assert.Fail();
-            }
-            catch (System.Exception)
-            {
-                throw;
-            }
+            Assert.Fail();
         }
 
         [TestMethod]
@@ -192,14 +133,7 @@ namespace Busplan2_Tests
             ParkingSpace parkingCheck = container.Read(4);
 
             //Assert
-            try
-            {
-                Assert.AreEqual(p1, parkingCheck);
-            }
-            catch (System.Exception)
-            {
-                throw;
-            }
+            Assert.AreEqual(p1, parkingCheck);
         }
     }
 }
