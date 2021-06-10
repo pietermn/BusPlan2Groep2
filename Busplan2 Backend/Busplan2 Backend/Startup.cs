@@ -37,13 +37,16 @@ namespace Busplan2_Backend
 
             // JWT Authentication
             var appSettings = appSettingsSection.Get<AppSettings>();
+            Environment.SetEnvironmentVariable("DBName", appSettings.DBName, EnvironmentVariableTarget.Process);
+            Environment.SetEnvironmentVariable("Port", appSettings.Port, EnvironmentVariableTarget.Process);
             var key = Encoding.ASCII.GetBytes(appSettings.Key);
 
             services.AddAuthentication(au =>
             {
                 au.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 au.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            }).AddJwtBearer(jwt => {
+            }).AddJwtBearer(jwt =>
+            {
 
                 jwt.RequireHttpsMetadata = false;
                 jwt.SaveToken = true;
@@ -57,18 +60,7 @@ namespace Busplan2_Backend
             });
 
             // Allow Api to be reached from different websites due to Cors policy
-            services.AddCors(options =>
-            {
-                options.AddPolicy("AllowAll",
-                    builder =>
-                    {
-                        builder
-                        .WithOrigins("http://localhost:3000", "https://localhost:3000")
-                        .AllowAnyMethod()
-                        .AllowAnyHeader()
-                        .AllowCredentials();
-                    });
-            });
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -81,7 +73,14 @@ namespace Busplan2_Backend
 
             app.UseCors("AllowAll");
 
-            //app.UseHttpsRedirection();
+            app.UseCors(x => x
+            .AllowAnyMethod()
+            .AllowAnyHeader()
+            .SetIsOriginAllowed(origin => true)
+            .AllowCredentials()
+            );
+
+            app.UseHttpsRedirection();
 
             app.UseRouting();
 

@@ -9,7 +9,7 @@ namespace BusPlan2_DAL.Handlers
     {
         public static MySqlConnection GetConnection()
         {
-            MySqlConnection GeneralConnection = new MySqlConnection("Server=localhost;Uid=user;Database=busplanDB;Pwd=root;Port=3307;");
+            MySqlConnection GeneralConnection = new MySqlConnection($"Server={Environment.GetEnvironmentVariable("DBName")};Uid=user;Database=busplanDB;Pwd=root;Port={Environment.GetEnvironmentVariable("Port")};");
             return GeneralConnection;
         }
     }

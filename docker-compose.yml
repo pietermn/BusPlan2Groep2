@@ -1,41 +1,45 @@
-version: '3.4'
+version: '3.9'
 
 services:
   busplan2backend:
     container_name: ASP-Backend
-    image: ${DOCKER_REGISTRY-}busplan2backend
-    build:
-      context: Busplan2 Backend/
-      dockerfile: Busplan2 Backend/Dockerfile-back
+    image: noahkoole/busplan2backend
+    #build:
+    #  context: Busplan2 Backend/
+    #  dockerfile: Busplan2 Backend/Dockerfile
     environment:
-      - ASPNETCORE_URLS=http://+:5000/;https://+:5001
+      ASPNETCORE_URLS: "http://+:5000"
+      AppSettings__DBName: "db"
+      AppSettings__Port: "3306"
     ports:
       - "5000:5000"
-      - "5001:5001"
-    links:
-      - db
+    networks:
+      - custom-network
 
-
-  react-frontend:
-    container_name: React-Frontend
-    image: ${DOCKER_REGISTRY-}reactfrontend
-    build:
-      context: Busplan2 Frontend/
-      dockerfile: Dockerfile-front
-    ports:
-      - "3000:3000"
-    volumes: 
-      - "/app/node_modules"
-      - "./:/app"
+  #react-frontend:
+    #container_name: React-Frontend
+    #image: noahkoole/busplan2frontend
+    #build:
+     # context: Busplan2 Frontend/
+      #dockerfile: Dockerfile
+    #ports:
+     # - "3000:3000"
+    #volumes: 
+    #  - "/app/node_modules"
+    #  - "./:/app"
+    #networks:
+   #   - custom-network
 
   flyway:
       image: flyway/flyway
       container_name: busFlyway
       command: -url=jdbc:mysql://host.docker.internal:3307/busplanDB -user=user -password=root -connectRetries=60 migrate
       volumes:
-        - .:/database/flyway/sql/migrations
+        - ./database:/flyway/sql/migrations
       depends_on:
         - db
+      extra_hosts:
+        - "host.docker.internal:host-gateway"
 
   db:
     image: mysql:latest
@@ -48,14 +52,22 @@ services:
       MYSQL_ROOT_PASSWORD: 'root'
     ports:
       - "3307:3306"
+    networks:
+      - custom-network 
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     container_name: busPhpmyadmindb
-    links:
-      - db
     environment:
       PMA_HOST: db
     restart: always
     ports:
       - 8080:80
+    networks:
+      - custom-network
+
+networks: 
+  custom-network:
+     driver: bridge
