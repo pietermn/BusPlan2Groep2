@@ -6,7 +6,7 @@ services:
     image: noahkoole/busplan2backend
     #build:
     #  context: Busplan2 Backend/
-    #  dockerfile: Busplan2 Backend/Dockerfile
+     # dockerfile: Busplan2 Backend/Dockerfile
     environment:
       ASPNETCORE_URLS: "http://+:5000"
       AppSettings__DBName: "db"
