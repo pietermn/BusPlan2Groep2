@@ -13,6 +13,7 @@ namespace BusPlan2_Logic.Containers
     {
         private readonly BusTestHandler busHandler = new BusTestHandler();
         private readonly AdHocContainer adHocContainer = new AdHocContainer();
+        private readonly ParkingSpaceContainer psContainer = new ParkingSpaceContainer();
 
         public DateTime after11oClock = new DateTime(2021, 8, 2, 23, 00, 00);
         public DateTime before5oClock = new DateTime(2021, 8, 2, 5, 00, 00);
@@ -70,7 +71,9 @@ namespace BusPlan2_Logic.Containers
             return busHandler.Delete(busID);
         }
 
-
+        public bool UpdateParkingSpace(List<ParkingSpaceDTO> parkingspaces) {
+            return psContainer.Update(parkingspaces);
+        }
         public ParkingSpace GiveParkingSpace(int id)
         {
             AdHoc adhoc = new AdHoc();
@@ -83,7 +86,7 @@ namespace BusPlan2_Logic.Containers
             
 
             //int adhocType = (int).Type;
-            List<ParkingSpace> parkingSpaces = new ParkingSpaceContainer().ReadAll();
+            List<ParkingSpace> parkingSpaces = psContainer.ReadAll();
             
             //----------------------------------------------Heeft reparatie?-------------------------------------------------//
             if (bus.PeriodicMaintenance <= DateTime.UtcNow.AddYears(-1) || bus.SmallMaintenance <= DateTime.UtcNow.AddDays(-90))

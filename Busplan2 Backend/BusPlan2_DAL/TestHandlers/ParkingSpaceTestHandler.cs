@@ -46,12 +46,11 @@ namespace BusPlan2_DAL.Handlers
         }
 
 
-        public bool Update(ParkingSpaceDTO ParkingSpace)
+        public bool Update(List<ParkingSpaceDTO> psUpdate)
         {
             try
             {
-                var parkingLotOld = parkingLots.Find(x => x.ParkingSpaceID == ParkingSpace.ParkingSpaceID);
-                parkingLotOld = ParkingSpace;
+                parkingLots = psUpdate;
                 return true;
             }
             catch

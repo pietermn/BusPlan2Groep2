@@ -44,12 +44,11 @@ namespace BusPlan2_DAL.Handlers
         }
 
 
-        public bool Update(BusDTO bus)
+        public bool Update(List<BusDTO> busUpdate)
         {
             try
             {
-                var busOld = bussen.Find(x => x.BusID == bus.BusID);
-                busOld = bus;
+                bussen = busUpdate;
                 return true;
             }
             catch

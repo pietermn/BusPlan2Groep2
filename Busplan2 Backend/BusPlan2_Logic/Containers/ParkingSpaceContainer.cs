@@ -73,5 +73,9 @@ namespace BusPlan2_Logic.Containers
         {
             return handler.Delete(parkingspaceID);
         }
+
+        public bool Update(List<ParkingSpaceDTO> parkingSpaces) {
+            return handler.Update(parkingSpaces);
+        }
     }
 }

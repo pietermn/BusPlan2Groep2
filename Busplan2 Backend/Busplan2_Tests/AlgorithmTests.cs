@@ -5,6 +5,7 @@ using BusPlan2_Logic.Containers;
 using BusPlan2_Logic.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Collections.Generic;
 
 namespace Busplan2_Tests
 {
@@ -41,7 +42,17 @@ namespace Busplan2_Tests
         public void If_Bus_Needs_Cleaning_Adhoc_With_No_Free_Fastcharger_Send_To_Parkinglot()
         {
             //Arrange
+            List<ParkingSpaceDTO> parkingLots = new List<ParkingSpaceDTO>();
+            parkingLots.Add(new ParkingSpaceDTO(1, 1, 322, 2, true));
+            parkingLots.Add(new ParkingSpaceDTO(2, 0, 0, 2, true));
+            parkingLots.Add(new ParkingSpaceDTO(3, 0, 0, 0, false));
+            parkingLots.Add(new ParkingSpaceDTO(4, 0, 0, 1, false));
+            parkingLots.Add(new ParkingSpaceDTO(5, 0, 0, 4, false));
+            parkingLots.Add(new ParkingSpaceDTO(6, 0, 0, 3, false));
+            parkingLots.Add(new ParkingSpaceDTO(7, 0, 0, 5, false));
+
             BusContainer busContainer= new BusContainer();
+            busContainer.UpdateParkingSpace(parkingLots);
             //Act
             ParkingSpace p1 = busContainer.GiveParkingSpace(2);
             //Assert
@@ -63,7 +74,17 @@ namespace Busplan2_Tests
         public void If_Bus_Needs_Repair_Adhoc_With_No_Free_Workspace_Remove_From_Rotation()
         {
             //Arrange
+            List<ParkingSpaceDTO> parkingLots = new List<ParkingSpaceDTO>();
+            parkingLots.Add(new ParkingSpaceDTO(1, 1, 322, 2, true));
+            parkingLots.Add(new ParkingSpaceDTO(2, 0, 0, 2, false));
+            parkingLots.Add(new ParkingSpaceDTO(3, 0, 0, 0, false));
+            parkingLots.Add(new ParkingSpaceDTO(4, 0, 0, 1, false));
+            parkingLots.Add(new ParkingSpaceDTO(5, 0, 0, 4, false));
+            parkingLots.Add(new ParkingSpaceDTO(6, 0, 0, 3, true));
+            parkingLots.Add(new ParkingSpaceDTO(7, 0, 0, 5, false));
+
             BusContainer busContainer= new BusContainer();
+            busContainer.UpdateParkingSpace(parkingLots);
             //Act
             ParkingSpace p1 = busContainer.GiveParkingSpace(3);
             //Assert
@@ -104,7 +125,17 @@ namespace Busplan2_Tests
         public void If_Last_Ride_No_Planned_Cleaning_Low_Battery_No_Slowcharger_Free_Send_To_Parkinglot()
         {
             //Arrange
+            List<ParkingSpaceDTO> parkingLots = new List<ParkingSpaceDTO>();
+            parkingLots.Add(new ParkingSpaceDTO(1, 1, 322, 2, true));
+            parkingLots.Add(new ParkingSpaceDTO(2, 0, 0, 2, false));
+            parkingLots.Add(new ParkingSpaceDTO(3, 0, 0, 0, false));
+            parkingLots.Add(new ParkingSpaceDTO(4, 0, 0, 1, true));
+            parkingLots.Add(new ParkingSpaceDTO(5, 0, 0, 4, false));
+            parkingLots.Add(new ParkingSpaceDTO(6, 0, 0, 3, false));
+            parkingLots.Add(new ParkingSpaceDTO(7, 0, 0, 5, false));
+
             BusContainer busContainer= new BusContainer();
+            busContainer.UpdateParkingSpace(parkingLots);
             
             busContainer.after11oClock = new DateTime(2021, 8, 2, 12, 00, 00);
             busContainer.before5oClock = new DateTime(2021, 8, 2, 18, 00, 00);
