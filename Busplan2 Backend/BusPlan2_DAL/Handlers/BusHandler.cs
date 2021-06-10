@@ -148,7 +148,7 @@ namespace BusPlan2_DAL.Handlers
             {
                 using var command = connection.CreateCommand();
 
-                command.CommandText = "SELECT Bus.BusID, Bus.PeriodicCleaning, Bus.PeriodicMaintenance, Bus.SmallCleaning, Bus.SmallMaintenance, Bus.BusNumber, Bus.BatteryLevel, Bus.Status, ParkingSpace.ParkingSpaceID FROM Bus INNER JOIN ParkingSpace ON Bus.BusID = ParkingSpace.BusID INNER JOIN Cleaning ON Cleaning.BusID = Bus.BusID" + 
+                command.CommandText = "SELECT Bus.BusID, Bus.PeriodicCleaning, Bus.PeriodicMaintenance, Bus.SmallCleaning, Bus.SmallMaintenance, Bus.BusNumber, Bus.BatteryLevel, Bus.Status, ParkingSpace.ParkingSpaceID FROM Bus INNER JOIN ParkingSpace ON Bus.BusID = ParkingSpace.BusID INNER JOIN Maintenance ON Maintenance.BusID = Bus.BusID" + 
                     " UNION SELECT Bus.BusID, Bus.PeriodicCleaning, Bus.PeriodicMaintenance, Bus.SmallCleaning, Bus.SmallMaintenance, Bus.BusNumber, Bus.BatteryLevel, Bus.Status, ParkingSpace.ParkingSpaceID FROM Bus INNER JOIN ParkingSpace ON Bus.BusID = ParkingSpace.BusID INNER JOIN AdHoc ON AdHoc.BusID = Bus.BusID WHERE AdHoc.Team = 2; ";
                 
                 connection.Open();
@@ -165,7 +165,8 @@ namespace BusPlan2_DAL.Handlers
                             reader.GetDateTime("SmallMaintenance"),
                             reader.GetInt32("BusNumber"),
                             reader.GetInt32("BatteryLevel"),
-                            reader.GetInt32("Status")
+                            reader.GetInt32("Status"),
+                            reader.GetInt32("ParkingSpaceID")
                             ));
                     }
                 }
