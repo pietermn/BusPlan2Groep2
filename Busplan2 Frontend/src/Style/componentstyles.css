@@ -5,6 +5,14 @@
   background-color: rgba(184, 179, 182, 0.8);
 }
 
+.sidebar-container {
+  overflow-y: auto;
+}
+
+.sidebar-container::-webkit-scrollbar {
+  display: none
+}
+
 .bus-container {
   width: 100%;
 }
