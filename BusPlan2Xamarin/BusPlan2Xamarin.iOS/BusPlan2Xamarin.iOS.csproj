@@ -36,6 +36,8 @@
     <WarningLevel>4</WarningLevel>
     <MtouchLink>None</MtouchLink>
     <MtouchArch>x86_64</MtouchArch>
+    <CodesignProvision>iOS Team Provisioning Profile: *</CodesignProvision>
+    <CodesignKey>Apple Development: pieter.vd.mullen@gmail.com (BFG2SPHR3K)</CodesignKey>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
     <DebugSymbols>true</DebugSymbols>
@@ -59,8 +61,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <MtouchArch>ARM64</MtouchArch>
-    <CodesignKey>iPhone Developer</CodesignKey>
-    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <CodesignKey>Apple Development: pieter.vd.mullen@gmail.com (BFG2SPHR3K)</CodesignKey>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <CodesignProvision>busplan.profile</CodesignProvision>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
@@ -74,45 +77,24 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon1024.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon180.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon167.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon152.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon120.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon87.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon80.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon76.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon60.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon58.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon40.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon29.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon20.png">
-      <Visible>false</Visible>
-    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\350x350bb.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\350x350bb-20%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\350x350bb-20%403x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\350x350bb-29%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\350x350bb-29%403x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\350x350bb-40%403x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\350x350bb-40%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\350x350bb-60%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\350x350bb-60%403x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\350x350bb-83.5%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\350x350bb-76%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\350x350bb-76.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\350x350bb-40%402x-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\350x350bb-40.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\350x350bb-29%402x-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\350x350bb-29.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\350x350bb-20%402x-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\350x350bb-20.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -132,5 +114,9 @@
       <Project>{9FFD0351-808C-4B34-B352-DACD82F5BA98}</Project>
       <Name>BusPlan2Xamarin</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ITunesArtwork Include="iTunesArtwork%402x" />
+    <ITunesArtwork Include="iTunesArtwork" />
   </ItemGroup>
 </Project>

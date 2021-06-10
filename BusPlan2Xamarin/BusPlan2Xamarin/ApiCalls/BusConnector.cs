@@ -14,8 +14,8 @@ namespace BusPlan2Xamarin.ApiCalls
         public BusConnector()
         {
             // Update port # in the following line.
-            //client.BaseAddress = new Uri("http://45.32.233.3:80/");
-            client.BaseAddress = new Uri("http://localhost:5000/");
+            client.BaseAddress = new Uri("http://45.32.233.3/api/");
+            //client.BaseAddress = new Uri("http://localhost:5000/");
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(
                 new MediaTypeWithQualityHeaderValue("application/json"));
@@ -39,6 +39,13 @@ namespace BusPlan2Xamarin.ApiCalls
         {
             string path = "adhoc/create";
             return await PostAdHocAsync(path,adhoc);
+        }
+
+        public async Task<bool> UpdateBus(Bus bus, ParkingSpace parkingSpace)
+        {
+            string path = "parkingspace/updateoccupied";
+            await PostUpdateParkingSpaceAsync(path, parkingSpace.ParkingSpaceID, bus.BusID, true);
+            return await PostUpdateParkingSpaceAsync(path, bus.ParkingSpace, 0, false);
         }
 
         public static async Task<Bus> GetBusAsync(string path)
@@ -68,6 +75,18 @@ namespace BusPlan2Xamarin.ApiCalls
         public static async Task<bool> PostAdHocAsync(string path, AdHocModel adhoc)
         {
             HttpResponseMessage response = await client.PostAsJsonAsync(path, adhoc);
+            if (response.IsSuccessStatusCode)
+            {
+                if (response.Content == null) { return false; }
+                return true;
+            }
+            return false;
+        }
+
+        public static async Task<bool> PostUpdateParkingSpaceAsync(string path, int parkingspaceID, int busID, bool occupied)
+        {
+            updateParking update = new(parkingspaceID, busID, occupied);
+            HttpResponseMessage response = await client.PostAsJsonAsync(path, update);
             if (response.IsSuccessStatusCode)
             {
                 if (response.Content == null) { return false; }
