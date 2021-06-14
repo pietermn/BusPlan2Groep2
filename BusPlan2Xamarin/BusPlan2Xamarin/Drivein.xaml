@@ -47,9 +47,10 @@
                 TextColor="White"
                 BackgroundColor="#553D67"
                 Text="Problemen"
-                CornerRadius="60"
-                FontSize="25"
-                WidthRequest="200"
+                CornerRadius="40"
+                FontSize="22"
+                HeightRequest="75"
+                WidthRequest="250"
                 VerticalOptions="CenterAndExpand"
                 HorizontalOptions="Center"/>
 
@@ -61,7 +62,8 @@
                 BackgroundColor="#242582"
                 TextColor="White"
                 FontSize="15"
-                CornerRadius="60"
+                CornerRadius="20"
+                WidthRequest="100"
                 Text="Terug"
                 VerticalOptions="CenterAndExpand"
                 HorizontalOptions="StartAndExpand"/>
