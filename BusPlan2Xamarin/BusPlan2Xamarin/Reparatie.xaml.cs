@@ -28,7 +28,7 @@ namespace BusPlan2Xamarin
             if (button.Text == "->")
             {
                 int type = 0;
-                switch (picker.ToString())
+                switch (picker.SelectedItem.ToString())
                 {
                     case "Motor problemen":
                         type = 0;
