@@ -83,7 +83,9 @@ namespace BusPlan2_Logic.Containers
             //----------------------------------------------Heeft reparatie?-------------------------------------------------//
             if (bus.PeriodicMaintenance <= DateTime.UtcNow.AddYears(-1) || bus.SmallMaintenance <= DateTime.UtcNow.AddDays(-90))
             {//ja
-                return parkingSpaces.Where(x => x.Type == ParkingTypeEnum.Maintenance && x.Occupied == false).First();
+                return IsTherePlaceOnParking(parkingSpaces, ParkingTypeEnum.Maintenance, ParkingTypeEnum.NotAvailable);
+                //return parkingSpaces.Where(x => x.Type == ParkingTypeEnum.Maintenance && x.Occupied == false).First();
+
             }
             else
             {//nee
@@ -144,7 +146,7 @@ namespace BusPlan2_Logic.Containers
             }
         }
 
-        private ParkingSpace IsTherePlaceOnParking(List<ParkingSpace> parkingSpaces, ParkingTypeEnum firstChoiceType, ParkingTypeEnum secondChoiceType)
+        private ParkingSpace IsTherePlaceOnParking(List<ParkingSpace> parkingSpaces, ParkingTypeEnum firstChoiceType, ParkingTypeEnum secondChoiceType, ParkingTypeEnum thirdChoiceType = ParkingTypeEnum.Normal, ParkingTypeEnum fourthCoiceType = ParkingTypeEnum.Charging)
         {
             foreach (ParkingSpace parkingSpace in parkingSpaces)
             {
@@ -160,6 +162,31 @@ namespace BusPlan2_Logic.Containers
                     return parkingSpace;
                 }
             }
+
+            foreach (ParkingSpace parkingSpace in parkingSpaces)
+            {
+                if (parkingSpace.Type == thirdChoiceType && parkingSpace.Occupied == false)
+                {
+                    return parkingSpace;
+                }
+            }
+
+            foreach (ParkingSpace parkingSpace in parkingSpaces)
+            {
+                if (parkingSpace.Type == thirdChoiceType && parkingSpace.Occupied == false)
+                {
+                    return parkingSpace;
+                }
+            }
+
+            foreach (ParkingSpace parkingSpace in parkingSpaces)
+            {
+                if (parkingSpace.Type == fourthCoiceType && parkingSpace.Occupied == false)
+                {
+                    return parkingSpace;
+                }
+            }
+
             return new ParkingSpace();
         }
     }

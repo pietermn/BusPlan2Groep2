@@ -3,10 +3,10 @@ version: '3.9'
 services:
   busplan2backend:
     container_name: ASP-Backend
-    image: noahkoole/busplan2backend
-    #build:
-    #  context: Busplan2 Backend/
-     # dockerfile: Busplan2 Backend/Dockerfile
+    image: ${DOCKER_REGISTRY-}noahkoole/busplan2backend
+    build:
+      context: Busplan2 Backend/
+      dockerfile: Busplan2 Backend/Dockerfile
     environment:
       ASPNETCORE_URLS: "http://+:5000"
       AppSettings__DBName: "db"
