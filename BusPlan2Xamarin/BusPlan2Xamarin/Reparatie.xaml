@@ -54,7 +54,8 @@
                 BackgroundColor="#242582"
                 TextColor="White"
                 FontSize="15"
-                CornerRadius="60"
+                CornerRadius="20"
+                WidthRequest="100"
                 Text="Terug"
                 VerticalOptions="CenterAndExpand"
                 HorizontalOptions="StartAndExpand"/>
@@ -64,7 +65,8 @@
                 BackgroundColor="#242582"
                 TextColor="White"
                 FontSize="15"
-                CornerRadius="60"
+                CornerRadius="20"
+                WidthRequest="100"
                 Text="->"
                 VerticalOptions="CenterAndExpand"
                 HorizontalOptions="End"/>
